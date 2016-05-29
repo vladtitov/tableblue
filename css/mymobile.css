@@ -1,0 +1,83 @@
+@media only screen and (max-width: 768px) {
+    body {
+        width: 100% !important;
+        font-size: 1vh !important;
+    }
+
+    .wrapper {
+        background-image: none !important;
+    }
+
+    #header1 {
+        height: 100% !important;
+        background: #209bd8; /* Old browsers */
+        background: -moz-linear-gradient(top, #209bd8 0%, #025589 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #209bd8 0%, #025589 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #209bd8 0%, #025589 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#209bd8', endColorstr='#025589', GradientType=0); /* IE6-9 */
+        box-shadow: 5px 5px 5px gray;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+
+    #DailyWeekly {
+        margin-top: 10px !important;
+        margin-right: 20px !important;
+        font-size: 3vh !important;
+    }
+
+    #Panel1, #Panel2 {
+        height: 100% !important;
+        font-size: 2vh !important;
+    }
+
+    #Panel1 th, #Panel1 h2, #Panel2 h2, #ClockTime {
+        font-size: 3vh !important;
+    }
+
+    #ClockDate {
+        font-size: 2vh !important;
+    }
+
+    #rightheader {
+        height: 100% !important;
+        background-size: 100% 100% !important;
+        padding: 20px 10px 10px 10px !important;
+    }
+
+    #TableHeaders {
+        font-size: 2vh !important;
+        padding-left: 10px !important;
+    }
+
+    #AgentsList1 .nano {
+        height: 300px !important;
+    }
+
+    #AgentsList1 table > tbody > tr {
+        font-size: 2vh !important;
+    }
+
+    #AgentsList1 .col4, #AgentsList1 .col5 {
+        font-size: 1vh !important;
+    }
+
+    #AgentsList1 .col6, #AgentsList1 .col7 {
+        font-size: 2vh !important;
+    }
+
+    #AgentsList2 ul > li {
+        width: 60px !important;
+    }
+
+    #AgentsList2 .icon2 {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .okno2 > div {
+        width: 40px !important;
+        height: 40px !important;
+    }
+}
