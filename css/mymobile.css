@@ -1,7 +1,96 @@
-@media only screen and (max-width: 768px) {
+#DailyWeekly{
+    margin-right: 150px;
+    margin-top: 50px;
+    text-transform: uppercase;
+    font-size: xx-large;
+    color: white;
+    font-weight: bold;
+    text-shadow: 3px 2px 3px #0f0f0f;
+}
+
+#rightheader{
+    height: 150px;
+    padding: 35px;
+    background-size: 100% 150px;
+}
+
+#TableHeaders{
+    line-height: 60px;
+    margin-bottom: 0;
+    height:60px ;
+    background-color:#005C95;
+    color: white;
+    font-size: xx-large;
+}
+#AgentsList1 .nano{
+    height: 445px;
+}
+
+#AgentsList1 table>tbody> tr{
+    font-size: 30px;
+}
+
+#AgentsList1 .col4, #AgentsList1 .col5{
+    width:19%;
+    font-size: large;
+}
+
+#AgentsList1 .col6, #AgentsList1 .col7{
+    width:19%;
+    font-size: 30px;
+}
+
+#AgentsList2 ul>li{
+    width: 120px;
+    display: inline-block;
+    margin: 0px;
+    white-space: normal;
+    border: solid 1px white;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+#AgentsList2 .icon2{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    margin: 10px 0 10px 0;
+}
+
+#ClockTime{
+    font-size: xx-large;
+}
+
+#ClockDate{
+    font-size: x-large;
+}
+
+#Panel1{
+    height: 250px ;
+    font-size: x-large;
+}
+
+#Panel2{
+    height: 390px ;
+}
+
+#Panel1 th, #Panel2 h2{
+    font-size: xx-large;
+}
+
+.okno2 > div {
+    transition: transform 0.5s; -webkit-transition: transform 0.5s;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+@media only screen and (max-width: 1024px) {
     body {
-        width: 100% !important;
-        font-size: 1vh !important;
+        width: 100%;
     }
 
     .wrapper {
@@ -22,62 +111,172 @@
     }
 
     #DailyWeekly {
-        margin-top: 10px !important;
-        margin-right: 20px !important;
-        font-size: 3vh !important;
+        margin-top: 10px;
+        margin-right: 20px;
     }
 
     #Panel1, #Panel2 {
-        height: 100% !important;
-        font-size: 2vh !important;
-    }
-
-    #Panel1 th, #Panel1 h2, #Panel2 h2, #ClockTime {
-        font-size: 3vh !important;
-    }
-
-    #ClockDate {
-        font-size: 2vh !important;
+        height: 100%;
     }
 
     #rightheader {
-        height: 100% !important;
-        background-size: 100% 100% !important;
-        padding: 20px 10px 10px 10px !important;
+        height: 100%;
+        background-size: 100% 100%;
+        padding: 20px 10px 10px 10px;
     }
 
     #TableHeaders {
-        font-size: 2vh !important;
-        padding-left: 10px !important;
+        padding-left: 10px;
+    }
+}
+
+@media (min-width: 550px) and (max-width: 768px) {
+    #TableHeaders {
+        font-size: 1.4em;
     }
 
     #AgentsList1 .nano {
-        height: 300px !important;
+        height: 300px;
     }
 
     #AgentsList1 table > tbody > tr {
-        font-size: 2vh !important;
+        font-size: 1.4em;
     }
 
     #AgentsList1 .col4, #AgentsList1 .col5 {
-        font-size: 1vh !important;
+        font-size: 0.7em;
     }
 
     #AgentsList1 .col6, #AgentsList1 .col7 {
-        font-size: 2vh !important;
+        font-size: 1.4em;
     }
 
     #AgentsList2 ul > li {
-        width: 60px !important;
+        width: 100px;
+        font-size: 13px;
     }
 
     #AgentsList2 .icon2 {
-        width: 40px !important;
-        height: 40px !important;
+        width: 70px;
+        height: 70px;
     }
 
     .okno2 > div {
-        width: 40px !important;
-        height: 40px !important;
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 549px) {
+    #TableHeaders {
+        font-size: 1.1em;
+    }
+
+    #AgentsList1 .nano {
+        height: 230px;
+    }
+
+    #AgentsList1 table > tbody > tr {
+        font-size: 1.1em;
+    }
+
+    #AgentsList1 .col4, #AgentsList1 .col5 {
+        font-size: 0.5em;
+    }
+
+    #AgentsList1 .col6, #AgentsList1 .col7 {
+        font-size: 1.1em;
+    }
+
+    #ClockTime{
+        font-size: x-large;
+    }
+
+    #Panel1{
+        font-size: 1.2em;
+    }
+
+    #Panel1 th, #Panel1 h2, #Panel2 h2{
+        font-size: x-large;
+    }
+
+    #ClockDate {
+        font-size: 1.1em;
+    }
+
+    #DailyWeekly{
+        font-size: x-large;
+    }
+
+    #AgentsList2 ul > li {
+        width: 80px;
+        font-size: 12px;
+    }
+
+    #AgentsList2 .icon2 {
+        width: 60px;
+        height: 60px;
+    }
+
+    .okno2 > div {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 399px) {
+    #TableHeaders {
+        font-size: 0.9em;
+    }
+
+    #AgentsList1 .nano {
+        height: 200px;
+    }
+
+    #AgentsList1 table > tbody > tr {
+        font-size: 0.9em;
+    }
+
+    #AgentsList1 .col4, #AgentsList1 .col5 {
+        font-size: 0.5em;
+    }
+
+    #AgentsList1 .col6, #AgentsList1 .col7 {
+        font-size: 0.9em;
+    }
+
+    #ClockTime{
+        font-size: 1.4em;
+    }
+
+    #Panel1{
+        font-size: 0.9em;
+    }
+
+    #Panel1 th, #Panel1 h2, #Panel2 h2{
+        font-size: 1.4em;
+    }
+
+    #ClockDate {
+        font-size: 0.9em;
+    }
+
+    #DailyWeekly{
+        font-size: 1.4em;
+    }
+
+    #AgentsList2 ul > li {
+        width: 60px;
+        font-size: 10px;
+    }
+
+    #AgentsList2 .icon2 {
+        width: 45px;
+        height: 45px;
+    }
+
+    .okno2 > div {
+        width: 45px;
+        height: 45px;
     }
 }

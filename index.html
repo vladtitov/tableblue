@@ -17,7 +17,7 @@
     <script src="libs/jquery-2.1.4.min.js"></script>
     <script src="libs/underscore-min.js"></script>
     <script  src="libs/backbone-min.js"></script>
-
+    <script  src="libs/require.js"></script>
 </head>
 <body>
 <style>
@@ -40,35 +40,13 @@
 <h1>Daily</h1>
         </div>
         <style>
-            #DailyWeekly{
-                margin-right: 150px;
-                margin-top: 50px;
-                font-size: xx-large;
-                text-transform: uppercase;
-                color: white;
-                font-weight: bold;
-                text-shadow: 3px 2px 3px #0f0f0f;
-            }
             #header1{
                 height: 125px;
             }
-            #Panel1{
-                height: 250px ;
-                font-size: x-large;
-            }
-            #Panel1 th, #Panel2 h2{
-                font-size: xx-large;
 
-            }
             #Panel1 table{
                 width: 100%;
-
-
             }
-            #Panel2{
-                height: 390px ;
-            }
-
         </style>
 
     </div>
@@ -125,7 +103,15 @@
                     </table>
             </div>
 
+            <!--<script>-->
+                <!--require(['moment'],function(moment){-->
 
+
+
+
+
+                <!--});-->
+            <!--</script>-->
 
         </div>
         <div id="Panel2" class="panel brand">
@@ -138,6 +124,14 @@
                 </p>
 
             </div>
+            <!--<script>-->
+                <!--require(['moment'],function(moment){-->
+
+
+
+
+                <!--});-->
+            <!--</script>-->
 
         </div>
 
@@ -146,22 +140,10 @@
         <div id="rightheader">
             <style>
                 #rightheader{
-                    height: 150px;
-                    padding: 35px;
-
                     background-image: url("css/header2.png");
-                    background-size: 100% 150px;
                 }
-
                 #Clock{
                    color: white;
-                }
-                #ClockTime{
-                    font-size: xx-large;
-                }
-
-                #ClockDate{
-                    font-size: x-large;
                 }
             </style>
             <div id="Clock">
@@ -179,34 +161,14 @@
         <div id="AgentsList1" class="brand">
 
             <style>
-                #TableHeaders{
-                    font-size: xx-large;
-                    line-height: 60px;
-                    margin-bottom: 0;
-                    height:60px ;
-                    background-color:#005C95;
-                    color: white;
-                }
                 #TableHeaders>li{
                     display: inline-block;
                 }
-                #AgentsList1 .nano{
-                    height: 445px;
-                }
 
                 #AgentsList1 table{
-
                     color: white;
                 }
-                #AgentsList1 table{
 
-
-                }
-                #AgentsList1 table>tbody> tr{
-                    font-size: 30px;
-
-
-                }
                 #AgentsList1 table>tbody>tr:nth-child(odd) td {
                     background: none repeat scroll 0 0 #418AB5;
 
@@ -216,8 +178,7 @@
 
                 }
 
-
-               #AgentsList1 .col1{
+                #AgentsList1 .col1{
                     width:32%;
                 }
 
@@ -225,18 +186,10 @@
                     width:18% ;
                 }
 
-               #AgentsList1 .col3{
-                   width:12%;
+                #AgentsList1 .col3 {
+                   width: 12%;
+                }
 
-               }
-                #AgentsList1 .col4, #AgentsList1 .col5{
-                    width:19%;
-                    font-size: large;
-                }
-                #AgentsList1 .col6, #AgentsList1 .col7{
-                    width:19%;
-                    font-size: 30px;
-                }
                 #TableHeaders{
                     white-space: nowrap;
                 }
@@ -332,25 +285,12 @@
                     #AgentsList2 ul{
                         white-space: nowrap;
                     }
-                    #AgentsList2 ul>li{
-                        width: 120px;
-                        display: inline-block;
-                        margin: 0px;
-                        white-space: normal;
-                        border: solid 1px white;
-                        vertical-align: top;
 
-                    }
                     #AgentsList2 ul{
                         width: 100%;
                         vertical-align: top;
                     }
-                    #AgentsList2 .icon2{
-                        width: 80px;
-                        height: 80px;
-                        display: inline-block;
-                        margin: 10px 0 10px 0;
-                    }
+
                     #AgentsList2 .id{
                         border-bottom: solid 3px white;
                         padding: 10px 0 10px 0;
@@ -383,15 +323,6 @@
                     .okno2{
                         position: relative;
                         overflow: hidden;
-                    }
-                    .okno2 > div {
-                        transition: transform 0.5s; -webkit-transition: transform 0.5s;
-                        background-size: contain;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        position: absolute;
-                        width: 80px;
-                        height: 80px;
                     }
                     .okno2 .in{
                         transform:translateY(100%); -webkit-transform:translateY(100%);
