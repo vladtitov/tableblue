@@ -1,7 +1,7 @@
 /**
  * Created by Vlad on 4/29/2016.
  */
-    ///<reference path="base.ts"/>
+    ///<reference path="../js/base.ts"/>
     ///<reference path="AdminBackbone.ts"/>
     
 
@@ -143,9 +143,7 @@ module myapp{
 }
 $(document).ready(function(){
     var options = {
-        url_upload_temp:'service/upload-temp.php',
-        url_get_excel:'service/get-excel.php',
-        url_data:'service/my-data.php',
+        url_data:'crawl/crawl.php',
         username:'myname'
         // btnDelete:'#btnDelete',
         // btnEdit:'#btnEdit'

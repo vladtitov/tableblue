@@ -1,7 +1,7 @@
 /**
  * Created by yrik6 on 18.04.2016.
  */
-///<reference path="base.ts"/>
+///<reference path="../js/base.ts"/>
 
     
 module Table {

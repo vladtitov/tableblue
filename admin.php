@@ -133,8 +133,8 @@ if($user->isAdmin()){
 
 
 <!--    <script src="libs/xls.min.js" ></script>-->
-    <script src="js/AdminBackbone.js" ></script>
-    <script src="js/Admin.js" ></script>
+    <script src="crawl/AdminBackbone.js" ></script>
+    <script src="crawl/Admin.js" ></script>
 <!--    <script>-->
 <!--        $(document).ready(function(){-->
 <!--            var options = {-->
