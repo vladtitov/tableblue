@@ -5,22 +5,25 @@
 $report = isset($_GET['report'])?$_GET['report']:0;
 
 if(!$report) die('oops');
-if($report=='d')$filename='BSR-Dayly.xml';
-else $filename='BSR-Wkly.xml';
+if($report=='w')$filename='example/BSR-Wkly.xml';
+if($report=='d')$filename='example/BSR-Dayly.xml';
+else die("Need W or D!");
 
 
 
 $xml = simplexml_load_file($filename);
+$xml -> saveXML($report."temp.xml");
 
-if($_GET['report']=='raw'){	
-	
-	header('Content-type: application/json');
-	header("Access-Control-Allow-Origin: *");
-	
-echo  json_encode($xml);
-exit();
-	
-}
+
+//if($_GET['report']=='raw'){
+//
+//	header('Content-type: application/json');
+//	header("Access-Control-Allow-Origin: *");
+//
+//echo  json_encode($xml);
+//exit();
+//
+//}
 
 function getPath($xml,$path){
 	$out= array();
@@ -71,13 +74,9 @@ foreach($indexed  as $agent){
 	unset($agent['AGENT_FULL_NAME']);
 	
 	
-	if($agent['status']<50){
-		$agent['icon'] = 'worse';
-	}else if($agent['status']<80){
-		$agent['icon'] = 'bad';
-	}else if($agent['status']<100){
+	if($agent['status']<86){
 		$agent['icon'] = 'ok';
-	}else if($agent['status']<120){
+	}else if($agent['status']<95){
 		$agent['icon'] = 'good';
 	}else {
 		$agent['icon'] = 'great';
