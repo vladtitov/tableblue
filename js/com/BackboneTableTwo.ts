@@ -8,34 +8,23 @@ module tablesTwo {
     export class AgentsCollection extends Backbone.Collection<AgentModel> {
         model:any = AgentModel;
         data:any;
-        // params:any;
-
+        
         constructor(options:any) {
             super(options)
             this.url = options.url;
-            // this.params = options.params;
             this.fetch();
-            // this.fetch({data: this.params});
-            // setInterval(()=> {
-            //     this.fetch({data: this.params});
-            // }, 5000);
         }
 
         parse(res) {
-            // var d:string = res.stamp;
-            // this.params.date = d.replace(' ', 'T');
-            // var stamp = Date.now();
             _.map(res.list, function (item:any) {
                 item.id = item.id;
-                item.time = item.time||0;
+                item.time = item.t||0;
                 item.icon = '' + item.icon;
             });
             return res.list;
         }
     }
     
-    
-
     export class TableView extends Backbone.View<AgentModel> {
         container:JQuery;
 
@@ -55,13 +44,11 @@ module tablesTwo {
                 this.$el.append(row.render().el);
             }, this);
             this.render = function () {
-                // console.log(this);
                 return this;
             }
         }
 
         render():TableView {
-            // console.log('render');
             return this;
         }
     }
