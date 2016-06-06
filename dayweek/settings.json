@@ -1,0 +1,19 @@
+{
+  "creteria":[
+    {
+      "max":85,
+      "status":"ok",
+      "icon":"icons\/ok.png"
+    },
+    {
+      "max":95,
+      "status":"good",
+      "icon":"icons\/good.png"
+    },
+    {
+      "max":1000,
+      "status":"great",
+      "icon":"icons\/great.png"
+    }
+  ]
+}
