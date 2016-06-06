@@ -1,9 +1,17 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL ^ E_NOTICE);
 
-$stamp = '2016-03-15T10:59:30';
-$limit = 3;
+if(!isset($_GET['stamp'])) die('stamp');
+
+$stamp = $_GET['stamp'];
+
+//$stamp = '2016-03-15T10:59:30';
+$limit = 1;
 
 $res = getRecord($stamp,$limit);
+
+
 
 $i=1;
 $out=array();
@@ -22,8 +30,8 @@ function getRecord($stamp,$limit){
     $sql="SELECT rawdata FROM $table  WHERE stamp > '$time' LIMIT ".$limit;
     $res = $db->query($sql);
     if(!$res) return $db->errorInfo();
-    return  $res->fetchAll(PDO::FETCH_OBJ);
-
+    if(count($res))   return  $res->fetchAll(PDO::FETCH_OBJ)[0]->rawdata;
+    return 0;
 }
 
 function getUser(){
