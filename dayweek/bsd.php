@@ -5,8 +5,8 @@
 $report = isset($_GET['report'])?$_GET['report']:0;
 
 if(!$report) die('oops');
-if($report=='w')$filename='example/BSR-Wkly.xml';
-if($report=='d')$filename='example/BSR-Dayly.xml';
+if($report=='w')$filename='examples/BSR-Wkly.xml';
+else if($report=='d')$filename='examples/BSR-Dayly.xml';
 else die("Need W or D!");
 
 
