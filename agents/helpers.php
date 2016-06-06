@@ -24,20 +24,21 @@ function parseFile($xml,$satamp){
     $list = array();
     $mb = getAsObject('MakeBusyReason.json');
     $ps = getAsObject('PersonState.json');
+    
     if ($mb == 0 || $ps == 0) {
         logError ('Error parseFile: MakeBusyReason.json PersonState.json');
         return 0;
     }
+    
     $states=array();
     $out=new stdClass();
-    echo count($xml->children());
+    
     if (count($xml->children()) == 0){
-
+        logError ('Error parseFile: xml children');
         return 0;
     }
-
+    
     foreach($xml->children() as $node){
-
         $item = new StdClass();
         $item->id = (int)$node->AgentID;
 
