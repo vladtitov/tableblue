@@ -7,19 +7,19 @@ if(!isset($_GET['stamp'])) die('stamp');
 $stamp = $_GET['stamp'];
 
 //$stamp = '2016-03-15T10:59:30';
-$limit = 1;
+$limit = 10;
 
 $res = getRecord($stamp,$limit);
+echo $res;
 
 
-
-$i=1;
+/*$i=1;
 $out=array();
 foreach ($res as $xml){
     $rawdara =  (string)$xml->rawdata;
-    $out[] = file_put_contents('agents'.$i++.'.xml',$rawdara);
-}
-echo json_encode($out);
+ $out[]    = file_put_contents('agents'.$i++.'.xml',$rawdara);
+}*/
+
 
 function getRecord($stamp,$limit){
     $dbname = 'frontdes_callcenter';
@@ -27,11 +27,10 @@ function getRecord($stamp,$limit){
     $user = getUser();
     $db = new PDO("mysql:host=localhost;dbname=$dbname",$user->user,$user->pass);
     $time = date(str_replace('T',' ',$stamp));
-    $sql="SELECT rawdata FROM $table  WHERE stamp > '$time' LIMIT ".$limit;
+    $sql="SELECT * FROM $table  WHERE stamp > '$time' LIMIT ".$limit;
     $res = $db->query($sql);
     if(!$res) return $db->errorInfo();
-    if(count($res))   return  $res->fetchAll(PDO::FETCH_OBJ)[0]->rawdata;
-    return 0;
+    return  $res->fetchAll(PDO::FETCH_OBJ)[0]->rawdata;
 }
 
 function getUser(){

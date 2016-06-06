@@ -20,11 +20,18 @@ $(document).ready(function(){
         collection:collection
     });
 
+    // var collectionTwo = new tablesTwo.AgentsCollection({
+    //     url:'http://front-desk.ca/mi/callcenter/rem/getagents',
+    //     params:{
+    //         date:'2016-03-15T10:58:34'
+    //     }
+    // });
+
     var collectionTwo = new tablesTwo.AgentsCollection({
-        url:'http://front-desk.ca/mi/callcenter/rem/getagents',
-        params:{
-            date:'2016-03-15T10:58:34'
-        }
+        url:'agents/getagents2.php',
+        // params:{
+        //     date:'2016-03-15T10:58:34'
+        // }
     });
 
     var dd = new tablesTwo.TableView({

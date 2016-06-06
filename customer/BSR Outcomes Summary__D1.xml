@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" /><title>
+	Custom Errors Page
+</title><meta http-equiv="Page-Enter" content="blendTrans(Duration=0)" /></head>
+<body style="background-color:#C1D2EE">
+    <form name="form1" method="post" action="../Pages/CustomErrorsPage.aspx?RequestPath=%2fuSupervisorWebApp%2fDialogs%2fDownload.aspx" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="GIhCLDB52ZGq0RjqdUFnmSj7dRbQnYBZ0pSoRivqeE76yoI7bVWiIwN4NzxE0NPKjQfPirdLVXB4uYcrGvLopFCKt3yhmZtDvyjQglWjZ3NDrT0rTs3iSf6gz2M=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/uSupervisorWebApp/WebResource.axd?d=fbh0Z8y7tvvr-ufD4F5sH9BUvnOutAKmUOrI85FcL7L9GejnhGKN3QQlFPMq-SrMz24vxcGT0nRK3wH30&amp;t=635589255467565191" type="text/javascript"></script>
+
+
+<script src="/uSupervisorWebApp/js/CustomErrorPage.js?635876594417261889" type="text/javascript"></script>
+<script src="/uSupervisorWebApp/ScriptResource.axd?d=nKXuewdiZdMfDlZeJXSFTQLKe2Vwk6eeBFGYva6Qv2Aga065saFZN_sPQ9IYSe9j4QpxU7Lroz0j6BAkLVnmlCtsUW0tUH7S5rIekVZLSjF8TGhphUmruE_5Nn73hcTD1c5JpWr_tdzOVgi4COMViR410FY1&amp;t=ffffffffbcb9b94a" type="text/javascript"></script>
+<script src="/uSupervisorWebApp/ScriptResource.axd?d=61BVSCFxFTFonNNIipiznbfs6nErze4UrbM-krhpEJ0FRcjmnb127IskeKoKXk8ZgbzIY5fnVEI-UE_P2-f7CAK-DjYqJ8zuwa443DTAnHinOzOh15BNR-QBSeefNh7wWcYPTZ53u8p0BGOd7kajQgH3t4pwjmKsMRqNXA2&amp;t=ffffffffbcb9b94a" type="text/javascript"></script>
+<script src="../WebServices/PerfService.asmx/js" type="text/javascript"></script>     
+     <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+    <b>
+        <span id="ErrorLabel"></span>
+    </b>       
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.top.currentPanelId = '/uSupervisorWebApp/Pages/Help.aspx';window.top.currentPanelTitle = 'uSupervisorWeb 8.0 Help';window.top.currentPanelTitle = 'HelpFrame';var m = encodeURI("An unexpected error occurred|Please retry the operation.|Error details:Cannot access a disposed object.Object name: 'System.Net.Sockets.Socket'." );
+handleCustomError(m, 0, 0, 0);Sys.Application.initialize();
+//]]>
+</script>
+</form>
+</body>
+</html>

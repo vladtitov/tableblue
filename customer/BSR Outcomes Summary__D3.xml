@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Report name="BSR Outcomes Summary">
+	<DataDestination name="BSA-Weekly" ID="57" HasGroupBy="no">
+		<Rows>
+			<Row C0="BSR" C1="I0245805" C2="Melissa Michalski" C3="71801" C4="Prescriber" C5="1" C6="BSA" C7="I0245805" C8="Melissa Michalski" C9="71801" C10="78680.0"/>
+			<Row C0="BSR" C1="I0245805" C2="Melissa Michalski" C3="71801" C4="Non- prescriber" C5="4" C6="BSA" C7="I0245805" C8="Melissa Michalski" C9="71801" C10="78680.0"/>
+			<Row C0="BSR" C1="I0218894" C2="Chelsea Lapent" C3="71809" C4="Dial" C5="4" C6="BSA" C7="I0218894" C8="Chelsea Lapent" C9="71809" C10="44580.0"/>
+			<Row C0="BSR" C1="I0244860" C2="Marissa Conway" C3="71812" C4="Non- prescriber" C5="7" C6="BSA" C7="I0244860" C8="Marissa Conway" C9="71812" C10="131800.0"/>
+			<Row C0="BSR" C1="I0246487" C2="Rachel O&#39;Connor" C3="71814" C4="Dial" C5="5" C6="BSA" C7="I0246487" C8="Rachel O&#39;Connor" C9="71814" C10="98440.0"/>
+			<Row C0="BSR" C1="I0251126" C2="Diana Casinella" C3="71802" C4="Dial" C5="2" C6="BSA" C7="I0251126" C8="Diana Casinella" C9="71802" C10="40980.0"/>
+			<Row C0="BSR" C1="I0247089" C2="Danielle Kalis" C3="71816" C4="Non- prescriber" C5="1" C6="BSA" C7="I0247089" C8="Danielle Kalis" C9="71816" C10="68930.0"/>
+			<Row C0="BSR" C1="I0218894" C2="Chelsea Lapent" C3="71809" C4="Non- prescriber" C5="5" C6="BSA" C7="I0218894" C8="Chelsea Lapent" C9="71809" C10="44580.0"/>
+			<Row C0="BSR" C1="I0245805" C2="Melissa Michalski" C3="71801" C4="Dial" C5="3" C6="BSA" C7="I0245805" C8="Melissa Michalski" C9="71801" C10="78680.0"/>
+			<Row C0="BSR" C1="I0244860" C2="Marissa Conway" C3="71812" C4="Prescriber" C5="2" C6="BSA" C7="I0244860" C8="Marissa Conway" C9="71812" C10="131800.0"/>
+			<Row C0="BSR" C1="I0246487" C2="Rachel O&#39;Connor" C3="71814" C4="Non- prescriber" C5="5" C6="BSA" C7="I0246487" C8="Rachel O&#39;Connor" C9="71814" C10="98440.0"/>
+			<Row C0="BSR" C1="I0247089" C2="Danielle Kalis" C3="71816" C4="Dial" C5="2" C6="BSA" C7="I0247089" C8="Danielle Kalis" C9="71816" C10="68930.0"/>
+			<Row C0="BSR" C1="I0244860" C2="Marissa Conway" C3="71812" C4="Dial" C5="9" C6="BSA" C7="I0244860" C8="Marissa Conway" C9="71812" C10="131800.0"/>
+			<Row C0="BSR" C1="I0251126" C2="Diana Casinella" C3="71802" C4="Non- prescriber" C5="5" C6="BSA" C7="I0251126" C8="Diana Casinella" C9="71802" C10="40980.0"/>
+		</Rows>
+		<Definition>
+			<Dimensions>
+				<Column EntityCode="144" EntityName="SERVICE" EntityOfFieldCode="144" EntityOfFieldName="SERVICE" ColumnId="C0" FieldName="SERVICE" LocalizedName="Service" ReportFieldType="BUILT_IN_REPORT_FIELD" Format="IDENTIFIER_FORMAT" Type="DBTYPE_CHAR" Position="0" Datasource="Outcomes"/>
+				<Column EntityCode="149" EntityName="ACTIVITY_OUTCOME" EntityOfFieldCode="1" EntityOfFieldName="AGENT" ColumnId="C1" FieldName="AGENT" LocalizedName="Agent" ReportFieldType="BUILT_IN_REPORT_FIELD" Format="IDENTIFIER_FORMAT" Type="DBTYPE_CHAR" Position="1" Datasource="Outcomes"/>
+				<Column EntityCode="2" EntityName="TEAM" EntityOfFieldCode="2" EntityOfFieldName="TEAM" ColumnId="C6" FieldName="TEAM" LocalizedName="Team" ReportFieldType="BUILT_IN_REPORT_FIELD" Format="IDENTIFIER_FORMAT" Type="DBTYPE_CHAR" Position="6" Datasource="Status"/>
+				<Column EntityCode="1" EntityName="AGENT" EntityOfFieldCode="1" EntityOfFieldName="AGENT" ColumnId="C7" FieldName="AGENT" LocalizedName="Agent" ReportFieldType="BUILT_IN_REPORT_FIELD" Format="IDENTIFIER_FORMAT" Type="DBTYPE_CHAR" Position="7" Datasource="Status"/>
+			</Dimensions>
+			<Columns>
+				<Column EntityCode="149" EntityName="ACTIVITY_OUTCOME" EntityOfFieldCode="1" EntityOfFieldName="AGENT" ColumnId="C2" FieldName="AGENT_FULL_NAME" LocalizedName="Full name" ReportFieldType="BUILT_IN_REPORT_FIELD" Format="STRING_FORMAT" Type="DBTYPE_CHAR" Position="2" Datasource="Outcomes"/>
+				<Column EntityCode="149" EntityName="ACTIVITY_OUTCOME" EntityOfFieldCode="1" EntityOfFieldName="AGENT" ColumnId="C3" FieldName="AGENT_POSITION_ID" LocalizedName="Switch agent id" ReportFieldType="BUILT_IN_REPORT_FIELD" Format="STRING_FORMAT" Type="DBTYPE_CHAR" Position="3" Datasource="Outcomes"/>
+				<Column EntityCode="149" EntityName="ACTIVITY_OUTCOME" EntityOfFieldCode="149" EntityOfFieldName="ACTIVITY_OUTCOME" ColumnId="C4" FieldName="type" ReportFieldType="USER_DEFINED_REPORT_FIELD" Format="USER_DEFINED_FORMAT" Type="DBTYPE_CHAR" Enumerate="type_enum" Position="4" Datasource="Outcomes"/>
+				<Column EntityCode="149" EntityName="ACTIVITY_OUTCOME" EntityOfFieldCode="149" EntityOfFieldName="ACTIVITY_OUTCOME" ColumnId="C5" FieldName="ACTIVITY_OUTCOME_CODE" LocalizedName="Activity Outcome" ReportFieldType="BUILT_IN_REPORT_FIELD" Format="OCCURRENCE_FORMAT" Type="DBTYPE_INTEGER" Aggregate="COUNT" Position="5" Datasource="Outcomes"/>
+				<Column EntityCode="1" EntityName="AGENT" EntityOfFieldCode="1" EntityOfFieldName="AGENT" ColumnId="C8" FieldName="AGENT_FULL_NAME" LocalizedName="Full name" ReportFieldType="BUILT_IN_REPORT_FIELD" Format="STRING_FORMAT" Type="DBTYPE_CHAR" Position="8" Datasource="Status"/>
+				<Column EntityCode="1" EntityName="AGENT" EntityOfFieldCode="1" EntityOfFieldName="AGENT" ColumnId="C9" FieldName="AGENT_POSITION_ID" LocalizedName="Switch agent id" ReportFieldType="BUILT_IN_REPORT_FIELD" Format="STRING_FORMAT" Type="DBTYPE_CHAR" Position="9" Datasource="Status"/>
+				<Column EntityCode="1" EntityName="AGENT" EntityOfFieldCode="1" EntityOfFieldName="AGENT" ColumnId="C10" FieldName="COUNTER_ready_eff" LocalizedName="Effective time in &quot;Ready&quot; state" ReportFieldType="BUILT_IN_REPORT_FIELD" Format="DURATION_FORMAT" Type="DBTYPE_NUMBER" Position="10" Datasource="Status"/>
+			</Columns>
+			<Request>
+				<DATA_SOURCE_JOIN ID="57" NAME="BSA-Weekly">
+					<DATA_SOURCE_UCI_QUERY ID="55" NAME="Outcomes" ShowAssignmentsOption="ASSIGNED_ENTITIES_ONLY">
+						<Timeframe start_time="1464940800" end_time="1464962400"/>
+					</DATA_SOURCE_UCI_QUERY>
+					<DATA_SOURCE_UCI_QUERY ID="56" NAME="Status" ShowAssignmentsOption="ASSIGNED_ENTITIES_ONLY">
+						<Timeframe start_time="1464940800" end_time="1464962400"/>
+					</DATA_SOURCE_UCI_QUERY>
+				</DATA_SOURCE_JOIN>
+			</Request>
+		</Definition>
+	</DataDestination>
+	<Generation date="2016-06-05 22:35:43">
+		<Schema version="2.1"/>
+		<Product version="8.2" patch_level="506" operating_system="2016-06-05 22:35:43"/>
+		<Template name="BSR Outcomes Summary"/>
+		<Culture name="en"/>
+	</Generation>
+	<Filter/>
+	<Timeframe type="DATE_TIME_INTERVAL" start_time="1464940800" end_time="1464962400"/>
+</Report>

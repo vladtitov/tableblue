@@ -10,27 +10,28 @@ var tablesTwo;
     var RowView = tablesTwo.RowViewTwo;
     var AgentsCollection = (function (_super) {
         __extends(AgentsCollection, _super);
+        // params:any;
         function AgentsCollection(options) {
-            var _this = this;
             _super.call(this, options);
             this.model = AgentModel;
             this.url = options.url;
-            this.params = options.params;
-            this.fetch({ data: this.params });
-            setInterval(function () {
-                _this.fetch({ data: _this.params });
-            }, 5000);
+            // this.params = options.params;
+            this.fetch();
+            // this.fetch({data: this.params});
+            // setInterval(()=> {
+            //     this.fetch({data: this.params});
+            // }, 5000);
         }
         AgentsCollection.prototype.parse = function (res) {
-            var d = res.stamp;
-            this.params.date = d.replace(' ', 'T');
-            var stamp = Date.now();
-            _.map(res.result.list, function (item) {
+            // var d:string = res.stamp;
+            // this.params.date = d.replace(' ', 'T');
+            // var stamp = Date.now();
+            _.map(res.list, function (item) {
                 item.id = item.id;
-                item.time = item.t || 0;
+                item.time = item.time || 0;
                 item.icon = '' + item.icon;
             });
-            return res.result.list;
+            return res.list;
         };
         return AgentsCollection;
     }(Backbone.Collection));
@@ -51,12 +52,12 @@ var tablesTwo;
                 _this.$el.append(row.render().el);
             }, this);
             this.render = function () {
-                console.log(this);
+                // console.log(this);
                 return this;
             };
         }
         TableView.prototype.render = function () {
-            console.log('render');
+            // console.log('render');
             return this;
         };
         return TableView;
