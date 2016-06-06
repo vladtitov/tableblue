@@ -65,16 +65,11 @@
     font-size: x-large;
 }
 
-#Panel1{
-    height: 250px ;
-    font-size: x-large;
-}
-
 #Panel2{
-    height: 390px ;
+    height: 655px ;
 }
 
-#Panel1 th, #Panel2 h2{
+#Panel2 h2{
     font-size: xx-large;
 }
 
