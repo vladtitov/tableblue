@@ -13,4 +13,5 @@
 ///<reference path="com/RowViewTwo.ts"/>
 ///<reference path="com/Formatter.ts"/>
 ///<reference path="com/AutoScroller.ts"/>
+///<reference path="com/BackboneMessage.ts"/>
 //# sourceMappingURL=base.js.map

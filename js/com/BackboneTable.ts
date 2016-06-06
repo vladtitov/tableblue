@@ -79,5 +79,3 @@ module tables {
         }
     }
 }
-
-

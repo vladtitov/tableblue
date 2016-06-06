@@ -37,15 +37,14 @@ module myapp{
         private url_get_excel: string;
         private url_data: string;
         private username:string;
-        private collection: Table.AllPersonCollection;
+        private collection: Table.AllMessageCollection;
         
         
         private $btnSave:JQuery;
         InitTable (){
-            var collection: Table.AllPersonCollection = new Table.AllPersonCollection({});
-            var tableView: Table.AllPersonView = new Table.AllPersonView({collection: collection});
+            var collection: Table.AllMessageCollection = new Table.AllMessageCollection({});
+            var tableView: Table.AllMessageView = new Table.AllMessageView({collection: collection});
             this.collection = collection;
-
         }
 
         loadData():void{
@@ -59,7 +58,8 @@ module myapp{
 
         saveData():void{
             if(confirm('You want to save a new data file?')){
-                var data:any[] =  this.collection.toJSON();
+                var data:any[] = this.CleanData(this.collection.toJSON());
+                console.log(data);
                 $.post(this.url_data+'?username='+this.username,JSON.stringify(data)).done((res)=>{
 
                     if(res.success=='success') {
@@ -69,8 +69,14 @@ module myapp{
                     else alert('Error save data')
                 });
             }
-
-
+        }
+        
+        private CleanData(data:any[]):any[]{
+            var out:any[] = [];
+            data.forEach(function (item) {
+                out.push({msg: item.msg, active: item.active});
+            })
+            return out;
         }
 
         $fileInput:JQuery;
@@ -152,4 +158,3 @@ $(document).ready(function(){
     app.InitTable();
     app.loadData();
 })
-

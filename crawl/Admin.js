@@ -54,8 +54,8 @@ var myapp;
             });
         }
         Main.prototype.InitTable = function () {
-            var collection = new Table.AllPersonCollection({});
-            var tableView = new Table.AllPersonView({ collection: collection });
+            var collection = new Table.AllMessageCollection({});
+            var tableView = new Table.AllMessageView({ collection: collection });
             this.collection = collection;
         };
         Main.prototype.loadData = function () {
@@ -68,7 +68,8 @@ var myapp;
         Main.prototype.saveData = function () {
             var _this = this;
             if (confirm('You want to save a new data file?')) {
-                var data = this.collection.toJSON();
+                var data = this.CleanData(this.collection.toJSON());
+                console.log(data);
                 $.post(this.url_data + '?username=' + this.username, JSON.stringify(data)).done(function (res) {
                     if (res.success == 'success') {
                         alert('New data was saved on server');
@@ -78,6 +79,13 @@ var myapp;
                         alert('Error save data');
                 });
             }
+        };
+        Main.prototype.CleanData = function (data) {
+            var out = [];
+            data.forEach(function (item) {
+                out.push({ msg: item.msg, active: item.active });
+            });
+            return out;
         };
         Main.prototype.onDeleteClick = function () {
             if (confirm('Do you want to delete?')) {

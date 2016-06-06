@@ -9,32 +9,38 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Table;
 (function (Table) {
-    var Person = (function (_super) {
-        __extends(Person, _super);
-        function Person() {
+    var Message = (function (_super) {
+        __extends(Message, _super);
+        function Message() {
             _super.apply(this, arguments);
         }
-        Person.prototype.defaults = function () {
+        Message.prototype.defaults = function () {
             return {
-                date: 0,
-                start: 0,
-                end: 0,
-                myevent: '',
+                msg: '',
+                active: true,
                 selected: false,
                 location: '',
                 editable: false
             };
         };
-        return Person;
+        return Message;
     }(Backbone.Model));
-    Table.Person = Person;
-    var PersonView = (function (_super) {
-        __extends(PersonView, _super);
-        function PersonView(options) {
+    Table.Message = Message;
+    var MessageView = (function (_super) {
+        __extends(MessageView, _super);
+        function MessageView(options) {
             var _this = this;
             _super.call(this, options);
             this.model.on('remove', function () { return _this.remove(); });
             this.$el.on('click', function (evt) { return _this.edit(evt); });
+            this.model.on('change:active', function () {
+                if (_this.model.get('active')) {
+                    _this.$el.find('.mychecked').attr('checked', true);
+                }
+                else {
+                    _this.$el.find('.mychecked').attr('checked', false);
+                }
+            });
             this.model.on('change:selected', function () {
                 if (_this.model.get('selected')) {
                     _this.$el.addClass('warning');
@@ -50,90 +56,90 @@ var Table;
                 }
                 else {
                     _this.$el.find('.myevent').attr('contenteditable', false);
-                    _this.$el.find('.location').attr('contenteditable', false);
                 }
             });
         }
-        PersonView.prototype.edit = function (evt) {
-            if (!this.model.get('selected')) {
-                this.model.trigger('selectedModel', this.model);
+        MessageView.prototype.edit = function (evt) {
+            if (evt.target.localName != 'input') {
+                if (!this.model.get('selected')) {
+                    this.model.trigger('selectedModel', this.model);
+                }
+                else {
+                    this.model.set('editable', true);
+                }
             }
             else {
-                this.model.set('editable', true);
+                this.model.get('active') ? this.model.set('active', false) : this.model.set('active', true);
             }
         };
-        PersonView.prototype.makeEditable = function () {
+        MessageView.prototype.makeEditable = function () {
             var _this = this;
             this.$el.removeClass('warning').addClass('info');
             var myevent = this.$el.find('.myevent').attr('contenteditable', true);
-            var mylocation = this.$el.find('.location').attr('contenteditable', true);
             myevent.blur(function () {
-                console.log(myevent.text());
-                _this.model.set('myevent', myevent.children().text());
-            });
-            mylocation.blur(function () {
-                _this.model.set('location', mylocation.children().text());
+                _this.model.set('msg', myevent.children().text());
             });
         };
-        PersonView.prototype.remove = function () {
+        MessageView.prototype.remove = function () {
             this.$el.remove();
             return this;
         };
-        PersonView.prototype.render = function () {
-            // var data = this.model.toJSON();
-            // data.date = moment.unix(data.date).format('MM DD YYYY');
-            // data.start = moment.unix(data.start).format('h:mm a');
-            // data.end = moment.unix(data.end).format('h:mm a');
-            // this.$el.html( PersonView.template(data) );
+        MessageView.prototype.render = function () {
+            var data = this.model.toJSON();
+            if (data.active)
+                data.active = "checked";
+            else
+                data.active = "";
+            this.$el.html(MessageView.template(data));
             return this;
         };
-        PersonView.template = _.template($('#row-template').html());
-        return PersonView;
+        MessageView.template = _.template($('#row-template').html());
+        return MessageView;
     }(Backbone.View));
-    Table.PersonView = PersonView;
-    var AllPersonCollection = (function (_super) {
-        __extends(AllPersonCollection, _super);
-        function AllPersonCollection(options) {
+    Table.MessageView = MessageView;
+    var AllMessageCollection = (function (_super) {
+        __extends(AllMessageCollection, _super);
+        function AllMessageCollection(options) {
             _super.call(this, options);
             for (var str in options)
                 this[str] = options[str];
             this.listenTo(this, 'selectedModel', this.ModelSelected);
         }
-        AllPersonCollection.prototype.setEditable = function () {
+        AllMessageCollection.prototype.setEditable = function () {
             if (this.selectedModel) {
                 this.selectedModel.set('editable', true);
             }
         };
-        AllPersonCollection.prototype.setDestroy = function () {
+        AllMessageCollection.prototype.setDestroy = function () {
             if (this.selectedModel) {
                 this.remove(this.selectedModel);
             }
         };
-        AllPersonCollection.prototype.ModelSelected = function (model) {
+        AllMessageCollection.prototype.ModelSelected = function (model) {
             if (this.selectedModel) {
                 this.selectedModel.set('selected', false);
             }
             model.set('selected', true);
             this.selectedModel = model;
         };
-        return AllPersonCollection;
+        return AllMessageCollection;
     }(Backbone.Collection));
-    Table.AllPersonCollection = AllPersonCollection;
-    var AllPersonView = (function (_super) {
-        __extends(AllPersonView, _super);
-        function AllPersonView(options) {
+    Table.AllMessageCollection = AllMessageCollection;
+    var AllMessageView = (function (_super) {
+        __extends(AllMessageView, _super);
+        function AllMessageView(options) {
             _super.call(this, options);
             this.options = options;
             this.setElement($('#tablebody'));
             this.collection.bind("add", this.ModelAdded, this);
         }
-        AllPersonView.prototype.ModelAdded = function (person) {
-            var row = new PersonView({ tagName: 'tr', model: person });
+        AllMessageView.prototype.ModelAdded = function (message) {
+            var row = new MessageView({ tagName: 'tr', model: message });
             this.$el.append(row.render().el);
             return this;
         };
-        return AllPersonView;
+        return AllMessageView;
     }(Backbone.View));
-    Table.AllPersonView = AllPersonView;
+    Table.AllMessageView = AllMessageView;
 })(Table || (Table = {}));
 //# sourceMappingURL=AdminBackbone.js.map

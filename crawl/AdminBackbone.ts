@@ -5,23 +5,19 @@
 
     
 module Table {
-    interface People {
-        date: number;
-        start: number;
-        end: number;
-        myevent: string;
+    interface TextMess {
+        msg: string;
+        active: boolean;
         selected: boolean;
         location: string;
         editable: boolean;
     }
 
-    export class Person extends Backbone.Model{
-        defaults() : People{
+    export class Message extends Backbone.Model{
+        defaults() : TextMess{
             return {
-                date: 0,
-                start: 0,
-                end: 0,
-                myevent: '',
+                msg: '',
+                active: true,
                 selected: false,
                 location: '',
                 editable: false
@@ -30,12 +26,21 @@ module Table {
     }
 
 
-    export class PersonView extends Backbone.View<Person> {
+    export class MessageView extends Backbone.View<Message> {
         static template:any = _.template( $('#row-template').html() );
         constructor (options: any) {
             super(options);
             this.model.on('remove', ()=>this.remove());
             this.$el.on('click', (evt)=>this.edit(evt));
+
+            this.model.on('change:active', ()=>{
+                if(this.model.get('active')) {
+                    this.$el.find('.mychecked').attr('checked', true);
+                }
+                else{
+                    this.$el.find('.mychecked').attr('checked', false);
+                }
+            });
 
             this.model.on('change:selected', ()=>{
                 if(this.model.get('selected')){
@@ -53,50 +58,48 @@ module Table {
                 }
                 else{
                     this.$el.find('.myevent').attr('contenteditable', false);
-                    this.$el.find('.location').attr('contenteditable', false);
                 }
             })
         }
 
         edit(evt): void {
-            if(!this.model.get('selected')) {
-                this.model.trigger('selectedModel', this.model);
+            if (evt.target.localName != 'input') {
+                if (!this.model.get('selected')) {
+                    this.model.trigger('selectedModel', this.model);
+                }
+                else {
+                    this.model.set('editable', true);
+                }
             }
             else {
-                this.model.set('editable', true);
+                this.model.get('active') ? this.model.set('active', false): this.model.set('active', true);
             }
         }
 
         makeEditable():void{
             this.$el.removeClass('warning').addClass('info');
             var myevent:JQuery = this.$el.find('.myevent').attr('contenteditable', true);
-            var mylocation:JQuery = this.$el.find('.location').attr('contenteditable', true);
             myevent.blur( ()=>{
-                console.log(myevent.text());
-                this.model.set('myevent', myevent.children().text());
-            })
-            mylocation.blur( ()=>{
-                this.model.set('location', mylocation.children().text());
+                this.model.set('msg', myevent.children().text());
             })
         }
 
-        remove (): PersonView  {
+        remove (): MessageView  {
             this.$el.remove();
             return this;
         }
         
-        render (): PersonView {
-            // var data = this.model.toJSON();
-            // data.date = moment.unix(data.date).format('MM DD YYYY');
-            // data.start = moment.unix(data.start).format('h:mm a');
-            // data.end = moment.unix(data.end).format('h:mm a');
-            // this.$el.html( PersonView.template(data) );
+        render (): MessageView {
+            var data = this.model.toJSON();
+            if (data.active) data.active = "checked";
+            else data.active = "";
+            this.$el.html( MessageView.template(data) );
             return this;
         }
     }
 
-    export class AllPersonCollection extends Backbone.Collection<Person> {
-        selectedModel:Person;
+    export class AllMessageCollection extends Backbone.Collection<Message> {
+        selectedModel:Message;
 
         constructor(options:any) {
             super(options);
@@ -125,7 +128,7 @@ module Table {
         }
     }
 
-    export class AllPersonView extends Backbone.View<Person> {
+    export class AllMessageView extends Backbone.View<Message> {
         private options:any;
 
         constructor(options:any) {
@@ -135,8 +138,8 @@ module Table {
             this.collection.bind("add", this.ModelAdded, this);
         }
 
-        ModelAdded(person):any {
-            var row:PersonView = new PersonView({tagName: 'tr', model: person});
+        ModelAdded(message):any {
+            var row:MessageView = new MessageView({tagName: 'tr', model: message});
             this.$el.append(row.render().el);
             return this;
         }
