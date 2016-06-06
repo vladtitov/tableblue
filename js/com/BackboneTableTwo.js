@@ -11,26 +11,18 @@ var tablesTwo;
     var AgentsCollection = (function (_super) {
         __extends(AgentsCollection, _super);
         function AgentsCollection(options) {
-            var _this = this;
             _super.call(this, options);
             this.model = AgentModel;
             this.url = options.url;
-            this.params = options.params;
-            this.fetch({ data: this.params });
-            setInterval(function () {
-                _this.fetch({ data: _this.params });
-            }, 5000);
+            this.fetch();
         }
         AgentsCollection.prototype.parse = function (res) {
-            var d = res.stamp;
-            this.params.date = d.replace(' ', 'T');
-            var stamp = Date.now();
-            _.map(res.result.list, function (item) {
+            _.map(res.list, function (item) {
                 item.id = item.id;
                 item.time = item.t || 0;
                 item.icon = '' + item.icon;
             });
-            return res.result.list;
+            return res.list;
         };
         return AgentsCollection;
     }(Backbone.Collection));
@@ -51,12 +43,10 @@ var tablesTwo;
                 _this.$el.append(row.render().el);
             }, this);
             this.render = function () {
-                console.log(this);
                 return this;
             };
         }
         TableView.prototype.render = function () {
-            console.log('render');
             return this;
         };
         return TableView;

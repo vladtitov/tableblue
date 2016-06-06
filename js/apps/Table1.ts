@@ -21,10 +21,7 @@ $(document).ready(function(){
     });
 
     var collectionTwo = new tablesTwo.AgentsCollection({
-        url:'http://front-desk.ca/mi/callcenter/rem/getagents',
-        params:{
-            date:'2016-03-15T10:58:34'
-        }
+        url:'agents/getagents.php'
     });
 
     var dd = new tablesTwo.TableView({

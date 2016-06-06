@@ -6,20 +6,10 @@ if(!isset($_GET['stamp'])) die('stamp');
 
 $stamp = $_GET['stamp'];
 
-//$stamp = '2016-03-15T10:59:30';
 $limit = 10;
 
 $res = getRecord($stamp,$limit);
 echo $res;
-
-
-/*$i=1;
-$out=array();
-foreach ($res as $xml){
-    $rawdara =  (string)$xml->rawdata;
- $out[]    = file_put_contents('agents'.$i++.'.xml',$rawdara);
-}*/
-
 
 function getRecord($stamp,$limit){
     $dbname = 'frontdes_callcenter';
