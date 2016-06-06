@@ -2,17 +2,17 @@
   "creteria":[
     {
       "max":85,
-      "status":"ok",
+      "state":"ok",
       "icon":"icons\/ok.png"
     },
     {
       "max":95,
-      "status":"good",
+      "state":"good",
       "icon":"icons\/good.png"
     },
     {
       "max":1000,
-      "status":"great",
+      "state":"great",
       "icon":"icons\/great.png"
     }
   ]

@@ -9,12 +9,45 @@ if($report=='w')$filename='examples/BSR-Wkly.xml';
 else if($report=='d')$filename='examples/BSR-Dayly.xml';
 else die("Need W or D!");
 
+$url = "http://callcenter.front-desk.ca//dashboard2/bsd.php?report=d";
 
+// create curl resource
+$ch = curl_init();
+// set url
+curl_setopt($ch, CURLOPT_URL, $url);
+//return the transfer as a string
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+// $output contains the output string
+$output = curl_exec($ch);
+// close curl resource to free up system resources
+$output = json_decode($output);
 
+$agents = $output -> agents;
+
+foreach ($agents as $agent) {
+	var_dump($agent -> status);
+	$agent -> icon = "hello";
+	$agent -> state =
+	var_dump($agent);
+}
+
+curl_close($ch);
+exit();
 $xml = simplexml_load_file($filename);
 $xml -> saveXML($report."temp.xml");
 
+$settings = json_decode(file_get_contents("settings.json"));
+var_dump($settings);
+$agents = array();
+if($agent['status']<86){
+	$agent['icon'] = 'ok';
+}else if($agent['status']<95){
+	$agent['icon'] = 'good';
+}else {
+	$agent['icon'] = 'great';
+}
 
+exit();
 //if($_GET['report']=='raw'){
 //
 //	header('Content-type: application/json');
