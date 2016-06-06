@@ -44,21 +44,6 @@ function makeArrInd($xml){
     return $arrind;
 }
 
-function getCriteria ($criteria, $agent) {
-    foreach ($criteria as $item) {
-        if ($agent["status"] < $item->max){
-            return $item;
-        }
-    }
-    return 0;
-}
-
-function setCriteria($agents, $settings) {
-    foreach ($agents as $agent) {
-        $agent -> criteria = getCriteria($settings->criteria, $agent);
-    }
-}
-
 function createAgents($rows, $arind) {
     $agents = array();
     foreach($rows as $row){
@@ -92,6 +77,31 @@ function indexById($agents){
     return 	$agentsind;
 
 }
+
+function formatArray($a) {
+    $out = array();
+    foreach($a as $key => $agent) {
+        unset($agent['ACTIVITY_OUTCOME_CODE']);
+        unset($agent['type']);
+        unset($agent['TEAM']);
+        unset($agent['SERVICE']);
+
+        if (!isset($agent['Dial'])) $agent['Dial'] = 0;
+        if (!isset($agent['Prescriber'])) $agent['Prescriber'] = 0;
+        if (!isset($agent['Non- prescriber'])) $agent['Non- Prescriber'] = 0;
+
+        $ar = explode(' ',$agent['AGENT_FULL_NAME']);
+
+        $agent['name']= $ar[0];
+        if(count($ar)>1) $agent['name'] .= ' '.substr($ar[1],0,1);
+        unset($agent['AGENT_FULL_NAME']);
+
+//        var_dump($agent);
+        $out[] = $agent;
+    }
+    return $out;
+}
+
 function formatTypes($agents,$agentsind){
     foreach($agents as $agent){
         //$agentsind[$agent['AGENT_POSITION_ID']]

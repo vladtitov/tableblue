@@ -1,5 +1,6 @@
 <?php
 include "helpers.php";
+include "calculator.php";
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL ^ E_NOTICE);
 
@@ -30,36 +31,15 @@ $settings = json_decode(file_get_contents("settings.json"));
 //echo json_encode($agents);
 //exit();
 $indexed = indexById($agents);
-//echo json_encode($indexed);
+$agents = formatArray($indexed);
+//echo json_encode($agents);
 //exit();
-$final= array();
-foreach($indexed  as $agent){
-	unset($agent['ACTIVITY_OUTCOME_CODE']);
-	unset($agent['type']);
-	$agent['ready_eff'] = (int) $agent['COUNTER_ready_eff']/1000;
-	$agent['calc'] = ($agent['Dial']+$agent['Prescriber']+$agent['Non- prescriber'])/($agent['ready_eff']/12);
 
-	//$eff =
-	$agent['status'] = round($agent['calc']*1000)/1000;
-	$ar = explode(' ',$agent['AGENT_FULL_NAME']);
+$agents = calculate($agents);
 
-	$agent['name']= $ar[0];
-	if(count($ar)>1) $agent['name'] .= ' '.substr($ar[1],0,1);
-	unset($agent['AGENT_FULL_NAME']);
+$agents = setCriteria($agents, $settings);
 
-//	if($agent['status']<86){
-//		$agent['icon'] = 'ok';
-//	}else if($agent['status']<95){
-//		$agent['icon'] = 'good';
-//	}else {
-//		$agent['icon'] = 'great';
-//	}
-
-
-	$final[]=$agent;
-}
-
-$out->agents=$final;// $agents;
+$out->agents=$agents;// $agents;
 
 echo  json_encode($out);
 
