@@ -17,7 +17,7 @@ $i=1;
 $out=array();
 foreach ($res as $xml){
     $rawdara =  (string)$xml->rawdata;
- $out[]    = file_put_contents('agents'.$i++.'.xml',$rawdara);
+    $out[] = file_put_contents('agents'.$i++.'.xml',$rawdara);
 }
 echo json_encode($out);
 

@@ -37,8 +37,10 @@
 	"fa":"minus-circle"
   },
   {
-	  "id":7,    
-    "icon":""
+	  "id":7,
+      "code": "code-7",
+      "icon":"icon-7",
+      "fa":"fa-7"
   },
   {
 	"id":8,
@@ -53,6 +55,3 @@
 	"fa":"phone"	
   }
 ]
-
-
-
