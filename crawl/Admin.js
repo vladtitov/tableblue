@@ -41,11 +41,9 @@ var myapp;
                         contentType: false,
                         processData: false
                     }).done(function (res) {
-                        //console.log(res);
                         $.get(_this.url_get_excel, { filename: res.result }).done(function (res) {
                             _this.SetData(res);
                         });
-                        // this.onData(res);
                     });
                     input.remove();
                     _this.$fileInput = null;
@@ -90,8 +88,6 @@ var myapp;
         Main.prototype.onDeleteClick = function () {
             if (confirm('Do you want to delete?')) {
                 this.collection.setDestroy();
-            }
-            else {
             }
         };
         Main.prototype.onEditClick = function () {

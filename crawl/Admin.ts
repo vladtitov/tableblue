@@ -6,7 +6,6 @@
     
 
 module myapp{
-    //import color = d3.color;
     interface CellInfo{
         raw:number;
         type:string;
@@ -18,8 +17,6 @@ module myapp{
         numRows:number;
         cells:string[][];
         celsInfo:CellInfo[][];
-
-
     }
     interface TableResult {
         date: number;
@@ -38,7 +35,6 @@ module myapp{
         private url_data: string;
         private username:string;
         private collection: Table.AllMessageCollection;
-        
         
         private $btnSave:JQuery;
         InitTable (){
@@ -118,11 +114,9 @@ module myapp{
                         contentType: false,
                         processData: false
                     }).done((res)=>{
-                        //console.log(res);
                         $.get(this.url_get_excel, {filename: res.result}).done((res)=>{
                             this.SetData(res);
                         })
-                      // this.onData(res);
                     })
                     input.remove()
                     this.$fileInput = null;
@@ -134,12 +128,7 @@ module myapp{
         onDeleteClick():void {
             if(confirm('Do you want to delete?')){
                 this.collection.setDestroy();
-                // console.log('Yes');
             }
-            else{
-                // console.log('No');
-            }
-                
         }
         onEditClick():void{
             this.collection.setEditable();
@@ -151,8 +140,6 @@ $(document).ready(function(){
     var options = {
         url_data:'crawl/crawl.php',
         username:'myname'
-        // btnDelete:'#btnDelete',
-        // btnEdit:'#btnEdit'
     }
     var app = new myapp.Main(options);
     app.InitTable();

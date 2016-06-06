@@ -81,6 +81,7 @@ function getObjectById($filename){
 }
 
 function logError ($mess) {
-    $mess = "\n\r".$mess;
+    $d = getdate();
+    $mess = "\n\r".$d[mday]."-".$d[mon]."-".$d[year]." ".$d[hours].":".$d[minutes]." - ".$mess;
     error_log($mess, 3, 'error.log');
 }

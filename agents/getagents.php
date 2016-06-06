@@ -13,7 +13,10 @@ $out=new stdClass();
 $xml =  getXML($stamp);
 
 $record = parseFile($xml, $stamp);
-
+if ($record == 0){
+    logError ('Error parseFile function');
+    exit;
+}
 $out->stamp = $stamp;
 $out->total= count($record->list);
 $out->list = $record->list;
