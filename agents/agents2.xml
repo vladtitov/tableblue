@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfXMLAgent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <XMLAgent>
+    <Name>*ACD4357 ANGELA C, *ACD4357 ANGELA C</Name>
+    <AgentID>22901</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>VILLA, ROSE ACD</Name>
+    <AgentID>22991</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-03-04T09:12:31</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222 DEBRA W, *ACD4222 DEBRA W</Name>
+    <AgentID>23051</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_IDLE</State>
+    <EventDateTime>2016-03-15T10:58:54</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222 PATTI T, *ACD4222 PATTI T</Name>
+    <AgentID>23052</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-03-07T16:29:15</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222 DEBIE B, *ACD4222 DEBIE B</Name>
+    <AgentID>23053</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222 ERICA R, *ACD4222 ERICA R</Name>
+    <AgentID>23055</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222 IRENE, *ACD4222 IRENE</Name>
+    <AgentID>23057</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222 KAREN H, *ACD4222 KAREN H</Name>
+    <AgentID>23059</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-03-11T12:05:55</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222 JANET G, *ACD4222 JANET G</Name>
+    <AgentID>23063</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_TALK_ACD</State>
+    <EventDateTime>2016-03-15T10:56:34</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222 ZARICZNIAK, R</Name>
+    <AgentID>23064</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_IDLE</State>
+    <EventDateTime>2016-03-15T10:43:27</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222BARBD, *ACD4222BARBD</Name>
+    <AgentID>23065</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_IDLE</State>
+    <EventDateTime>2016-03-15T10:51:59</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222 EVA LABUDA, *ACD4222 EVA LABUDA</Name>
+    <AgentID>23073</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4250 LINDSAY, *ACD4250 LINDSAY</Name>
+    <AgentID>23104</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_TALK_OUT</State>
+    <EventDateTime>2016-03-15T10:55:26</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4250 JENNIFER U, *ACD4250 JENNIFER U</Name>
+    <AgentID>23105</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4250 LIZ B, *ACD4250 LIZ B</Name>
+    <AgentID>23107</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_IDLE</State>
+    <EventDateTime>2016-03-15T10:59:09</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4250 NANCY M, *ACD4250 NANCY M</Name>
+    <AgentID>23108</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-03-14T16:23:45</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4250 SHARON L, *ACD4250 SHARON L</Name>
+    <AgentID>23116</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-02-19T13:14:17</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>ZAREZADEH, ALI ACD</Name>
+    <AgentID>23121</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-02-26T12:43:19</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>Agent - 23127, Agent - 23127</Name>
+    <AgentID>23127</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4250 ANAM T, *ACD4250 ANAM T</Name>
+    <AgentID>23145</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-03-14T16:31:33</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4222 SUSAN P, *ACD4222 SUSAN P</Name>
+    <AgentID>23168</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>~TACDERAS, RYAN ACD</Name>
+    <AgentID>23288</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-03-14T16:24:48</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4394 ANDREA M, *ACD4394 ANDREA M</Name>
+    <AgentID>23309</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_IDLE</State>
+    <EventDateTime>2016-03-15T10:28:59</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4394 HANIA E, *ACD4394 HANIA E</Name>
+    <AgentID>23310</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4394 MARGARET B, *ACD4394 MARGARET B</Name>
+    <AgentID>23350</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4394 HARMITS, *ACD4394 HARMITS</Name>
+    <AgentID>23353</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_IDLE</State>
+    <EventDateTime>2016-03-15T10:51:59</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4394ERICB, *ACD4394ERICB</Name>
+    <AgentID>23358</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>~REIS, JASON ACD</Name>
+    <AgentID>23451</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_RINGING</State>
+    <EventDateTime>2016-03-15T11:00:54</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>~STEPHENS, DAVID ACD</Name>
+    <AgentID>23452</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-03-10T16:07:10</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>~FRADE, CHRISTOPHE ACD</Name>
+    <AgentID>23453</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-03-11T10:39:05</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>~KALKAT, KIRAN</Name>
+    <AgentID>23459</AgentID>
+    <MakeBusyReason>-99</MakeBusyReason>
+    <State>VOICE_LOGGED_OUT</State>
+    <EventDateTime>2016-03-15T10:58:33</EventDateTime>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4357 TODD SWEET, *ACD4357 TODD SWEET</Name>
+    <AgentID>23670</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4394 STUDENT, *ACD4394 STUDENT</Name>
+    <AgentID>23762</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4357 C0 0P 3, *ACD4357 C0 0P 3</Name>
+    <AgentID>23778</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>PARKING ACD VACANT, PARKING ACD VACANT</Name>
+    <AgentID>23835</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4394 NANCY M, *ACD4394 NANCY M</Name>
+    <AgentID>23838</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>~FRADE, CHRIS ACD</Name>
+    <AgentID>23939</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>*ACD4394 NANCY M, *ACD4394 NANCY M</Name>
+    <AgentID>27275</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+  <XMLAgent>
+    <Name>Agent - 27486, Agent - 27486</Name>
+    <AgentID>27486</AgentID>
+    <MakeBusyReason>0</MakeBusyReason>
+    <State>VOICE_UNKNOWN</State>
+  </XMLAgent>
+</ArrayOfXMLAgent>
