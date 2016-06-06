@@ -73,6 +73,11 @@
     font-size: xx-large;
 }
 
+#message-template p {
+    font-size: 30px;
+    border-bottom: 1px solid #fff;
+}
+
 .okno2 > div {
     transition: transform 0.5s; -webkit-transition: transform 0.5s;
     background-size: contain;
