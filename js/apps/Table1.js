@@ -21,7 +21,7 @@ $(document).ready(function () {
     //     }
     // });
     var collectionTwo = new tablesTwo.AgentsCollection({
-        url: 'agents/getagents2.php'
+        url: 'agents/getagents.php'
     });
     var dd = new tablesTwo.TableView({
         container: '#AgentsList2',

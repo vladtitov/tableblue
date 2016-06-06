@@ -28,7 +28,7 @@ $(document).ready(function(){
     // });
 
     var collectionTwo = new tablesTwo.AgentsCollection({
-        url:'agents/getagents2.php',
+        url:'agents/getagents.php',
         // params:{
         //     date:'2016-03-15T10:58:34'
         // }

@@ -1,0 +1,75 @@
+[
+  {
+    "code": -99,
+    "msg":"Not yet set",
+    "icon":"offline"
+  },
+  {
+    "code": -1,
+    "msg":"System Make Busy Code",
+    "icon":"busy"
+  },
+  {
+    "code":0,
+    "msg":"No Make Busy Code",
+    "icon":"busy"
+  },
+  {
+    "code": 1,
+    "msg":"Break",
+    "icon":"break"
+  },
+  {
+    "code" :10,
+    "msg":"Training",
+    "icon":"training"
+  },
+  {
+    "code": 11,
+    "msg":"Coaching \/ 1:1 Supervisor",
+    "icon":"coaching"
+  },
+  {
+    "code":2,
+    "msg":"Cash Closing",
+    "icon":"cash_closing"
+  },
+  {
+    "code":3,
+    "msg":"Corporate Event",
+    "icon":"corporate_event"
+  },
+  {
+    "code": 4,
+    "msg": "Counter",
+    "icon": "counter"
+  },
+  {
+    "code":5,
+    "msg":"Email",
+    "icon":"email"
+  },
+  {
+    "code": 6,
+    "msg":"Lunch",
+    "icon":"lunch"
+  },
+  {
+    "code" :7,
+    "msg":"Meeting",
+    "icon":"meeting"
+  },
+  {
+    "code": 8,
+    "msg":"Personal",
+    "icon": "personal"
+  },
+  {
+    "code": 9,
+    "msg":"Post-Call Work",
+    "icon":"post_call_work"
+  }
+]
+
+
+
