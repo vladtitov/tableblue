@@ -22,14 +22,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="libs/jquery-2.1.4.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Headland+One' rel='stylesheet' type='text/css'>
     <link href="libs/bootstrap.min.css" rel="stylesheet">
     <script src="libs/bootstrap.min.js"></script>
     <link href="libs/font-awesome.min.css" rel="stylesheet">
     <script src="libs/underscore-min.js"></script>
     <script src="libs/backbone-min.js"></script>
     <script src="libs/moment.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="Table1" class="container">
@@ -49,8 +47,14 @@
                     }
                 </style>
                     <div>
-                        <span class="fa fa-table"></span>
-                        Crawl messages
+                        <span class="fa fa-commenting"></span>
+                        Messages Marquee
+                    </div>
+                    <div>
+                        <a id="btnAdd" class="btn">
+                            <span class="fa fa-plus"></span>
+                            <span>Add</span>
+                        </a>
                     </div>
                     <div>
                         <a id="btnEdit" class="btn">
@@ -96,9 +100,19 @@
                                 <input type="checkbox" class="mychecked" <%=active%>/>
                             </td>
                             <td class="myevent">
-                                <span><%=msg%></span>
+                                <%=msg%>
                             </td>
                         </script>
+                        <thead>
+                        <tr>
+                            <th>
+                                Active
+                            </th>
+                            <th class="text-center">
+                                Content
+                            </th>
+                        </tr>
+                        </thead>
                         <tbody id="tablebody">
 
                         </tbody>

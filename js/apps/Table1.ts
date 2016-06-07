@@ -7,24 +7,10 @@
 
 $(document).ready(function(){
 
-    var collection = new tables.AgentsCollection({
-        url:'http://callcenter.front-desk.ca//dashboard2/bsd.php',
-        params:{
-            report:'d'
-        }
-    });
-    
-    var t = new tables.TableView({
-        container:'#AgentsList1',
-        rowTempalete:'#row-template',
-        collection:collection
-    });
+    console.log('ready');
 
     var collectionTwo = new tablesTwo.AgentsCollection({
-        url:'http://front-desk.ca/mi/callcenter/rem/getagents',
-        params:{
-            date:'2016-03-15T10:58:34'
-        }
+        url:'agents/getagents.php'
     });
 
     var dd = new tablesTwo.TableView({
@@ -40,4 +26,8 @@ $(document).ready(function(){
         delay:3,
         speed:0.7
     });
+
+    setInterval(function(){
+        collectionTwo.fetch();
+    }, 10000);
 })

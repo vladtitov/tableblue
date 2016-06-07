@@ -158,9 +158,8 @@
                             <td class="col1"><%=name%></td>
                             <td class="col2">
                                 <div class="icon okno">
-                                    <!--<div class="<%=icon%>"></div>-->
-                                    <div style="background-image: url('icons/<%=old_icon%>.png');"></div>
-                                    <div class="in" style="background-image: url('icons/<%=icon%>.png');"></div>
+                                    <div style="background-image: url('<%=old_icon%>');"></div>
+                                    <div class="in" style="background-image: url('<%=icon%>');"></div>
                                 </div>
                             </td>
                             <td class="dial col3 center"><%=Dial%></td>
@@ -202,9 +201,9 @@
                 }
             </style>
 
-            <script  src="js/com/RowModel.js"></script>
-            <script  src="js/com/OneIcon.js"></script>
-            <script  src="js/com/BackboneTable.js"></script>
+
+            <script  src="js/dayweek/OneIcon.js"></script>
+            <script  src="js/dayweek/BackboneTable.js"></script>
         </div>
 
     </div>
@@ -265,15 +264,11 @@
                         transform:translateY(-100%); -webkit-transform:translateY(-100%);
                     }
                 </style>
-
-                <script  src="js/com/BackboneMessage.js"></script>
-                <script  src="js/com/RowModelTwo.js"></script>
-                <script  src="js/com/AutoScroller.js"></script>
-                <script  src="js/com/RowViewTwo.js"></script>
-                <script  src="js/com/BackboneTableTwo.js"></script>
-                <script src="js/com/Formatter.js"></script>
+                <script  src="js/agents/AutoScroller.js"></script>
+                <script  src="js/agents/RowViewTwo.js"></script>
+                <script  src="js/agents/BackboneTableTwo.js"></script>
+                <script src="js/agents/Formatter.js"></script>
                 <script  src="js/apps/Table1.js"></script>
-                <script  src="crawl/DisplayMessages.js"></script>
             </div>
         </div>
 
@@ -297,6 +292,6 @@
 
 
 </div>
-
+<script  src="crawl/DisplayMessages.js"></script>
 </body>
 </html>

@@ -1,0 +1,89 @@
+[
+  {
+	  "id":21,
+    "code":"VOICE_UNKNOWN",
+    "msg":"Agent device in an unknown state",
+    "status":"MAKE BUSY NO REASON – CREATE A SYMBOL",
+    "icon":"busy"
+  },
+  {
+	   "id":20,
+    "code":"VOICE_LOGGED_OUT",
+    "msg":"Logged out agent device",
+    "status":"SHOW AS LOGGED OUT",
+    "icon":"offline"
+  },
+  {
+	  "id":15,
+    "code":"VOICE_IDLE",
+    "msg":"Idle agent device.",
+    "status":"WAITING FOR A CALL",
+    "icon":"idle"
+  },
+  {
+	  "id":4,
+    "code":"VOICE_TALK_ACD",
+    "msg":"ACD call in progress for agent device.",
+    "status":"",
+    "icon":"acd"
+  },
+  {
+	  "id":5,
+    "code": "VOICE_HOLD_ACD",
+    "msg":"ACD call on hold for agent device.",
+    "status":"ON A CALL ACD",
+    "icon":"acd"
+  },
+  {
+	  "id":6,
+    "code": "VOICE_TALK_NONACD",
+    "msg":"Non-ACD call in progress for agent device.",
+    "status":"",
+    "icon":"nonACD"
+  },
+  {
+	  "id":7,
+    "code": "VOICE_HOLD_NONACD",
+    "msg":"Non-ACD call on hold for agent device.",
+    "status":" ON A CALL – NON ACD",
+    "icon":"nonACD"
+  },
+  {
+	  "id":8,
+    "code":"VOICE_TALK_OUT",
+    "msg": "Outbound call in progress for agent device.",
+    "status": "",
+    "icon": "outbound"
+  },
+  {
+	  "id":9,
+    "code":"VOICE_HOLD_OUT",
+    "msg":"Outbound call on hold for agent device.",
+    "status":"ON A CALL - ACD",
+    "icon":"acd"
+  },
+  {
+	  "id":10,
+    "code": "VOICE_WORK_TIMER",
+    "msg":"Work timer in effect for agent device.",
+    "status":"SHOW STATUS AS IS",
+    "icon":"work_timer"
+  },
+  {
+	  "id":11,
+    "code":"VOICE_SYSTEM_MAKE_BUSY",
+    "msg":"System Make Busy in effect for agent device.",
+    "status":"SHOW MAKE BUSY UNKNOWN",
+    "icon":"busy"
+  },
+  {
+	  "id":12,
+    "code":"VOICE_OFF_HOOK",
+    "msg":"Off-hook state for agent device.",
+    "status":"ON A CALL - ACD",
+    "icon":"acd"
+  }
+]
+
+
+

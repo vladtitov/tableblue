@@ -6,7 +6,6 @@
     
 
 module myapp{
-    //import color = d3.color;
     interface CellInfo{
         raw:number;
         type:string;
@@ -18,8 +17,6 @@ module myapp{
         numRows:number;
         cells:string[][];
         celsInfo:CellInfo[][];
-
-
     }
     interface TableResult {
         date: number;
@@ -38,7 +35,6 @@ module myapp{
         private url_data: string;
         private username:string;
         private collection: Table.AllMessageCollection;
-        
         
         private $btnSave:JQuery;
         InitTable (){
@@ -59,7 +55,6 @@ module myapp{
         saveData():void{
             if(confirm('You want to save a new data file?')){
                 var data:any[] = this.CleanData(this.collection.toJSON());
-                console.log(data);
                 $.post(this.url_data+'?username='+this.username,JSON.stringify(data)).done((res)=>{
 
                     if(res.success=='success') {
@@ -71,6 +66,10 @@ module myapp{
             }
         }
         
+        onAddClick():void{
+            this.collection.setRow();
+        }
+        
         private CleanData(data:any[]):any[]{
             var out:any[] = [];
             data.forEach(function (item) {
@@ -80,12 +79,16 @@ module myapp{
         }
 
         $fileInput:JQuery;
+        $btnAdd:JQuery;
         $btnDel:JQuery;
         $btnEdit:JQuery;
         constructor(opt:any){
             for(var str in opt){
                 this[str] = opt[str];
             }
+            this.$btnAdd = $('#btnAdd').click(()=>{
+                this.onAddClick();
+            });
             this.$btnSave = $('#btn-save').click(()=>{
                 this.saveData();
             });
@@ -118,11 +121,9 @@ module myapp{
                         contentType: false,
                         processData: false
                     }).done((res)=>{
-                        //console.log(res);
                         $.get(this.url_get_excel, {filename: res.result}).done((res)=>{
                             this.SetData(res);
                         })
-                      // this.onData(res);
                     })
                     input.remove()
                     this.$fileInput = null;
@@ -134,12 +135,7 @@ module myapp{
         onDeleteClick():void {
             if(confirm('Do you want to delete?')){
                 this.collection.setDestroy();
-                // console.log('Yes');
             }
-            else{
-                // console.log('No');
-            }
-                
         }
         onEditClick():void{
             this.collection.setEditable();
@@ -151,8 +147,6 @@ $(document).ready(function(){
     var options = {
         url_data:'crawl/crawl.php',
         username:'myname'
-        // btnDelete:'#btnDelete',
-        // btnEdit:'#btnEdit'
     }
     var app = new myapp.Main(options);
     app.InitTable();
