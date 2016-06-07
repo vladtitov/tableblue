@@ -5,6 +5,7 @@ module movingtext {
     export class Messages{
         private interval:number=200000;
         private height:number;
+        private isFirstTime:boolean=true;
         $el:JQuery;
         url:string;
         messages:Array<string>;
@@ -20,9 +21,14 @@ module movingtext {
         constructor(options:any){
             for(var str in options)this[str]=options[str];
             this.$el=$(options.selector);
+            this.interval = options.interval;
             this.height = this.$el.height();
+            this.messages = [];
             this.start();
             this.loadData();
+            setInterval( () =>{
+                this.loadData();
+            }, this.interval)
         }
 
 
@@ -32,14 +38,21 @@ module movingtext {
             this.position = 0;
             setTimeout( () => {
                 this.start();
-                this.loadData();
-            }, 5000);
+                this.scroll();
+            }, 1000);
          }
 
         private prev:number;
+        private even:number=0;
 
         scroll():void{
             if(this.isRuning)requestAnimationFrame(()=>{  this.scroll(); });
+            if (this.even===0) {
+                this.even = 1
+                return
+            } else {
+                this.even =0;
+            }
             this.$el.scrollTop(this.position+=this.speed);
             var w = this.$el.scrollTop();
             if(this.prev ==w)this.onScrollEnd();
@@ -57,8 +70,11 @@ module movingtext {
                     movingtext.Messages.sendError ("this messages null");
                     return;
                 }
-                this.render();
-                this.scroll();
+                if (this.isFirstTime){
+                    this.render();
+                    this.isFirstTime=false;
+                    this.scroll();
+                }
             });
         }
 
@@ -85,7 +101,7 @@ module movingtext {
 var MTROptions={
     selector:"#message-template",
     url:"crawl/gettext.php",
-    interval:25000,
+    interval:10000,
     speed:1
 }
 

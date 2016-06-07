@@ -3,15 +3,23 @@ var movingtext;
 (function (movingtext) {
     var Messages = (function () {
         function Messages(options) {
+            var _this = this;
             this.interval = 200000;
+            this.isFirstTime = true;
             this.position = 0;
             this.speed = 1;
+            this.even = 0;
             for (var str in options)
                 this[str] = options[str];
             this.$el = $(options.selector);
+            this.interval = options.interval;
             this.height = this.$el.height();
+            this.messages = [];
             this.start();
             this.loadData();
+            setInterval(function () {
+                _this.loadData();
+            }, this.interval);
         }
         Messages.sendError = function (message) {
             $.post("crawl/log.php", message);
@@ -23,13 +31,20 @@ var movingtext;
             this.position = 0;
             setTimeout(function () {
                 _this.start();
-                _this.loadData();
-            }, 5000);
+                _this.scroll();
+            }, 1000);
         };
         Messages.prototype.scroll = function () {
             var _this = this;
             if (this.isRuning)
                 requestAnimationFrame(function () { _this.scroll(); });
+            if (this.even === 0) {
+                this.even = 1;
+                return;
+            }
+            else {
+                this.even = 0;
+            }
             this.$el.scrollTop(this.position += this.speed);
             var w = this.$el.scrollTop();
             if (this.prev == w)
@@ -47,8 +62,11 @@ var movingtext;
                     movingtext.Messages.sendError("this messages null");
                     return;
                 }
-                _this.render();
-                _this.scroll();
+                if (_this.isFirstTime) {
+                    _this.render();
+                    _this.isFirstTime = false;
+                    _this.scroll();
+                }
             });
         };
         Messages.prototype.stop = function () {
@@ -71,7 +89,7 @@ var movingtext;
 var MTROptions = {
     selector: "#message-template",
     url: "crawl/gettext.php",
-    interval: 25000,
+    interval: 10000,
     speed: 1
 };
 var movingText = new movingtext.Messages(MTROptions);
