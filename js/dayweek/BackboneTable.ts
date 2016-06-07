@@ -29,7 +29,6 @@ module tables {
         }
 
         parse(res) {
-            console.log(res);
             _.map(res.agents, function (item:any) {
                 //item.id = item.AGENT_POSITION_ID;
                 item.non_prescriber = item['Non- prescriber'];

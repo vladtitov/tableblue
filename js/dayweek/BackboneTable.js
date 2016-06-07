@@ -29,7 +29,6 @@ var tables;
             }, 10000);
         }
         AgentsCollection.prototype.parse = function (res) {
-            console.log(res);
             _.map(res.agents, function (item) {
                 //item.id = item.AGENT_POSITION_ID;
                 item.non_prescriber = item['Non- prescriber'];

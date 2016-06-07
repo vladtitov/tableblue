@@ -51,7 +51,6 @@ var tables;
         }
         RowView.prototype.render = function () {
             var _this = this;
-            console.log('render');
             this.$el.html(RowView.template(this.model.toJSON()));
             setTimeout(function () {
                 _this.$el.find('.icon > div:first').addClass('out');
