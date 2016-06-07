@@ -6,11 +6,13 @@
  * Time: 22:09
  */
 
-function xmlReport($stampReport) {
-    $url = "http://callcenter.front-desk.ca//dashboard2/bsd.php?report=".$stampReport;
 
-    $filename='examples/BSR-Dayly.xml';
-    $output = file_get_contents($filename);
+function getXmlReport($stampReport) {
+    $url = "http://callcenter.front-desk.ca/data/".$stampReport;
+
+ //   $filename = 'examples/BSR-Dayly.xml';
+//    BSR-Wkly.xml
+   // $output = file_get_contents($url);
 
 // create curl resource
     $ch = curl_init();
@@ -19,10 +21,10 @@ function xmlReport($stampReport) {
 //return the transfer as a string
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 // $output contains the output string
-//    $output = curl_exec($ch);
+   $output = curl_exec($ch);
+    $xml = @simplexml_load_string($output);
 
-    $xml = simplexml_load_string($output);
-    $xml -> saveXML($stampReport."temp.xml");
+  /*  $xml -> saveXML($stampReport."temp.xml");*/
 
 // close curl resource to free up system resources
     curl_close($ch);
@@ -34,24 +36,14 @@ function checkTypeXml($xml, $type){
 }
 
 function makeArrInd($xml){
-    $Columns=getPath($xml,'//Columns/Column');
-    $Dimentions  = getPath($xml,'//Dimensions/Column');
-    $Columns = array_merge($Columns,$Dimentions );
+    $Columns = getPath($xml,'//Columns/Column');
+    $Dimentions = getPath($xml,'//Dimensions/Column');
+    $Columns = array_merge($Columns,$Dimentions);
 
-    $arrind=array();
+    $arrind = array();
     foreach($Columns as $val) $arrind[$val['ColumnId']] = $val['FieldName'];
 
     return $arrind;
-}
-
-function createAgents($rows, $arind) {
-    $agents = array();
-    foreach($rows as $row){
-        $item= array();
-        foreach($row as $key=>$val)	$item[$arind[$key]] = $val;
-        $agents[] = $item;
-    }
-    return $agents;
 }
 
 function getPath($xml,$path){
@@ -64,6 +56,16 @@ function getPath($xml,$path){
     return $out;
 }
 
+function createAgents($rows, $arind) {
+    $agents = array();
+    foreach($rows as $row){
+        $item = array();
+        foreach($row as $key=>$val)	$item[$arind[$key]] = $val;
+        $agents[] = $item;
+    }
+    return $agents;
+}
+
 function indexById($agents){
     $agentsind=array();
     foreach($agents as $agent){
@@ -73,9 +75,7 @@ function indexById($agents){
 
         $agentsind[$id][$agent['type']] = (int) $agent['ACTIVITY_OUTCOME_CODE'];
     }
-
     return 	$agentsind;
-
 }
 
 function formatArray($a) {
@@ -108,13 +108,5 @@ function formatTypes($agents,$agentsind){
     }
 }
 
-function errorLog($message){
-    error_log($message, 3, "errorlog.log");
-    die ($message);
-}
-
-function myLog($message){
-    error_log($message, 3, "log.log");
-}
 
 ?>

@@ -25,7 +25,7 @@ var tables;
                 id: 0,
                 name: '',
                 icon: '',
-                old_icon: 'great',
+                old_icon: 'icons/great.png',
                 Dial: 0,
                 Prescriber: 0,
                 non_prescriber: 0
@@ -51,6 +51,7 @@ var tables;
         }
         RowView.prototype.render = function () {
             var _this = this;
+            console.log('render');
             this.$el.html(RowView.template(this.model.toJSON()));
             setTimeout(function () {
                 _this.$el.find('.icon > div:first').addClass('out');

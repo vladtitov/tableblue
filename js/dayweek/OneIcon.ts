@@ -22,7 +22,7 @@ module tables{
                 id: 0,
                 name: '',
                 icon: '',
-                old_icon: 'great',
+                old_icon: 'icons/great.png',
                 Dial: 0,
                 Prescriber: 0,
                 non_prescriber: 0
@@ -50,6 +50,7 @@ module tables{
         }
 
         render() {
+            console.log('render');
             this.$el.html(RowView.template(this.model.toJSON()));
             setTimeout(()=>{
                 this.$el.find('.icon > div:first').addClass('out');
