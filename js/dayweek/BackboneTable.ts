@@ -1,9 +1,9 @@
 ///<reference path="../base.ts"/>
 
+///<reference path="OneIcon.ts"/>
 
-module tables {
-    import AgentModel = table.AgentModel;
-    import RowView = tables.OneIcon;
+module tables {   
+    
     
     export class AgentsCollection extends Backbone.Collection<AgentModel> {
         model:any = AgentModel;
@@ -50,7 +50,6 @@ module tables {
             RowView.template = _.template($(options.rowTempalete).html());
             this.collection = options.collection;
             this.collection.bind('remove', (evt)=> {
-                
             }, this);
 
             this.collection.bind("add", (evt)=> {
