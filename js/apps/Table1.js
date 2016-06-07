@@ -19,5 +19,8 @@ $(document).ready(function () {
         delay: 3,
         speed: 0.7
     });
+    setInterval(function () {
+        collectionTwo.fetch();
+    }, 10000);
 });
 //# sourceMappingURL=Table1.js.map
