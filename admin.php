@@ -47,7 +47,7 @@
                     }
                 </style>
                     <div>
-                        <span class="fa fa-table"></span>
+                        <span class="fa fa-commenting"></span>
                         Messages Marquee
                     </div>
                     <div>
