@@ -10,35 +10,22 @@
 function getXmlReport($stampReport) {
     $url = "http://callcenter.front-desk.ca/data/".$stampReport;
 
- //   $filename = 'examples/BSR-Dayly.xml';
-//    BSR-Wkly.xml
-   // $output = file_get_contents($url);
-
-// create curl resource
     $ch = curl_init();
-// set url
     curl_setopt($ch, CURLOPT_URL, $url);
-//return the transfer as a string
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// $output contains the output string
-   $output = curl_exec($ch);
+    $output = curl_exec($ch);
     $xml = @simplexml_load_string($output);
 
-  /*  $xml -> saveXML($stampReport."temp.xml");*/
-
-// close curl resource to free up system resources
     curl_close($ch);
     return $xml;
 }
 
-function checkTypeXml($xml, $type){
-    return true;
-}
-
 function makeArrInd($xml){
     $Columns = getPath($xml,'//Columns/Column');
+    if(!$Columns) return 0;
     $Dimentions = getPath($xml,'//Dimensions/Column');
-    $Columns = array_merge($Columns,$Dimentions);
+    if(!$Dimentions) return 0;
+    $Columns = array_merge($Columns, $Dimentions);
 
     $arrind = array();
     foreach($Columns as $val) $arrind[$val['ColumnId']] = $val['FieldName'];
@@ -105,12 +92,5 @@ function formatArray($a) {
     }
     return $out;
 }
-
-function formatTypes($agents,$agentsind){
-    foreach($agents as $agent){
-        //$agentsind[$agent['AGENT_POSITION_ID']]
-    }
-}
-
 
 ?>

@@ -40,16 +40,22 @@ function calculate($agents) {
         $agent['status'] = round($agent['calc']*1000)/10;
 
         $out[] = $agent;
-
-//	if($agent['status']<86){
-//		$agent['icon'] = 'ok';
-//	}else if($agent['status']<95){
-//		$agent['icon'] = 'good';
-//	}else {
-//		$agent['icon'] = 'great';
-//	}
-
     }
-
     return $out;
 }
+
+//
+
+//function test($stampReport, $agents){
+//    if($stampReport == 'w'){
+//        $str = json_encode($agents);
+//        $agentsdouble = json_decode($str);
+//        foreach($agents as $agent) {
+//            $agent['id'] = $agent['id'] + 1;
+//            $agentsdouble[] = $agent;
+//        }
+//        return $agentsdouble;
+//    } else {
+//        return $agents;
+//    }
+//}
