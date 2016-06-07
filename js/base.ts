@@ -15,6 +15,9 @@
 ///<reference path="agents/Formatter.ts"/>
 ///<reference path="agents/AutoScroller.ts"/>
 
+///<reference path="dayweek/AutoScroller.ts"/>
+
+
 
 
 

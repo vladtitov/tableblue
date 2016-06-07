@@ -19,6 +19,13 @@ $(document).ready(function () {
         delay: 3,
         speed: 0.7
     });
+    var scrollerDay = new utilsDay.AutoScroller({
+        scrollWindow: '#AgentsList1 .scroll-window',
+        scrollContent: '#AgentsList1 .scroll-content',
+        list: '#AgentsList1 .scroll-window tbody',
+        delay: 2,
+        speed: 0.7
+    });
     setInterval(function () {
         collectionTwo.fetch();
     }, 10000);

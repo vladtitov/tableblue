@@ -11,4 +11,5 @@
 ///<reference path="agents/RowViewTwo.ts"/>
 ///<reference path="agents/Formatter.ts"/>
 ///<reference path="agents/AutoScroller.ts"/>
+///<reference path="dayweek/AutoScroller.ts"/>
 //# sourceMappingURL=base.js.map

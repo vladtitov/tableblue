@@ -13,7 +13,6 @@ module utils{
        $scrollContent:JQuery;       
        $list:JQuery;
        windowWidtht:number;
-       // scrollWidtht:number=0;
        timerId:number;
        step:number=0;
        delay:number=1;
@@ -32,24 +31,17 @@ module utils{
         }
 
        private onScrollEnd():void{
-           console.log('scrollend');
            this.stop(null)
        }
 
        private checkScroll(){
            var scroll:number =  this.$scrollWindow.scrollLeft();
-           // if(scroll == this.actualScroll)this.onScrollEnd();
-           // this.actualScroll = scroll;
-
-           // console.log(this.$scrollWindow.width());
-           // console.log(this.$scrollContent.width());
 
            if(this.$scrollWindow.width() > this.$scrollContent.width()) {
                if (this.step == 1) {
                    this.step = 0;
                    this.currentScroll = 0;
                    this.$list.append(this.$list.children().first());
-                   // this.$list.append(this.$list.children().first());
                    this.$scrollWindow.scrollLeft(0);
                }
            }
@@ -57,7 +49,6 @@ module utils{
        private nextStep():void{
            //TODO from one to lines broken
            if(this.$scrollWindow.width() < this.$scrollContent.width()) {
-               console.log("No scroll");
                return;
            }
            var h:number = this.$list.children(this.step).width();
@@ -81,20 +72,14 @@ module utils{
            this.setWidth();
        }
         start(evt:JQueryEventObject):void{
-           // console.log('starting',this);
             if(this.isRunning) return;
             $(".scroll-window").css('overflow-x', 'hidden');
             this.timerId = setInterval(()=>{this.nextStep()},this.delay);
         }
         stop(evt:JQueryEventObject):void{
-
-            //console.log('stopping',this);
             clearInterval(this.timerId);
-
             this.isRunning=false;
             $(".scroll-window").css('overflow-x', 'auto');
-            // $(".nano").nanoScroller();
         }
     }
 }
-
