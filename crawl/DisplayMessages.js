@@ -89,7 +89,7 @@ var movingtext;
 var MTROptions = {
     selector: "#message-template",
     url: "crawl/gettext.php",
-    interval: 10000,
+    interval: 25000,
     speed: 1
 };
 var movingText = new movingtext.Messages(MTROptions);
