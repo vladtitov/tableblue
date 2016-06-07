@@ -2,8 +2,7 @@
 
 ///<reference path="OneIcon.ts"/>
 
-module tables {   
-    
+module tables {
     
     export class AgentsCollection extends Backbone.Collection<AgentModel> {
         model:any = AgentModel;
@@ -30,11 +29,11 @@ module tables {
         }
 
         parse(res) {
-
+            console.log(res);
             _.map(res.agents, function (item:any) {
                 item.id = item.AGENT_POSITION_ID;
                 item.non_prescriber = item['Non- prescriber'];
-                item.icon = '' + item.icon;
+               // item.icon = '' + item.icon;
             });
             return res.agents;
         }
@@ -75,7 +74,7 @@ module tables {
 $(document).ready(function(){
     console.log('ready');
     var collection = new tables.AgentsCollection({
-        url:'http://callcenter.front-desk.ca//dashboard2/bsd.php',
+        url:'dayweek/bsd.php',
         params:{
             report:'d'
         }
