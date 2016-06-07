@@ -9,24 +9,30 @@ include "calculator.php";
 
 $stampReport = isset($_GET['report'])?$_GET['report']:0;
 
+//var_dump($stampReport);
+//exit();
+
 if(!$stampReport) die('oops');
-if($stampReport=='w')$filename='examples/BSR-Wkly.xml';
-else if($stampReport=='d')$filename='examples/BSR-Dayly.xml';
+if($stampReport=='w') $filename = 'examples/BSR-Wkly.xml';
+else if($stampReport=='d') $filename = 'examples/BSR-Dayly.xml';
 else die("Need W or D!");
 
-$xml = xmlReport($stampReport);
+$settings = json_decode(file_get_contents("settings.json"));
+
+
+
+/// xmlReport start
+$xml = getXmlReport($stampReport);
 
 if (!checkTypeXml($xml, "Hello")) errorLog("checkTypeXml");
 
-$out= new stdClass();
+$out = new stdClass();
 
 $arrind = makeArrInd($xml);
 
-$rows= getPath($xml,'//DataDestination/Rows/Row');
+$rows = getPath($xml,'//DataDestination/Rows/Row');
 
 $agents = createAgents($rows, $arrind);
-
-$settings = json_decode(file_get_contents("settings.json"));
 
 //echo json_encode($agents);
 //exit();
@@ -39,9 +45,13 @@ $agents = calculate($agents);
 
 $agents = setCriteria($agents, $settings);
 
-$out->agents=$agents;// $agents;
+$out -> agents = $agents;// $agents;
 
-echo  json_encode($out);
+$out = json_encode($out);
+
+file_put_contents($stampReport.'.json', $out);
+
+echo $out;
 
 ////////////////////////  END CONTROLER  //////////////////
 
