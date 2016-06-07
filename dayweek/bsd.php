@@ -54,9 +54,27 @@ $agents = formatArray($indexed);
 $agents = calculate($agents);
 
 $agents = setCriteria($agents, $settings);
+$agents = test($stampReport, $agents);
+
+function test($stampReport, $agents){
+ if($stampReport == 'w'){
+  $str = json_encode($agents);
+  $agentsdouble = json_decode($str);
+  foreach($agents as $agent) {
+   $agent['id'] = $agent['id'] + 1;
+   $agentsdouble[] = $agent;
+  }
+  return $agentsdouble;
+ } else {
+  return $agents;
+ }
+}
 
 $out -> Report = $stampReport;
+
 $out -> agents = $agents;// $agents;
+
+$out -> count = count($agents);
 
 file_put_contents($stampReport.'.json', json_encode($out));
 
