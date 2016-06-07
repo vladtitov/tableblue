@@ -31,6 +31,9 @@ module movingtext {
         }
 
 
+
+
+
         private onScrollEnd():void{
             this.render();
             this.stop();
