@@ -71,7 +71,9 @@ function indexById($agents){
     foreach($agents as $agent){
         $id = $agent['AGENT_POSITION_ID'];
 
-        if (!isset($agentsind[$id])) $agentsind[$id] = $agent;
+        if (!isset($agentsind[$id])){
+            $agentsind[$id] = $agent;
+        }
 
         $agentsind[$id][$agent['type']] = (int) $agent['ACTIVITY_OUTCOME_CODE'];
     }
@@ -85,6 +87,8 @@ function formatArray($a) {
         unset($agent['type']);
         unset($agent['TEAM']);
         unset($agent['SERVICE']);
+
+        $agent['id'] = (int) $agent['AGENT_POSITION_ID'];
 
         if (!isset($agent['Dial'])) $agent['Dial'] = 0;
         if (!isset($agent['Prescriber'])) $agent['Prescriber'] = 0;
