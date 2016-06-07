@@ -70,3 +70,19 @@ module tables {
         }
     }
 }
+
+$(document).ready(function(){
+    console.log('ready');
+    var collection = new tables.AgentsCollection({
+        url:'http://callcenter.front-desk.ca//dashboard2/bsd.php',
+        params:{
+            report:'d'
+        }
+    });
+
+    var t = new tables.TableView({
+        container:'#AgentsList1',
+        rowTempalete:'#row-template',
+        collection:collection
+    });
+})

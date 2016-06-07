@@ -7,18 +7,7 @@
 
 $(document).ready(function(){
 
-    var collection = new tables.AgentsCollection({
-        url:'http://callcenter.front-desk.ca//dashboard2/bsd.php',
-        params:{
-            report:'d'
-        }
-    });
-    
-    var t = new tables.TableView({
-        container:'#AgentsList1',
-        rowTempalete:'#row-template',
-        collection:collection
-    });
+    console.log('ready');
 
     var collectionTwo = new tablesTwo.AgentsCollection({
         url:'agents/getagents.php'
