@@ -17,14 +17,8 @@ var utilsDay;
             this.init();
             setTimeout(function () { return _this.start(null); }, 2000);
         }
-        AutoScroller.prototype.onScrollEnd = function () {
-            // console.log('scrollend');
-            // this.stop(null)
-        };
         AutoScroller.prototype.checkScroll = function () {
             var scroll = this.$scrollWindow.scrollTop();
-            if (scroll == this.actualScroll)
-                this.onScrollEnd();
             this.actualScroll = scroll;
             if (this.$scrollWindow.height() < this.$scrollContent.height()) {
                 if (this.step == 2) {
@@ -38,7 +32,6 @@ var utilsDay;
         };
         AutoScroller.prototype.nextStep = function () {
             var _this = this;
-            //TODO from one to lines broken
             if (this.$scrollWindow.height() > this.$scrollContent.height()) {
                 return;
             }
@@ -63,13 +56,11 @@ var utilsDay;
         };
         AutoScroller.prototype.start = function (evt) {
             var _this = this;
-            console.log('starting', this);
             if (this.isRunning)
                 return;
             this.timerId = setInterval(function () { _this.nextStep(); }, this.delay);
         };
         AutoScroller.prototype.stop = function (evt) {
-            console.log('stopping', this);
             clearInterval(this.timerId);
             this.isRunning = false;
             // $(".nano").nanoScroller();

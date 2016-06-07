@@ -30,14 +30,8 @@ module utilsDay{
            setTimeout(()=>this.start(null),2000);
        }
 
-       private onScrollEnd():void{
-           // console.log('scrollend');
-           // this.stop(null)
-       }
-
        private checkScroll(){
            var scroll:number =  this.$scrollWindow.scrollTop();
-           if(scroll == this.actualScroll)this.onScrollEnd();
            this.actualScroll = scroll;
 
            if(this.$scrollWindow.height() < this.$scrollContent.height()) {
@@ -52,7 +46,6 @@ module utilsDay{
        }
 
        private nextStep():void{
-           //TODO from one to lines broken
            if(this.$scrollWindow.height() > this.$scrollContent.height()) {
                return;
            }
@@ -79,13 +72,11 @@ module utilsDay{
        }
 
        start(evt:JQueryEventObject):void {
-           console.log('starting',this);
            if(this.isRunning) return;
            this.timerId = setInterval(()=>{this.nextStep()},this.delay);
        }
 
        stop(evt:JQueryEventObject):void{
-           console.log('stopping',this);
            clearInterval(this.timerId);
            this.isRunning=false;
            // $(".nano").nanoScroller();

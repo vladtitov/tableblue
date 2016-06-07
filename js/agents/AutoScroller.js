@@ -16,9 +16,6 @@ var utils;
             this.init();
             setTimeout(function () { return _this.start(null); }, 2000);
         }
-        AutoScroller.prototype.onScrollEnd = function () {
-            this.stop(null);
-        };
         AutoScroller.prototype.checkScroll = function () {
             var scroll = this.$scrollWindow.scrollLeft();
             if (this.$scrollWindow.width() > this.$scrollContent.width()) {
@@ -32,7 +29,6 @@ var utils;
         };
         AutoScroller.prototype.nextStep = function () {
             var _this = this;
-            //TODO from one to lines broken
             if (this.$scrollWindow.width() < this.$scrollContent.width()) {
                 return;
             }
@@ -49,11 +45,10 @@ var utils;
             this.windowWidtht = this.$scrollWindow.width();
         };
         AutoScroller.prototype.init = function () {
-            var _this = this;
             this.delay = this.delay * 1000;
             this.speed = this.speed * 1000;
-            this.$scrollWindow.on('mouseover', function (evt) { return _this.stop(evt); });
-            this.$scrollWindow.on('mouseleave', function (evt) { return _this.start(evt); });
+            // this.$scrollWindow.on('mouseover',(evt)=>this.stop(evt));
+            // this.$scrollWindow.on('mouseleave',(evt)=>this.start(evt));
             this.setWidth();
         };
         AutoScroller.prototype.start = function (evt) {
@@ -66,7 +61,7 @@ var utils;
         AutoScroller.prototype.stop = function (evt) {
             clearInterval(this.timerId);
             this.isRunning = false;
-            $(".scroll-window").css('overflow-x', 'auto');
+            // $(".scroll-window").css('overflow-x', 'auto');
         };
         return AutoScroller;
     }());

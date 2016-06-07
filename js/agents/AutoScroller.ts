@@ -30,10 +30,6 @@ module utils{
             setTimeout(()=>this.start(null),2000);
         }
 
-       private onScrollEnd():void{
-           this.stop(null)
-       }
-
        private checkScroll(){
            var scroll:number =  this.$scrollWindow.scrollLeft();
 
@@ -47,7 +43,6 @@ module utils{
            }
        }
        private nextStep():void{
-           //TODO from one to lines broken
            if(this.$scrollWindow.width() < this.$scrollContent.width()) {
                return;
            }
@@ -67,8 +62,8 @@ module utils{
        init():void{
            this.delay = this.delay*1000;
            this.speed = this.speed*1000;
-           this.$scrollWindow.on('mouseover',(evt)=>this.stop(evt));
-           this.$scrollWindow.on('mouseleave',(evt)=>this.start(evt));
+           // this.$scrollWindow.on('mouseover',(evt)=>this.stop(evt));
+           // this.$scrollWindow.on('mouseleave',(evt)=>this.start(evt));
            this.setWidth();
        }
         start(evt:JQueryEventObject):void{
@@ -79,7 +74,7 @@ module utils{
         stop(evt:JQueryEventObject):void{
             clearInterval(this.timerId);
             this.isRunning=false;
-            $(".scroll-window").css('overflow-x', 'auto');
+            // $(".scroll-window").css('overflow-x', 'auto');
         }
     }
 }
