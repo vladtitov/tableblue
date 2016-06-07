@@ -10,9 +10,9 @@
 function getXmlReport($stampReport) {
     $url = "http://callcenter.front-desk.ca/data/".$stampReport;
 
-    $filename = 'examples/BSR-Dayly.xml';
+ //   $filename = 'examples/BSR-Dayly.xml';
 //    BSR-Wkly.xml
-    $output = file_get_contents($url);
+   // $output = file_get_contents($url);
 
 // create curl resource
     $ch = curl_init();
@@ -21,10 +21,10 @@ function getXmlReport($stampReport) {
 //return the transfer as a string
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 // $output contains the output string
-//    $output = curl_exec($ch);
+   $output = curl_exec($ch);
+    $xml = @simplexml_load_string($output);
 
-    $xml = simplexml_load_string($output);
-    $xml -> saveXML($stampReport."temp.xml");
+  /*  $xml -> saveXML($stampReport."temp.xml");*/
 
 // close curl resource to free up system resources
     curl_close($ch);
@@ -108,13 +108,5 @@ function formatTypes($agents,$agentsind){
     }
 }
 
-function errorLog($message){
-    error_log($message, 3, "errorlog.log");
-    die ($message);
-}
-
-function myLog($message){
-    error_log($message, 3, "log.log");
-}
 
 ?>
