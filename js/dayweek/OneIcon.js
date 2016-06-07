@@ -13,7 +13,7 @@ var tables;
         function VOAgent() {
         }
         return VOAgent;
-    }());
+    })();
     tables.VOAgent = VOAgent;
     var AgentModel = (function (_super) {
         __extends(AgentModel, _super);
@@ -39,7 +39,7 @@ var tables;
             this.set('old_icon', this.previous('icon'));
         };
         return AgentModel;
-    }(Backbone.Model));
+    })(Backbone.Model);
     tables.AgentModel = AgentModel;
     var RowView = (function (_super) {
         __extends(RowView, _super);
@@ -66,7 +66,7 @@ var tables;
             return this;
         };
         return RowView;
-    }(Backbone.View));
+    })(Backbone.View);
     tables.RowView = RowView;
 })(tables || (tables = {}));
 //# sourceMappingURL=OneIcon.js.map
