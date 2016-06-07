@@ -60,7 +60,6 @@ $agents = formatArray($indexed);
 $agents = calculate($agents);
 
 $agents = setCriteria($agents, $settings);
-$agents = test($stampReport, $agents);
 
 $out -> Report = $stampReport;
 
