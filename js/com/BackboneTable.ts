@@ -4,10 +4,6 @@
 module tables {
     import AgentModel = table.AgentModel;
     import RowView = tables.OneIcon;
-    // import RowView = tables.RowViewNested;
-    // import RowView = Table.PersonView;
-
-    // import RowView = tables.RowViewSimple;
     
     export class AgentsCollection extends Backbone.Collection<AgentModel> {
         model:any = AgentModel;
@@ -19,7 +15,6 @@ module tables {
             this.url = options.url;
             this.params = options.params;
             this.fetch({data: this.params});
-            // console.log(this.params);
             
             setInterval(()=>{
                 if(this.params.report == 'd') {
@@ -31,7 +26,7 @@ module tables {
                     $('#DailyWeekly').text('Daily Report');
                 }
                 this.fetch({data: this.params});
-            },5000);
+            },10000);
         }
 
         parse(res) {
@@ -46,8 +41,6 @@ module tables {
 
 
     export class TableView extends Backbone.View<AgentModel> {
-        collectionAgentsC;
-
         container:JQuery;
 
         constructor(options) {
@@ -57,24 +50,23 @@ module tables {
             RowView.template = _.template($(options.rowTempalete).html());
             this.collection = options.collection;
             this.collection.bind('remove', (evt)=> {
-                // console.log('remove', evt);
+                
             }, this);
 
             this.collection.bind("add", (evt)=> {
-                //  console.log('add',evt);
                 var row = new RowView({model: evt, tagName: 'tr'});
                 this.$el.append(row.render().el);
             }, this);
 
             this.render = function () {
-                console.log(this);
+                
                 return this;
             }
 
         }
 
         render():TableView {
-            console.log('render');
+            
             return this;
         }
     }

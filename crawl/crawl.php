@@ -15,12 +15,12 @@
 	}
 	else {
 		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-			$out = file_get_contents('crawl.json');
+			$out = json_decode(file_get_contents('crawl.json'));
 		} else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			if (file_exists('crawl.json')) copy('crawl.json', 'crawl' . time() . '.json');
+			if (file_exists('crawl.json')) copy('crawl.json', 'crawlold.json');
 			$data = json_decode(file_get_contents('php://input'));
 			$out->result = file_put_contents('crawl.json', json_encode($data));
 		}
 	}
-	echo $out;
+	echo json_encode($out);
 ?>

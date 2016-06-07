@@ -10,7 +10,7 @@ module tables{
 
     export class OneIcon extends Backbone.View<AgentModel>{
         model:AgentModel;
-        static template:any
+        static template:any;
 
         private $icon:JQuery;
         private $icon_child:JQuery;
@@ -18,7 +18,6 @@ module tables{
         constructor(options:any){
             super(options);
             this.model.on('change', ()=> this.render());
-            this.model.bind('destroy',()=>this.destroy());
             this.model.bind('remove',()=>this.remove());
         }
 
@@ -36,13 +35,6 @@ module tables{
                 super.remove();
             })
             return this;
-
-        }
-        add():void{
-            console.log('add');
-        }
-        destroy():void{
-            console.log('destroy');
         }
     }
 }

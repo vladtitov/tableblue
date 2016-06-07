@@ -32,7 +32,6 @@ module table{
             this.on('change:icon', (evt)=> this.onIcon(evt));
         }
         onIcon(evt):void {
-            // console.log(evt);
             this.set('old_icon', this.previous('icon'));
         }
     }

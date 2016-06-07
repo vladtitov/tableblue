@@ -1,3 +1,3 @@
 <?php
-error_log("php://input", 3, "frontend.error");
+error_log(file_get_contents("php://input"), 3, "frontend.error");
 ?>

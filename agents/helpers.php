@@ -22,18 +22,18 @@ function getXML($stemp){
 function parseFile($xml,$satamp){
     $satamp = strtotime(str_replace('T',' ',$satamp));
     $list = array();
-    $mb = getAsObject('MakeBusyReason.json');
-    $ps = getAsObject('PersonState.json');
+//    $mb = getAsObject('MakeBusyReason.json');
+//    $ps = getAsObject('PersonState.json');
     
-    if ($mb == 0 || $ps == 0) {
-        logError ('Error parseFile: MakeBusyReason.json PersonState.json');
-        return 0;
-    }
+//    if ($mb == 0 || $ps == 0) {
+//        logError ('Error parseFile: MakeBusyReason.json PersonState.json');
+//        return 0;
+//    }
     
     $states=array();
     $out=new stdClass();
     
-    if (count($xml->children()) == 0){
+    if (count($xml->children()) > 0){
         logError ('Error parseFile: xml children');
         return 0;
     }

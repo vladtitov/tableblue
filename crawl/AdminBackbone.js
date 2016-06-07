@@ -17,7 +17,7 @@ var Table;
         Message.prototype.defaults = function () {
             return {
                 msg: '',
-                active: true,
+                active: false,
                 selected: false,
                 location: '',
                 editable: false
@@ -77,7 +77,7 @@ var Table;
             this.$el.removeClass('warning').addClass('info');
             var myevent = this.$el.find('.myevent').attr('contenteditable', true);
             myevent.blur(function () {
-                _this.model.set('msg', myevent.children().text());
+                _this.model.set('msg', myevent.text());
             });
         };
         MessageView.prototype.remove = function () {
@@ -105,6 +105,9 @@ var Table;
                 this[str] = options[str];
             this.listenTo(this, 'selectedModel', this.ModelSelected);
         }
+        AllMessageCollection.prototype.setRow = function () {
+            this.add(new Message());
+        };
         AllMessageCollection.prototype.setEditable = function () {
             if (this.selectedModel) {
                 this.selectedModel.set('editable', true);

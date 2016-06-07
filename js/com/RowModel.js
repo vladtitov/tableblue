@@ -36,7 +36,6 @@ var table;
             this.on('change:icon', function (evt) { return _this.onIcon(evt); });
         };
         AgentModel.prototype.onIcon = function (evt) {
-            // console.log(evt);
             this.set('old_icon', this.previous('icon'));
         };
         return AgentModel;

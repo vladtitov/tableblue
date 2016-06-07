@@ -11,10 +11,12 @@ if(isset($_GET['stamp'])) $stamp = $_GET['stamp'];
 $result=0;
 $out=new stdClass();
 $xml =  getXML($stamp);
+if ($xml == 0){
+    exit;
+}
 
 $record = parseFile($xml, $stamp);
 if ($record == 0){
-    logError ('Error parseFile function');
     exit;
 }
 $out->stamp = $stamp;

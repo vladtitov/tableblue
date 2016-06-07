@@ -15,7 +15,6 @@ var tables;
             var _this = this;
             _super.call(this, options);
             this.model.on('change', function () { return _this.render(); });
-            this.model.bind('destroy', function () { return _this.destroy(); });
             this.model.bind('remove', function () { return _this.remove(); });
         }
         OneIcon.prototype.render = function () {
@@ -33,12 +32,6 @@ var tables;
                 _super.prototype.remove.call(_this);
             });
             return this;
-        };
-        OneIcon.prototype.add = function () {
-            console.log('add');
-        };
-        OneIcon.prototype.destroy = function () {
-            console.log('destroy');
         };
         return OneIcon;
     }(Backbone.View));

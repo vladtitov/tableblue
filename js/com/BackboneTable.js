@@ -8,9 +8,6 @@ var tables;
 (function (tables) {
     var AgentModel = table.AgentModel;
     var RowView = tables.OneIcon;
-    // import RowView = tables.RowViewNested;
-    // import RowView = Table.PersonView;
-    // import RowView = tables.RowViewSimple;
     var AgentsCollection = (function (_super) {
         __extends(AgentsCollection, _super);
         function AgentsCollection(options) {
@@ -20,7 +17,6 @@ var tables;
             this.url = options.url;
             this.params = options.params;
             this.fetch({ data: this.params });
-            // console.log(this.params);
             setInterval(function () {
                 if (_this.params.report == 'd') {
                     _this.params.report = 'w';
@@ -31,7 +27,7 @@ var tables;
                     $('#DailyWeekly').text('Daily Report');
                 }
                 _this.fetch({ data: _this.params });
-            }, 5000);
+            }, 10000);
         }
         AgentsCollection.prototype.parse = function (res) {
             _.map(res.agents, function (item) {
@@ -54,20 +50,16 @@ var tables;
             RowView.template = _.template($(options.rowTempalete).html());
             this.collection = options.collection;
             this.collection.bind('remove', function (evt) {
-                // console.log('remove', evt);
             }, this);
             this.collection.bind("add", function (evt) {
-                //  console.log('add',evt);
                 var row = new RowView({ model: evt, tagName: 'tr' });
                 _this.$el.append(row.render().el);
             }, this);
             this.render = function () {
-                console.log(this);
                 return this;
             };
         }
         TableView.prototype.render = function () {
-            console.log('render');
             return this;
         };
         return TableView;
