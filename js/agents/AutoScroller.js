@@ -79,7 +79,7 @@ var utils;
             // $(".nano").nanoScroller();
         };
         return AutoScroller;
-    }());
+    })();
     utils.AutoScroller = AutoScroller;
 })(utils || (utils = {}));
 //# sourceMappingURL=AutoScroller.js.map
