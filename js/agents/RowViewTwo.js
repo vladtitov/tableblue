@@ -9,6 +9,36 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var tablesTwo;
 (function (tablesTwo) {
+    var VOAgent = (function () {
+        function VOAgent() {
+        }
+        return VOAgent;
+    }());
+    tablesTwo.VOAgent = VOAgent;
+    var AgentModel = (function (_super) {
+        __extends(AgentModel, _super);
+        function AgentModel() {
+            _super.apply(this, arguments);
+        }
+        AgentModel.prototype.initialize = function () {
+            var _this = this;
+            if (this.get('time') > 0) {
+                setInterval(function () {
+                    var t = _this.get('time') + 1;
+                    _this.set('time', t);
+                }, 1000);
+            }
+        };
+        AgentModel.prototype.defaults = function () {
+            return {
+                id: 0,
+                icon: '',
+                time: 0
+            };
+        };
+        return AgentModel;
+    }(Backbone.Model));
+    tablesTwo.AgentModel = AgentModel;
     var RowViewTwo = (function (_super) {
         __extends(RowViewTwo, _super);
         function RowViewTwo(options) {

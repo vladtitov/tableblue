@@ -10,15 +10,27 @@ if(isset($_GET['stamp'])) $stamp = $_GET['stamp'];
 
 $result=0;
 $out=new stdClass();
-$xml =  getXML($stamp);
-if ($xml == 0){
+try {
+    $xml = getXML($stamp);
+}
+catch (Exception $e) {
+    logError ('Error getXML');
     exit;
 }
 
-$record = parseFile($xml, $stamp);
-if ($record == 0){
+$mb = getAsObject('MakeBusyReason.json');
+$ps = getAsObject('PersonState.json');
+if ($mb == 0 || $ps == 0) {
+    logError ('Error parseFile: MakeBusyReason.json PersonState.json');
     exit;
 }
+
+$record = parseFile($xml, $stamp, $mb, $ps);
+if ($record == 0){
+    logError ('Error parseFile: xml children');
+    exit;
+}
+
 $out->stamp = $stamp;
 $out->total= count($record->list);
 $out->list = $record->list;

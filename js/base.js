@@ -8,10 +8,8 @@
 ///<reference path="com/BackboneTable.ts"/>
 ///<reference path="com/RowModel.ts"/>
 ///<reference path="com/OneIcon.ts"/>
-///<reference path="com/BackboneTableTwo.ts"/>
-///<reference path="com/RowModelTwo.ts"/>
-///<reference path="com/RowViewTwo.ts"/>
-///<reference path="com/Formatter.ts"/>
-///<reference path="com/AutoScroller.ts"/>
-///<reference path="com/BackboneMessage.ts"/>
+///<reference path="agents/BackboneTableTwo.ts"/>
+///<reference path="agents/RowViewTwo.ts"/>
+///<reference path="agents/Formatter.ts"/>
+///<reference path="agents/AutoScroller.ts"/>
 //# sourceMappingURL=base.js.map
