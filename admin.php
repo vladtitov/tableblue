@@ -48,7 +48,7 @@
                 </style>
                     <div>
                         <span class="fa fa-table"></span>
-                        Crawl messages
+                        Messages Marquee
                     </div>
                     <div>
                         <a id="btnEdit" class="btn">
