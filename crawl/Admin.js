@@ -11,6 +11,9 @@ var myapp;
             for (var str in opt) {
                 this[str] = opt[str];
             }
+            this.$btnAdd = $('#btnAdd').click(function () {
+                _this.onAddClick();
+            });
             this.$btnSave = $('#btn-save').click(function () {
                 _this.saveData();
             });
@@ -67,7 +70,6 @@ var myapp;
             var _this = this;
             if (confirm('You want to save a new data file?')) {
                 var data = this.CleanData(this.collection.toJSON());
-                console.log(data);
                 $.post(this.url_data + '?username=' + this.username, JSON.stringify(data)).done(function (res) {
                     if (res.success == 'success') {
                         alert('New data was saved on server');
@@ -77,6 +79,9 @@ var myapp;
                         alert('Error save data');
                 });
             }
+        };
+        Main.prototype.onAddClick = function () {
+            this.collection.setRow();
         };
         Main.prototype.CleanData = function (data) {
             var out = [];

@@ -17,7 +17,7 @@ module Table {
         defaults() : TextMess{
             return {
                 msg: '',
-                active: true,
+                active: false,
                 selected: false,
                 location: '',
                 editable: false
@@ -80,7 +80,7 @@ module Table {
             this.$el.removeClass('warning').addClass('info');
             var myevent:JQuery = this.$el.find('.myevent').attr('contenteditable', true);
             myevent.blur( ()=>{
-                this.model.set('msg', myevent.children().text());
+                this.model.set('msg', myevent.text());
             })
         }
 
@@ -106,7 +106,11 @@ module Table {
             for (var str in options) this[str] = options [str];
             this.listenTo(this, 'selectedModel', this.ModelSelected);
         }
-
+        
+        setRow():void{
+            this.add(new Message());
+        }
+        
         setEditable():void{
             if(this.selectedModel){
                 this.selectedModel.set('editable',true);

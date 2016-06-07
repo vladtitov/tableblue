@@ -55,7 +55,6 @@ module myapp{
         saveData():void{
             if(confirm('You want to save a new data file?')){
                 var data:any[] = this.CleanData(this.collection.toJSON());
-                console.log(data);
                 $.post(this.url_data+'?username='+this.username,JSON.stringify(data)).done((res)=>{
 
                     if(res.success=='success') {
@@ -67,6 +66,10 @@ module myapp{
             }
         }
         
+        onAddClick():void{
+            this.collection.setRow();
+        }
+        
         private CleanData(data:any[]):any[]{
             var out:any[] = [];
             data.forEach(function (item) {
@@ -76,12 +79,16 @@ module myapp{
         }
 
         $fileInput:JQuery;
+        $btnAdd:JQuery;
         $btnDel:JQuery;
         $btnEdit:JQuery;
         constructor(opt:any){
             for(var str in opt){
                 this[str] = opt[str];
             }
+            this.$btnAdd = $('#btnAdd').click(()=>{
+                this.onAddClick();
+            });
             this.$btnSave = $('#btn-save').click(()=>{
                 this.saveData();
             });

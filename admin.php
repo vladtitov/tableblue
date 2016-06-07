@@ -51,6 +51,12 @@
                         Messages Marquee
                     </div>
                     <div>
+                        <a id="btnAdd" class="btn">
+                            <span class="fa fa-plus"></span>
+                            <span>Add</span>
+                        </a>
+                    </div>
+                    <div>
                         <a id="btnEdit" class="btn">
                             <span class="fa fa-edit"></span>
                             <span>Edit</span>
@@ -94,7 +100,7 @@
                                 <input type="checkbox" class="mychecked" <%=active%>/>
                             </td>
                             <td class="myevent">
-                                <span><%=msg%></span>
+                                <%=msg%>
                             </td>
                         </script>
                         <thead>
