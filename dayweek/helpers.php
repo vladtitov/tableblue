@@ -8,10 +8,11 @@
 
 
 function getXmlReport($stampReport) {
-    $url = "http://callcenter.front-desk.ca//dashboard2/bsd.php?report=".$stampReport;
+    $url = "http://callcenter.front-desk.ca/data/".$stampReport;
 
     $filename = 'examples/BSR-Dayly.xml';
-    $output = file_get_contents($filename);
+//    BSR-Wkly.xml
+    $output = file_get_contents($url);
 
 // create curl resource
     $ch = curl_init();

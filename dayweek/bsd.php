@@ -13,8 +13,8 @@ $stampReport = isset($_GET['report'])?$_GET['report']:0;
 //exit();
 
 if(!$stampReport) die('oops');
-if($stampReport=='w') $filename = 'examples/BSR-Wkly.xml';
-else if($stampReport=='d') $filename = 'examples/BSR-Dayly.xml';
+if($stampReport=='w') $filename = 'BSR-Wkly.xml';
+else if($stampReport=='d') $filename = 'BSR-Dayly.xml';
 else die("Need W or D!");
 
 $settings = json_decode(file_get_contents("settings.json"));
@@ -29,7 +29,7 @@ if(file_exists($stampReport.'.json')){
 }
 
 /// xmlReport start
-$xml = getXmlReport($stampReport);
+$xml = getXmlReport($filename);
 
 if (!checkTypeXml($xml, "Hello")) errorLog("checkTypeXml");
 
