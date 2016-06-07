@@ -7,9 +7,8 @@
 ///<reference path="../typings/require.d.ts"/>
 ///<reference path="../typings/backbone-global.d.ts"/>
 
-///<reference path="com/BackboneTable.ts"/>
-///<reference path="com/RowModel.ts"/>
-///<reference path="com/OneIcon.ts"/>
+///<reference path="dayweek/BackboneTable.ts"/>
+///<reference path="dayweek/OneIcon.ts"/>
 
 ///<reference path="agents/BackboneTableTwo.ts"/>
 ///<reference path="agents/RowViewTwo.ts"/>

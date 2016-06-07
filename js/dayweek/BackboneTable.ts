@@ -1,9 +1,9 @@
 ///<reference path="../base.ts"/>
 
+///<reference path="OneIcon.ts"/>
 
-module tables {
-    import AgentModel = table.AgentModel;
-    import RowView = tables.OneIcon;
+module tables {   
+    
     
     export class AgentsCollection extends Backbone.Collection<AgentModel> {
         model:any = AgentModel;
@@ -50,7 +50,6 @@ module tables {
             RowView.template = _.template($(options.rowTempalete).html());
             this.collection = options.collection;
             this.collection.bind('remove', (evt)=> {
-                
             }, this);
 
             this.collection.bind("add", (evt)=> {
@@ -71,3 +70,19 @@ module tables {
         }
     }
 }
+
+$(document).ready(function(){
+    console.log('ready');
+    var collection = new tables.AgentsCollection({
+        url:'http://callcenter.front-desk.ca//dashboard2/bsd.php',
+        params:{
+            report:'d'
+        }
+    });
+
+    var t = new tables.TableView({
+        container:'#AgentsList1',
+        rowTempalete:'#row-template',
+        collection:collection
+    });
+})

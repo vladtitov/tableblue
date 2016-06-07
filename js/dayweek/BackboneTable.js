@@ -4,16 +4,15 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+///<reference path="OneIcon.ts"/>
 var tables;
 (function (tables) {
-    var AgentModel = table.AgentModel;
-    var RowView = tables.OneIcon;
     var AgentsCollection = (function (_super) {
         __extends(AgentsCollection, _super);
         function AgentsCollection(options) {
             var _this = this;
             _super.call(this, options);
-            this.model = AgentModel;
+            this.model = tables.AgentModel;
             this.url = options.url;
             this.params = options.params;
             this.fetch({ data: this.params });
@@ -47,12 +46,12 @@ var tables;
             _super.call(this, options);
             this.container = $(options.container);
             this.setElement(this.container.find('tbody').first(), true);
-            RowView.template = _.template($(options.rowTempalete).html());
+            tables.RowView.template = _.template($(options.rowTempalete).html());
             this.collection = options.collection;
             this.collection.bind('remove', function (evt) {
             }, this);
             this.collection.bind("add", function (evt) {
-                var row = new RowView({ model: evt, tagName: 'tr' });
+                var row = new tables.RowView({ model: evt, tagName: 'tr' });
                 _this.$el.append(row.render().el);
             }, this);
             this.render = function () {
@@ -66,4 +65,18 @@ var tables;
     }(Backbone.View));
     tables.TableView = TableView;
 })(tables || (tables = {}));
+$(document).ready(function () {
+    console.log('ready');
+    var collection = new tables.AgentsCollection({
+        url: 'http://callcenter.front-desk.ca//dashboard2/bsd.php',
+        params: {
+            report: 'd'
+        }
+    });
+    var t = new tables.TableView({
+        container: '#AgentsList1',
+        rowTempalete: '#row-template',
+        collection: collection
+    });
+});
 //# sourceMappingURL=BackboneTable.js.map
