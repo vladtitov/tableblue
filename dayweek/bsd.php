@@ -16,14 +16,14 @@ else die("Need W or D!");
 
 $settings = json_decode(file_get_contents("settings.json"));
 
-/*if(file_exists($stampReport.'.json')){
+if(file_exists($stampReport.'.json')){
  $cuarrent = time();
  $filetime = filemtime($stampReport.'.json');
- if($cuarrent-$filetime < 1){
+ if($cuarrent-$filetime < 60){
   echo file_get_contents($stampReport.'.json');
   exit();
  }
-}*/
+}
 
 /// xmlReport start
 
@@ -34,41 +34,33 @@ if(!$xml){
  exit;
 }
 
-if (!checkTypeXml($xml, "Hello")) errorLog("checkTypeXml");
-
 $out = new stdClass();
 
 $arrind = makeArrInd($xml);
 
+if($arrind === 0) {
+ errorLog(' no Columns or Dimensions in xml');
+ exit;
+}
+
 $rows = getPath($xml,'//DataDestination/Rows/Row');
+
+if(!$rows){
+ errorLog(' no Rows in xml');
+ exit;
+}
 
 $agents = createAgents($rows, $arrind);
 
-//echo json_encode($agents);
-//exit();
+
 $indexed = indexById($agents);
 $agents = formatArray($indexed);
-//echo json_encode($agents);
-//exit();
+
 
 $agents = calculate($agents);
 
 $agents = setCriteria($agents, $settings);
 $agents = test($stampReport, $agents);
-
-function test($stampReport, $agents){
- if($stampReport == 'w'){
-  $str = json_encode($agents);
-  $agentsdouble = json_decode($str);
-  foreach($agents as $agent) {
-   $agent['id'] = $agent['id'] + 1;
-   $agentsdouble[] = $agent;
-  }
-  return $agentsdouble;
- } else {
-  return $agents;
- }
-}
 
 $out -> Report = $stampReport;
 
