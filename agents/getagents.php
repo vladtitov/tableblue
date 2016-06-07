@@ -1,6 +1,17 @@
 <?
 header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *");
+
+if(file_exists('agents.json')) {
+    $curent = time();
+    $file_time = filemtime('agents.json');
+    if($curent-$file_time<60){
+        echo file_get_contents('agents.json');
+        exit;
+    }
+}
+
+
 include ('helpers.php');
 ini_set('display_errors', 1);
 error_reporting(E_ALL ^ E_NOTICE);
@@ -35,5 +46,8 @@ $out->stamp = $stamp;
 $out->total= count($record->list);
 $out->list = $record->list;
 $out->states = $record->states;
+
+file_put_contents('agents.json', json_encode($out));
+
 echo json_encode($out);
 ?>
