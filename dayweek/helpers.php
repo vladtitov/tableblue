@@ -6,15 +6,6 @@
  * Time: 22:09
  */
 
-function checkReport($stampReport) {
-    if(file_exists($stampReport.'.json')){
-        filemtime()
-        $agents = file_get_contents($stampReport.'.json');
-        return $agents;
-    } else {
-        return false;
-    }
-}
 
 function getXmlReport($stampReport) {
     $url = "http://callcenter.front-desk.ca//dashboard2/bsd.php?report=".$stampReport;

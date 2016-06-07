@@ -4,8 +4,8 @@ include "calculator.php";
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL ^ E_NOTICE);
 
-//header('Content-type: application/json');
-//header("Access-Control-Allow-Origin: *");
+header('Content-type: application/json');
+header("Access-Control-Allow-Origin: *");
 
 $stampReport = isset($_GET['report'])?$_GET['report']:0;
 
@@ -19,7 +19,14 @@ else die("Need W or D!");
 
 $settings = json_decode(file_get_contents("settings.json"));
 
-
+if(file_exists($stampReport.'.json')){
+ $cuarrent = time();
+ $filetime = filemtime($stampReport.'.json');
+ if($cuarrent-$filetime < 1){
+  echo file_get_contents($stampReport.'.json');
+  exit();
+ }
+}
 
 /// xmlReport start
 $xml = getXmlReport($stampReport);
@@ -45,13 +52,12 @@ $agents = calculate($agents);
 
 $agents = setCriteria($agents, $settings);
 
+$out -> Report = $stampReport;
 $out -> agents = $agents;// $agents;
 
-$out = json_encode($out);
+file_put_contents($stampReport.'.json', json_encode($out));
 
-file_put_contents($stampReport.'.json', $out);
-
-echo $out;
+echo json_encode($out);
 
 ////////////////////////  END CONTROLER  //////////////////
 
