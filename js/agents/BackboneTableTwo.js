@@ -25,7 +25,7 @@ var tablesTwo;
             return res.list;
         };
         return AgentsCollection;
-    })(Backbone.Collection);
+    }(Backbone.Collection));
     tablesTwo.AgentsCollection = AgentsCollection;
     var TableView = (function (_super) {
         __extends(TableView, _super);
@@ -50,7 +50,7 @@ var tablesTwo;
             return this;
         };
         return TableView;
-    })(Backbone.View);
+    }(Backbone.View));
     tablesTwo.TableView = TableView;
 })(tablesTwo || (tablesTwo = {}));
 //# sourceMappingURL=BackboneTableTwo.js.map

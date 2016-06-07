@@ -13,7 +13,7 @@ var tablesTwo;
         function VOAgent() {
         }
         return VOAgent;
-    })();
+    }());
     tablesTwo.VOAgent = VOAgent;
     var AgentModel = (function (_super) {
         __extends(AgentModel, _super);
@@ -37,7 +37,7 @@ var tablesTwo;
             };
         };
         return AgentModel;
-    })(Backbone.Model);
+    }(Backbone.Model));
     tablesTwo.AgentModel = AgentModel;
     var RowViewTwo = (function (_super) {
         __extends(RowViewTwo, _super);
@@ -92,7 +92,7 @@ var tablesTwo;
             console.log('destroy');
         };
         return RowViewTwo;
-    })(Backbone.View);
+    }(Backbone.View));
     tablesTwo.RowViewTwo = RowViewTwo;
 })(tablesTwo || (tablesTwo = {}));
 //# sourceMappingURL=RowViewTwo.js.map
