@@ -97,6 +97,16 @@
                                 <span><%=msg%></span>
                             </td>
                         </script>
+                        <thead>
+                        <tr>
+                            <th>
+                                Active
+                            </th>
+                            <th class="text-center">
+                                Content
+                            </th>
+                        </tr>
+                        </thead>
                         <tbody id="tablebody">
 
                         </tbody>
