@@ -17,7 +17,7 @@ function getCriteria ($criteria, $agent) {
 }
 
 function setCriteria($agents, $settings) {
-    $out=array();
+    $out = array();
     foreach ($agents as $agent) {
 
         $criteria = getCriteria($settings->criteria, $agent);
@@ -30,7 +30,7 @@ function setCriteria($agents, $settings) {
 }
 
 function calculate($agents) {
-    $out=array();
+    $out = array();
 
     foreach($agents as $agent){
 

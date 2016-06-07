@@ -6,10 +6,20 @@
  * Time: 22:09
  */
 
-function xmlReport($stampReport) {
+function checkReport($stampReport) {
+    if(file_exists($stampReport.'.json')){
+        filemtime()
+        $agents = file_get_contents($stampReport.'.json');
+        return $agents;
+    } else {
+        return false;
+    }
+}
+
+function getXmlReport($stampReport) {
     $url = "http://callcenter.front-desk.ca//dashboard2/bsd.php?report=".$stampReport;
 
-    $filename='examples/BSR-Dayly.xml';
+    $filename = 'examples/BSR-Dayly.xml';
     $output = file_get_contents($filename);
 
 // create curl resource
@@ -34,24 +44,14 @@ function checkTypeXml($xml, $type){
 }
 
 function makeArrInd($xml){
-    $Columns=getPath($xml,'//Columns/Column');
-    $Dimentions  = getPath($xml,'//Dimensions/Column');
-    $Columns = array_merge($Columns,$Dimentions );
+    $Columns = getPath($xml,'//Columns/Column');
+    $Dimentions = getPath($xml,'//Dimensions/Column');
+    $Columns = array_merge($Columns,$Dimentions);
 
-    $arrind=array();
+    $arrind = array();
     foreach($Columns as $val) $arrind[$val['ColumnId']] = $val['FieldName'];
 
     return $arrind;
-}
-
-function createAgents($rows, $arind) {
-    $agents = array();
-    foreach($rows as $row){
-        $item= array();
-        foreach($row as $key=>$val)	$item[$arind[$key]] = $val;
-        $agents[] = $item;
-    }
-    return $agents;
 }
 
 function getPath($xml,$path){
@@ -64,6 +64,16 @@ function getPath($xml,$path){
     return $out;
 }
 
+function createAgents($rows, $arind) {
+    $agents = array();
+    foreach($rows as $row){
+        $item = array();
+        foreach($row as $key=>$val)	$item[$arind[$key]] = $val;
+        $agents[] = $item;
+    }
+    return $agents;
+}
+
 function indexById($agents){
     $agentsind=array();
     foreach($agents as $agent){
@@ -73,9 +83,7 @@ function indexById($agents){
 
         $agentsind[$id][$agent['type']] = (int) $agent['ACTIVITY_OUTCOME_CODE'];
     }
-
     return 	$agentsind;
-
 }
 
 function formatArray($a) {
