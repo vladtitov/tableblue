@@ -66,7 +66,7 @@ var utilsDay;
             // $(".nano").nanoScroller();
         };
         return AutoScroller;
-    })();
+    }());
     utilsDay.AutoScroller = AutoScroller;
 })(utilsDay || (utilsDay = {}));
 //# sourceMappingURL=AutoScroller.js.map

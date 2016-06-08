@@ -37,7 +37,7 @@ var tables;
             return res.agents;
         };
         return AgentsCollection;
-    })(Backbone.Collection);
+    }(Backbone.Collection));
     tables.AgentsCollection = AgentsCollection;
     var TableView = (function (_super) {
         __extends(TableView, _super);
@@ -62,7 +62,7 @@ var tables;
             return this;
         };
         return TableView;
-    })(Backbone.View);
+    }(Backbone.View));
     tables.TableView = TableView;
 })(tables || (tables = {}));
 $(document).ready(function () {

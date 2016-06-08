@@ -64,7 +64,7 @@ var utils;
             // $(".scroll-window").css('overflow-x', 'auto');
         };
         return AutoScroller;
-    })();
+    }());
     utils.AutoScroller = AutoScroller;
 })(utils || (utils = {}));
 //# sourceMappingURL=AutoScroller.js.map
