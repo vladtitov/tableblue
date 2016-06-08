@@ -29,7 +29,6 @@ var tables;
             }, 10000);
         }
         AgentsCollection.prototype.parse = function (res) {
-            console.log(res);
             _.map(res.agents, function (item) {
                 //item.id = item.AGENT_POSITION_ID;
                 item.non_prescriber = item['Non- prescriber'];
@@ -67,7 +66,7 @@ var tables;
     tables.TableView = TableView;
 })(tables || (tables = {}));
 $(document).ready(function () {
-    console.log('ready');
+    console.log('Table 1 ready');
     var collection = new tables.AgentsCollection({
         url: 'dayweek/bsd.php',
         params: {
@@ -78,6 +77,13 @@ $(document).ready(function () {
         container: '#AgentsList1',
         rowTempalete: '#row-template',
         collection: collection
+    });
+    var scrollerDay = new utilsDay.AutoScroller({
+        scrollWindow: '#AgentsList1 .scroll-window',
+        scrollContent: '#AgentsList1 .scroll-content',
+        list: '#AgentsList1 .scroll-window tbody',
+        delay: 2,
+        speed: 0.7
     });
 });
 //# sourceMappingURL=BackboneTable.js.map

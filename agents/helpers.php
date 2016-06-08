@@ -6,8 +6,8 @@
  * Time: 0:22
  */
 
-function getXML($stemp){
-    $url = "http://callcenter.front-desk.ca/agents/examples.php?stamp=".$stemp;
+function getXML($stamp){
+    $url = AGENTS_URL.$stamp;
     $xml = simplexml_load_file($url);
     return $xml;
 }

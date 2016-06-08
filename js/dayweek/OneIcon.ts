@@ -50,7 +50,6 @@ module tables{
         }
 
         render() {
-            console.log('render');
             this.$el.html(RowView.template(this.model.toJSON()));
             setTimeout(()=>{
                 this.$el.find('.icon > div:first').addClass('out');

@@ -83,7 +83,7 @@ var movingtext;
             this.$el.append(mov);
         };
         return Messages;
-    })();
+    }());
     movingtext.Messages = Messages;
 })(movingtext || (movingtext = {}));
 var MTROptions = {
