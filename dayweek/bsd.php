@@ -13,8 +13,8 @@ $stampReport = 'w';
 if(isset($_GET['report']))$stampReport = $_GET['report'];
 
 
-if($stampReport=='w') $filename = DAILY_URL;
-else if($stampReport=='d') $filename = WEEKLY_URL;
+if($stampReport=='w') $filename = WEEKLY_URL;
+else if($stampReport=='d') $filename =DAILY_URL;
 else die("Need W or D!");
 
 
