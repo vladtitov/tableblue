@@ -7,8 +7,7 @@
  */
 
 
-function getXmlReport($stampReport) {
-    $url = "http://callcenter.front-desk.ca/data/".$stampReport;
+function getXmlReport($url) {
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
