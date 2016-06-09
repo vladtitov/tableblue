@@ -1,17 +1,23 @@
 /**
  * Created by Vlad on 4/27/2016.
  */
-    ///<reference path="../base.ts"/>
+    ///<reference path="com.ts"/>
 
 
 module tablesTwo{
+    'use strict'
     export  class VOAgent {
         id:number;
         icon:string;
         time:number;
+
+        
     }
 
+    
     export class AgentModel extends Backbone.Model {
+        
+        
         initialize(){
             if (this.get('time')>0) {
                 setInterval(()=> {

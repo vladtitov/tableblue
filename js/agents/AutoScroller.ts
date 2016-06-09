@@ -1,10 +1,10 @@
-///<reference path="../base.ts"/>
+///<reference path="com.ts"/>
  
  
 module utils{
+    'use strict'
    export class AutoScroller{
        private isRunning:boolean;
-       
        scrollWindow:string;
        scrollContent:string;
        list:string;
@@ -32,6 +32,7 @@ module utils{
 
        private checkScroll(){
            var scroll:number =  this.$scrollWindow.scrollLeft();
+
 
            if(this.$scrollWindow.width() > this.$scrollContent.width()) {
                if (this.step == 1) {

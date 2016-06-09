@@ -1,7 +1,7 @@
 /**
  * Created by VladHome on 4/4/2016.
  */
-
+'use strict'
  var Formatter = {
    formatTime: function(num){
         if(isNaN(num)) return '';

@@ -1,10 +1,11 @@
-///<reference path="../base.ts"/>
-
-
+///<reference path="com.ts"/>
 module tablesTwo {
+    'use strict'
+    
     import AgentModel = tablesTwo.AgentModel;
     import RowView = tablesTwo.RowViewTwo;
-    
+
+
     export class AgentsCollection extends Backbone.Collection<AgentModel> {
         model:any = AgentModel;
         data:any;
@@ -16,6 +17,8 @@ module tablesTwo {
         }
 
         parse(res) {
+            console.log(res);
+
             _.map(res.list, function (item:any) {
                 item.id = item.id;
                 item.time = item.t||0;

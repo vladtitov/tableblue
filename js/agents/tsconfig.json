@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "removeComments": true,
+    "outFile": "../../agents/main.js"
+  },
+  "files": [
+    "RowViewTwo.ts",
+    "AutoScroller.ts",
+    "Formatter.ts",
+    "BackboneTableTwo.ts"
+    ],
+  "exclude": [
+    "node_modules"
+  ]
+}
