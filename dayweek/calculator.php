@@ -34,10 +34,10 @@ function calculate($agents) {
 
     foreach($agents as $agent){
 
-        $agent['ready_eff'] = (int) $agent['COUNTER_ready_eff']/1000;
+        $agent['ready_eff'] = (int) $agent['COUNTER_ready_eff']/3600;
         $agent['calc'] = ($agent['Dial']+$agent['Prescriber']+$agent['Non- prescriber'])/($agent['ready_eff']/12);
 
-        $agent['status'] = round($agent['calc']*1000)/10;
+        $agent['status'] = round($agent['calc']*1000)/1000;
 
         $out[] = $agent;
     }

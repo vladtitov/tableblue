@@ -19,14 +19,14 @@ else die("Need W or D!");
 
 
 
-if(file_exists($stampReport.'.json')){
+/*if(file_exists($stampReport.'.json')){
  $current = time();
  $filetime = filemtime($stampReport.'.json');
  if($current-$filetime < 60){
   echo file_get_contents($stampReport.'.json');
   exit();
  }
-}
+}*/
 
 /// xmlReport start
 
