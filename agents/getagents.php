@@ -1,6 +1,8 @@
 <?
-
 session_start();
+/*ini_set('display_errors', 1);
+error_reporting(E_ALL ^ E_NOTICE);*/
+
 header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *");
 
@@ -16,8 +18,7 @@ header("Access-Control-Allow-Origin: *");
 $ini_array = parse_ini_file("../config.txt");
 define('AGENTS_URL',$ini_array['AGENTS_URL']);
 include ('helpers.php');
-/*ini_set('display_errors', 1);
-error_reporting(E_ALL ^ E_NOTICE);*/
+
 
 $stamp = '2016-03-16T08:59:30';
 $start_time =  strtotime(str_replace('T',' ',$stamp));

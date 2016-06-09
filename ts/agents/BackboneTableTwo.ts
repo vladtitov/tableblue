@@ -20,8 +20,8 @@ module tablesTwo {
 
             _.map(res.list, function (item:any) {
                 item.id = item.id;
-                item.time = item.t||0;
-                item.icon = '' + item.icon;
+                item.time = item.time||0;
+                item.icon = '' + item.state;
             });
             return res.list;
         }
