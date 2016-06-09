@@ -31,7 +31,8 @@ var tablesTwo;
                 id: 0,
                 icon: '',
                 old_icon: '',
-                time: 0
+                time: 0,
+                name: ''
             };
         };
         return AgentModel;
@@ -222,11 +223,29 @@ var tablesTwo;
         AgentsCollection.prototype.parse = function (res) {
             console.log(res);
             _.map(res.list, function (item) {
+                var mass = item.name.split(',');
+                var pos1 = mass[0].indexOf('*');
+                if (pos1 != -1)
+                    pos1 = pos1 + 8;
+                else
+                    pos1 = 0;
+                var out = mass[0].slice(pos1);
+                var pos2 = out.indexOf('~');
+                if (pos2 != -1)
+                    pos2 = pos1 + 1;
+                else
+                    pos2 = 0;
+                item.name = out.slice(pos2);
                 item.id = item.id;
-                item.time = item.t || 0;
-                item.icon = '' + item.icon;
+                item.time = item.time || 0;
+                item.icon = '' + item.state;
             });
             return res.list;
+        };
+        AgentsCollection.prototype.createName = function (name) {
+            var mass = name.split(',');
+            var out = mass[0];
+            return out;
         };
         return AgentsCollection;
     }(Backbone.Collection));
