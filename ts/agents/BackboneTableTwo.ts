@@ -16,8 +16,6 @@ module tablesTwo {
         }
 
         parse(res) {
-            console.log(res);
-
             _.map(res.list, function (item:any) {
                 var mass = item.name.split(',');
                 var pos1 = mass[0].indexOf('*');
