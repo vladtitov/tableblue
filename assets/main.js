@@ -1,7 +1,3 @@
-/**
- * Created by yrik6 on 08.06.2016.
- */
-///<reference path="../js/base.ts"/>
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -111,8 +107,8 @@ var iconsAdmin;
 })(iconsAdmin || (iconsAdmin = {}));
 $(document).ready(function () {
     var collection = new iconsAdmin.AllIconCollection({
-        url: 'assets/assets.php'
+        url: 'assets/assets.php',
     });
     var t = new iconsAdmin.TableView({ collection: collection });
 });
-//# sourceMappingURL=IconBackbone.js.map
+//# sourceMappingURL=main.js.map

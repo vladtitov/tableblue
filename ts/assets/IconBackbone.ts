@@ -1,7 +1,7 @@
 /**
  * Created by yrik6 on 08.06.2016.
  */
-///<reference path="../js/base.ts"/>
+///<reference path="com.ts"/>
 
 module iconsAdmin{
     export  class VOIcon {
@@ -26,6 +26,7 @@ module iconsAdmin{
     }
 
     export class RowView extends Backbone.View<RowModel> {
+
         static template:any = _.template( $('#row-template').html() );
         constructor (options: any) {
             super(options);

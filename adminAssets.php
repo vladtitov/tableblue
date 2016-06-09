@@ -110,8 +110,7 @@
             </div>
         </div>
 
-        <script src="assets/IconBackbone.js"></script>
-<!--        <script src="crawl/Admin.js"></script>-->
+        <script src="assets/main.js"></script>
 
     </div>
 </div>
