@@ -1,8 +1,9 @@
-///<reference path="../base.ts"/>
+///<reference path="com.ts"/>
 
 ///<reference path="OneIcon.ts"/>
 
 module tables {
+    
     
     export class AgentsCollection extends Backbone.Collection<AgentModel> {
         model:any = AgentModel;
@@ -10,6 +11,7 @@ module tables {
         params:any;         
 
         constructor(options:any) {
+            
             super(options)
             this.url = options.url;
             this.params = options.params;

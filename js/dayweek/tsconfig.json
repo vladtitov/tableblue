@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "removeComments": true,
+    "outFile": "../../dayweek/main.js"
+  },
+  "files": [
+    "OneIcon.ts",
+    "AutoScroller.ts",
+    "Formatter.ts",
+    "BackboneTable.ts"
+    ],
+  "exclude": [
+    "node_modules"
+  ]
+}

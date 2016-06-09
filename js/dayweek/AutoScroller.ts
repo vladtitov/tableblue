@@ -1,4 +1,4 @@
-///<reference path="../base.ts"/>
+///<reference path="com.ts"/>
 
 module utilsDay{
    export class AutoScroller{

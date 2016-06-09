@@ -1,7 +1,7 @@
 /**
  * Created by Vlad on 4/27/2016.
  */
-    ///<reference path="../base.ts"/>
+    ///<reference path="com.ts"/>
 
 
 module tables{
