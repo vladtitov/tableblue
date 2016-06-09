@@ -12,53 +12,37 @@ function getXML($stamp){
     return $xml;
 }
 
-function parseFile($xml,$satamp, $mb, $ps){
-    $satamp = strtotime(str_replace('T',' ',$satamp));
-    $list = array();
-    
+
+function adjustTime($ar,$stamp){
+    $stamp = strtotime(str_replace('T',' ',$stamp));
+    foreach ($ar as $val) if($val->time) $val->time = $stamp - strtotime(str_replace('T',' ',$val->time));
+}
+
+function setStates($ar,$satas){
+    foreach ($ar as $val) if(isset($satas[$val->state]))$val->state = $satas[$val->state]->icon;
+}
+
+function setBusyReason($ar,$reasons){
+    foreach ($ar as $val) if(isset($reasons[$val->busy_reason]))$val->busy_reason = $reasons[$val->busy_reason]->icon;
+}
+
+function parseFile($xml){
+    $out = array();
     $states=array();
-    $out=new stdClass();
-    
-    if (count($xml->children()) == 0){
-        return 0;
-    }
-    
     foreach($xml->children() as $node){
         $item = new StdClass();
         $item->id = (int)$node->AgentID;
-
-        $state = (string) $node->State;
-        if(isset($ps[$state])){
-
-            $item->icon = $ps[$state]->icon;
-            $item->msg = $ps[$state]->msg;
-            $item->sort = $ps[$state]->id;
-            if(isset($states[$item->icon]))$states[$item->icon]++;
-            else $states[$item->icon]=1;
-        }
-        $code = (int) $node->MakeBusyReason;
-        $item->b_r = $code;
-        
-        $time = (string)$node->EventDateTime;
-        if($time){
-            $time =  strtotime(str_replace('T',' ',$time));
-            $item->t = $satamp-$time;
-        }
-        $list[] = $item;
+        $item->name = (string)$node->Name;
+        $item->state = (string) $node->State;
+        $item->busy_reason = (int) $node->MakeBusyReason;
+        $item->time=(string)$node->EventDateTime;
+        $out[] = $item;
     }
-    $out->states = $states;
-    $out->list = $list;
     return $out;
 }
 
-function getAsObject($filename){
-    $ar = json_decode(file_get_contents($filename));
-    $out = array();
-    foreach($ar as $val)$out[$val->code] = $val;
-    return $out;
-}
 
-function getObjectById($filename){
+function getObjectIndexed($filename){
     $ar = json_decode(file_get_contents($filename));
     $out = array();
     foreach($ar as $val)$out[$val->id] = $val;

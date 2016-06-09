@@ -1,71 +1,71 @@
 [
   {
-    "code": -99,
+    "id": -99,
     "msg":"Not yet set",
     "icon":"offline"
   },
   {
-    "code": -1,
+    "id": -1,
     "msg":"System Make Busy Code",
     "icon":"busy"
   },
   {
-    "code":0,
+    "id":0,
     "msg":"No Make Busy Code",
     "icon":"busy"
   },
   {
-    "code": 1,
+    "id": 1,
     "msg":"Break",
     "icon":"break"
   },
   {
-    "code" :10,
+    "id":10,
     "msg":"Training",
     "icon":"training"
   },
   {
-    "code": 11,
+    "id": 11,
     "msg":"Coaching \/ 1:1 Supervisor",
     "icon":"coaching"
   },
   {
-    "code":2,
+    "id":2,
     "msg":"Cash Closing",
     "icon":"cash_closing"
   },
   {
-    "code":3,
+    "id":3,
     "msg":"Corporate Event",
     "icon":"corporate_event"
   },
   {
-    "code": 4,
+    "id": 4,
     "msg": "Counter",
     "icon": "counter"
   },
   {
-    "code":5,
+    "id":5,
     "msg":"Email",
     "icon":"email"
   },
   {
-    "code": 6,
+    "id": 6,
     "msg":"Lunch",
     "icon":"lunch"
   },
   {
-    "code" :7,
+    "id":7,
     "msg":"Meeting",
     "icon":"meeting"
   },
   {
-    "code": 8,
+    "id": 8,
     "msg":"Personal",
     "icon": "personal"
   },
   {
-    "code": 9,
+    "id": 9,
     "msg":"Post-Call Work",
     "icon":"post_call_work"
   }
