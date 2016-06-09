@@ -31,7 +31,7 @@
 </head>
 <body>
     <div id="Table1" class="container">
-        <div class="row">
+        <div id="AdminBackbone" class="row">
             <div class="panel panel-default">
                 <div class="panel-heading tools">
                 <style>

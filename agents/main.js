@@ -30,6 +30,7 @@ var tablesTwo;
             return {
                 id: 0,
                 icon: '',
+                old_icon: '',
                 time: 0
             };
         };

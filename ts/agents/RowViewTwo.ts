@@ -10,6 +10,7 @@ module tablesTwo{
         id:number;
         icon:string;
         time:number;
+        old_icon:string;
 
         
     }
@@ -30,6 +31,7 @@ module tablesTwo{
             return {
                 id: 0,
                 icon: '',
+                old_icon: '',
                 time: 0
             }
         }

@@ -5,7 +5,6 @@ module tablesTwo {
     import AgentModel = tablesTwo.AgentModel;
     import RowView = tablesTwo.RowViewTwo;
 
-
     export class AgentsCollection extends Backbone.Collection<AgentModel> {
         model:any = AgentModel;
         data:any;

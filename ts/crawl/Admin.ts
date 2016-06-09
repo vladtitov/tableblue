@@ -144,11 +144,15 @@ module myapp{
 
 }
 $(document).ready(function(){
-    var options = {
-        url_data:'crawl/crawl.php',
-        username:'myname'
+    if($('#AdminBackbone').length){
+        var options = {
+            url_data:'crawl/crawl.php',
+            username:'myname'
+        }
+        var app = new myapp.Main(options);
+        app.InitTable();
+        app.loadData();
     }
-    var app = new myapp.Main(options);
-    app.InitTable();
-    app.loadData();
+
+
 })
