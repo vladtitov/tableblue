@@ -41,6 +41,19 @@ function parseFile($xml){
     return $out;
 }
 
+function jsonToTable($ar){
+    $out ='<table>';
+    $first = $ar[0];
+    $out.='<tr>';
+    foreach ($first as $key=>$val)   $out.='<td>'.$key.'</td>';
+    $out.='</tr>';
+    foreach ($ar as $row){
+        $out.='<tr>';
+        foreach ($row as $val) $out.='<td>'.$val.'</td>';
+        $out.='</tr>';
+    }
+    return $out.'</table>';
+}
 
 function getObjectIndexed($filename){
     $ar = json_decode(file_get_contents($filename));
