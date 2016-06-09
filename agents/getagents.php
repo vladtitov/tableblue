@@ -31,7 +31,7 @@ if(INV == 'demo'){
     if($current_time - $start_time>60*60*5) $_SESSION['current_time'] = $start_time;
     $current_time+=60;
     $stamp = date('Y-m-d H:i:s',$current_time);
-    $stamp = str_replace(' ','T',$stamp);  
+    $stamp = str_replace(' ','T',$stamp);
 }
 
 //echo $stamp;
