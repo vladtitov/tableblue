@@ -1,3 +1,4 @@
 AGENTS_URL="http://callcenter.front-desk.ca/agents/examples.php?stamp="
 DAILY_URL="http://callcenter.front-desk.ca/data/BSR-Dayly.xml"
 WEEKLY_URL="http://callcenter.front-desk.ca/data/BSR-Wkly.xml"
+INV="demo"

@@ -17,19 +17,23 @@ header("Access-Control-Allow-Origin: *");
 
 $ini_array = parse_ini_file("../config.txt");
 define('AGENTS_URL',$ini_array['AGENTS_URL']);
+define('INV',$ini_array['INV']);
 include ('helpers.php');
 
 
-$stamp = '2016-03-16T08:59:30';
-$start_time =  strtotime(str_replace('T',' ',$stamp));
-if(isset($_SESSION['current_time'])) $_SESSION['current_time']+=50;
-else  $_SESSION['current_time'] = $start_time;
+if(INV == 'demo'){
+    $stamp = '2016-03-16T08:59:30';
+    $start_time =  strtotime(str_replace('T',' ',$stamp));
+    if(isset($_SESSION['current_time'])) $_SESSION['current_time']+=50;
+    else  $_SESSION['current_time'] = $start_time;
 
-$current_time =  $_SESSION['current_time'];
-if($current_time - $start_time>60*60*5) $_SESSION['current_time'] = $start_time;
-$current_time+=60;
-$stamp = date('Y-m-d H:i:s',$current_time);
-$stamp = str_replace(' ','T',$stamp);
+    $current_time =  $_SESSION['current_time'];
+    if($current_time - $start_time>60*60*5) $_SESSION['current_time'] = $start_time;
+    $current_time+=60;
+    $stamp = date('Y-m-d H:i:s',$current_time);
+    $stamp = str_replace(' ','T',$stamp);  
+}
+
 //echo $stamp;
 
 
