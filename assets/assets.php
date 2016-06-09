@@ -16,94 +16,47 @@ if(!$user->isAdmin()){
 $prefix='../';
 $folder = 'icons';
 $method = $_SERVER['REQUEST_METHOD'];
-$a='getfiles';
-if(isset($_GET['a'])) $a = $_GET['a'];
 
-if($a == 'upload'){
+if($method == 'GET'){
+	$mass = getAssets($prefix,$folder);
+	$out->assets = makeObjects($mass,$folder);
+	echo json_encode($out);
+}
+else if ($method == 'POST') {
 	$file = $_FILES["file"];
 	$out=new stdClass();
-				
-		if ($file["error"] > 0){
-			$out->error= $file["error"];
-			return $out;
-		}
-		
-		//$filename= isset($_GET['filename'])?$_GET['filename']:$file["name"];	
-		$filename=$file["name"];				
-		if(move_uploaded_file($file["tmp_name"],'../'.$folder.'/'.$filename)){
-			$out->success='success';
-			$out->result=$folder.'/'.$filename;
+
+	if ($file["error"] > 0){
+		$out->error= $file["error"];
+	}
+	else {
+		$filename= isset($_GET['filename'])?$_GET['filename']:$file["name"];
+		if (move_uploaded_file($file["tmp_name"], '../' . $folder . '/' . $filename)) {
+			$out->success = 'success';
+			$out->result = $folder . '/' . $filename;
 			$out->filename = $filename;
 		}
-		
-		echo json_encode($out);
-		exit();
-		
-	
-}else if($a == 'delete'){
-	$filename = $_GET['filename'];
-	$out=new stdClass();
-	//if(strpos('/',$filename) !== NULL) return $out;
-	
-	$file = '../'.$folder.'/'.$filename;
-	$res=0;
-	if(file_exists($file)) $res = unlink($file);	
-	if($res){
-		$out->success='success';
-		$out->result='removed';
-	}else $out->eroor = $file;
-	
-	echo json_encode($out);
-		exit();
-}
-else if($a == 'rename'){
-	$data = json_decode(file_get_contents('php://input'));
-	$newname = $data->newname;
-	$oldname = $data->oldname;
-	if($newname == $oldname){
-		$out->success='samename';
-		echo json_encode($out);
-		exit();
-		
-	}
-	$newfile = '../'.$folder.'/'.$newname;
-	$oldfile = '../'.$folder.'/'.$oldname;
-	$replaced=0;
-	if(file_exists($newfile))$replaced = unlink($newfile);
-	$out=new stdClass();
-	$res = rename($oldfile,$newfile);	
-	if($res) {
-		$out->success='success';	
-		$out->newname = $folder.'/'.$newname;
-		if($replaced)$out->replaced = $newname;
 	}
 	echo json_encode($out);
-		exit();
 }
 
-
-$out->assets = getAssets($prefix,$folder);
-
-echo json_encode($out);
+function makeObjects($mass, $folder) {
+	$out = array();
+	foreach ($mass as $val){
+		$obj = new stdClass();
+		$obj->id = $val;
+		$obj->icon = $folder.'/'.$val;
+		$obj->name = substr($val, 0, -4);
+		$obj->filename = $val;
+		$out[] = $obj;
+	}
+	return $out;
+}
 
 function getAssets($prefix,$folder){
 	$ar = scandir($prefix.$folder);
 	$out=array();
-	foreach($ar as $file)if(!is_dir($file)) $out[] = $folder.'/'.$file;
+	foreach($ar as $file)if(!is_dir($file)) $out[] = $file;
 	return $out;
 }
-
-function saveAsset($filename){
-	
-	
-}
-function deleteAsset(){
-	
-	
-}
-
-
-
-	 
-
 ?>
