@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "removeComments": true,
+    "outFile": "../../crawl/main.js"
+  },
+  "files": [
+    "DisplayMessages.ts",
+    "AdminBackbone.ts",
+    "Admin.ts"
+    ],
+  "exclude": [
+    "node_modules"
+  ]
+}

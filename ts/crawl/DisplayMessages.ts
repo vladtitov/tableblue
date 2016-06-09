@@ -1,4 +1,4 @@
-///<reference path="../js/base.ts"/>
+///<reference path="com.ts"/>
 
 module movingtext {
     export class Messages{

@@ -1,7 +1,7 @@
 /**
  * Created by VladHome on 3/19/2016.
  */
-    ///<reference path="../typings/jquery.d.ts"/>
+    ///<reference path="../ts/typings/jquery.d.ts"/>
 
 module upload {
 
