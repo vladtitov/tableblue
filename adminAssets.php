@@ -30,6 +30,14 @@
     <script src="libs/moment.js"></script>
 </head>
 <body>
+<br/>
+<div class="container">
+    <div class="col-md-12">
+        <a href="admin.php" class="btn"><span class="fa fa-commenting""></span>  Messages Marquee</a>
+    </div>
+</div>
+<br/>
+
 <div id="TableIcons" class="container">
     <div class="row">
         <div class="panel panel-default">
@@ -55,8 +63,9 @@
                     }
                 </style>
                 <div>
-                    <span class="fa fa-commenting"></span>
-                    Messages Marquee
+                    <span class="fa fa-picture-o"></span>
+                    <span>Icons Manager</span>
+                    <small> (Note: Choosing new file replacing old one without backup copy )</small>
                 </div>
 
                 <div class="pull-right" >

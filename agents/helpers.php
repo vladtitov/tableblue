@@ -12,7 +12,6 @@ function getXML($stamp){
     return $xml;
 }
 
-
 function adjustTime($ar,$stamp){
     $stamp = strtotime(str_replace('T',' ',$stamp));
     foreach ($ar as $val) if($val->time) $val->time = $stamp - strtotime(str_replace('T',' ',$val->time));

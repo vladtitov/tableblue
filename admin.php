@@ -30,6 +30,15 @@
     <script src="libs/moment.js"></script>
 </head>
 <body>
+<br/>
+<div class="container">
+    <div class="col-md-12">
+        <a href="adminAssets.php" class="btn"><span class="fa fa-picture-o"></span> Icons Manager</a>
+    </div>
+</div>
+<br/>
+
+
     <div id="Table1" class="container">
         <div id="AdminBackbone" class="row">
             <div class="panel panel-default">
