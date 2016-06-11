@@ -206,6 +206,7 @@ var tables;
             _.map(res.agents, function (item) {
                 item.non_prescriber = item['Non- prescriber'];
             });
+            this.trigger('myParse', res.agents, this.params.report);
             return res.agents;
         };
         return AgentsCollection;
@@ -257,5 +258,37 @@ $(document).ready(function () {
         delay: 2,
         speed: 0.7
     });
+    var s = new tables.SummaryView({ model: new tables.SummaryModel({}) }, collection);
 });
+var tables;
+(function (tables) {
+    var SummaryModel = (function (_super) {
+        __extends(SummaryModel, _super);
+        function SummaryModel(obj) {
+            _super.call(this, obj);
+        }
+        SummaryModel.prototype.defaults = function () {
+            return {
+                id: 0,
+                dial: 0,
+                connections: 0,
+                type: 'Weekly'
+            };
+        };
+        return SummaryModel;
+    }(Backbone.Model));
+    tables.SummaryModel = SummaryModel;
+    var SummaryView = (function (_super) {
+        __extends(SummaryView, _super);
+        function SummaryView(options, collection) {
+            _super.call(this, options);
+            console.log(this.model);
+            this.listenTo(collection, 'myParse', function (evt, par) {
+                console.log(evt, par);
+            });
+        }
+        return SummaryView;
+    }(Backbone.View));
+    tables.SummaryView = SummaryView;
+})(tables || (tables = {}));
 //# sourceMappingURL=main.js.map

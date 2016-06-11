@@ -10,7 +10,8 @@
     "OneIcon.ts",
     "AutoScroller.ts",
     "Formatter.ts",
-    "BackboneTable.ts"
+    "BackboneTable.ts",
+    "Summary.ts"
     ],
   "exclude": [
     "node_modules"

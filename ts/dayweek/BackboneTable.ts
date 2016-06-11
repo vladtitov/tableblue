@@ -34,8 +34,9 @@ module tables {
             _.map(res.agents, function (item:any) {
                 //item.id = item.AGENT_POSITION_ID;
                 item.non_prescriber = item['Non- prescriber'];
-               // item.icon = '' + item.icon;
+                // item.icon = '' + item.icon;
             });
+            this.trigger('myParse', res.agents, this.params.report);
             return res.agents;
         }
     }
@@ -94,4 +95,6 @@ $(document).ready(function(){
         delay:2,
         speed:0.7
     })
+
+    var s = new tables.SummaryView({model:new tables.SummaryModel({})}, collection);
 })
