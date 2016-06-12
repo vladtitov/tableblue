@@ -32,9 +32,8 @@ module tables {
 
         parse(res) {
             _.map(res.agents, function (item:any) {
-                //item.id = item.AGENT_POSITION_ID;
                 item.non_prescriber = item['Non- prescriber'];
-                // item.icon = '' + item.icon;
+                item.connects = item.non_prescriber + item.Prescriber;
             });
             this.trigger('myParse', res.agents, this.params.report);
             return res.agents;
@@ -60,14 +59,12 @@ module tables {
             }, this);
 
             this.render = function () {
-                
                 return this;
             }
 
         }
 
         render():TableView {
-            
             return this;
         }
     }
@@ -96,5 +93,5 @@ $(document).ready(function(){
         speed:0.7
     })
 
-    var s = new tables.SummaryView({model:new tables.SummaryModel({})}, collection);
+    var controller = new tables.SummaryController(collection);
 })

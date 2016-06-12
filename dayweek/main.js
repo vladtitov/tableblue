@@ -24,7 +24,8 @@ var tables;
                 old_icon: 'icons/great.png',
                 Dial: 0,
                 Prescriber: 0,
-                non_prescriber: 0
+                non_prescriber: 0,
+                connects: 0
             };
         };
         AgentModel.prototype.initialize = function () {
@@ -205,6 +206,7 @@ var tables;
         AgentsCollection.prototype.parse = function (res) {
             _.map(res.agents, function (item) {
                 item.non_prescriber = item['Non- prescriber'];
+                item.connects = item.non_prescriber + item.Prescriber;
             });
             this.trigger('myParse', res.agents, this.params.report);
             return res.agents;
@@ -258,7 +260,7 @@ $(document).ready(function () {
         delay: 2,
         speed: 0.7
     });
-    var s = new tables.SummaryView({ model: new tables.SummaryModel({}) }, collection);
+    var controller = new tables.SummaryController(collection);
 });
 var tables;
 (function (tables) {
@@ -270,8 +272,8 @@ var tables;
         SummaryModel.prototype.defaults = function () {
             return {
                 id: 0,
-                dial: 0,
-                connections: 0,
+                dials: 0,
+                connects: 0,
                 type: 'Weekly'
             };
         };
@@ -280,15 +282,44 @@ var tables;
     tables.SummaryModel = SummaryModel;
     var SummaryView = (function (_super) {
         __extends(SummaryView, _super);
-        function SummaryView(options, collection) {
+        function SummaryView(options) {
+            var _this = this;
             _super.call(this, options);
-            console.log(this.model);
-            this.listenTo(collection, 'myParse', function (evt, par) {
-                console.log(evt, par);
-            });
+            this.setElement('#Summary');
+            this.template = options.template;
+            this.model.on('change', function () { return _this.render(); });
         }
+        SummaryView.prototype.render = function () {
+            var template = _.template($(this.template).html());
+            this.$el.html(template(this.model.toJSON()));
+            return this;
+        };
         return SummaryView;
     }(Backbone.View));
     tables.SummaryView = SummaryView;
+    var SummaryController = (function () {
+        function SummaryController(collection) {
+            var _this = this;
+            this.model = new SummaryModel({}),
+                this.view = new SummaryView({
+                    model: this.model,
+                    template: '#row-template4'
+                });
+            collection.on('myParse', function (evt, par) {
+                var dials = 0;
+                var connects = 0;
+                _.map(evt, function (item) {
+                    dials += item.Dial;
+                    connects += item.connects;
+                });
+                if (par == 'w')
+                    _this.model.set({ type: 'Weekly', dials: dials, connects: connects });
+                else
+                    _this.model.set({ type: 'Daily', dials: dials, connects: connects });
+            });
+        }
+        return SummaryController;
+    }());
+    tables.SummaryController = SummaryController;
 })(tables || (tables = {}));
 //# sourceMappingURL=main.js.map

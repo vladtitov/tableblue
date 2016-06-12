@@ -6,8 +6,8 @@ module tables {
         defaults():any {
             return {
                 id: 0,
-                dial: 0,
-                connections: 0,
+                dials: 0,
+                connects: 0,
                 type: 'Weekly'
             }
         }
@@ -15,16 +15,42 @@ module tables {
             super(obj);
         }
     }
-    
-    export class SummaryView extends Backbone.View<SummaryModel> {
-        constructor(options, collection:Backbone.Collection<SummaryModel>){
-            super(options);
-            console.log(this.model);
-            this.listenTo(collection, 'myParse', (evt, par)=>{
-                console.log(evt, par);
-                // console.log(this.params);
 
-                // console.log(collection.models);
+    export class SummaryView extends Backbone.View<SummaryModel> {
+        template:any;
+
+        constructor(options){
+            super(options);
+            this.setElement('#Summary');
+            this.template = options.template;
+            this.model.on('change', ()=>this.render());
+        }
+
+        render(){
+            var template = _.template( $(this.template).html() );
+            this.$el.html(template( this.model.toJSON() ));
+            return this;
+        }
+    }
+
+    export class SummaryController{
+        model:SummaryModel;
+        view:SummaryView;
+        constructor(collection:Backbone.Collection<SummaryModel>){
+            this.model = new SummaryModel({}),
+            this.view = new SummaryView({
+                model: this.model,
+                template:'#row-template4'
+            });
+            collection.on('myParse', (evt, par)=>{
+                var dials = 0;
+                var connects = 0;
+                _.map(evt, function (item:any) {
+                    dials += item.Dial;
+                    connects += item.connects;
+                })
+                if(par == 'w') this.model.set({type:'Weekly', dials:dials, connects:connects});
+                else this.model.set({type:'Daily', dials:dials, connects:connects});
             })
         }
     }

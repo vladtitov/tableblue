@@ -36,8 +36,7 @@
 <div class="wrapper">
     <div id="header1" class="row">
         <div id="DailyWeekly" class="pull-right">
-
-<h1>Daily</h1>
+            Daily
         </div>
         <style>
             #header1{
@@ -58,6 +57,29 @@
     </div>
 <div class="row">
     <div class="col-lg-4">
+        <div id="Panel1" class="panel brand">
+            <style>
+                #Summary{
+                    height: 250px;
+                    font-size: 40px;
+                    font-weight: bold;
+                    text-align: center;
+                    text-shadow: rgba(1, 11, 10, 0.51) 5px 5px 8px;
+                    padding-top: 20px;
+                }
+            </style>
+
+            <div class="panel-body">
+                <!--Template Row end -->
+                <div id="Summary"></div>
+                <script id="row-template4" type="text/template">
+                    <div>Team <%=type%></div>
+                    <div>Dials - <%=dials%></div>
+                    <div>Connects - <%=connects%></div>
+                </script>
+
+            </div>
+        </div>
 
         <div id="Panel2" class="panel brand">
             <div class="panel-body">
@@ -113,7 +135,7 @@
                 }
 
                 #AgentsList1 .col1{
-                    width:32%;
+                    width:51%;
                 }
 
                 #AgentsList1 .col2{
@@ -144,8 +166,7 @@
                     <li class="col1">NAME</li>
                     <li class="col2">STATUS</li>
                     <li class="col3" >DIAL</li>
-                    <li class="col4" >PRESCRIBER</li>
-                    <li class="col5" >NON-PRES</li>
+                    <li class="col4" >CONNECTS</li>
                 </ul>
 
                 <div class="nano">
@@ -160,8 +181,7 @@
                                 </div>
                             </td>
                             <td class="dial col3 center"><%=Dial%></td>
-                            <td class="col6 center"><%=Prescriber%></td>
-                            <td class="col7 center"><%=non_prescriber%></td>
+                            <td class="col6 center"><%=connects%></td>
                         </script>
                         <!--Template Row end -->
 

@@ -13,6 +13,7 @@ module tables{
         Dial:number;
         Prescriber:number;
         non_prescriber:number;
+        connects:number;
     }
 
 
@@ -25,7 +26,8 @@ module tables{
                 old_icon: 'icons/great.png',
                 Dial: 0,
                 Prescriber: 0,
-                non_prescriber: 0
+                non_prescriber: 0,
+                connects:0
             }
         }
         initialize(){
