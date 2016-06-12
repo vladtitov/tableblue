@@ -22,23 +22,24 @@ module movingtext {
             for(var str in options)this[str]=options[str];
             this.$el=$(options.selector);
 
-            this.interval = options.interval;
-            this.height = this.$el.height();
-            this.loadData();
-            setInterval( () =>{
+                this.interval = options.interval;
+                this.height = this.$el.height();
                 this.loadData();
-            }, this.interval)
+                setInterval( () =>{
+                    this.loadData();
+                }, this.interval)
+
         }
 
 
 
         private onScrollEnd():void{
+            this.$el.empty();
             this.render();
             this.stop();
             this.position = 0;
             setTimeout( () => {
                 this.start();
-                this.scroll();
             }, 1000);
          }
 
@@ -101,7 +102,6 @@ module movingtext {
         private maxScroll:number;
         private render(){
             var mov =  $('<div>').html(this.messages);
-            this.$el.empty();
             this.$el.append(mov);
             setTimeout(()=>{
                 var h:number = this.$el.height();
@@ -124,4 +124,4 @@ var MTROptions={
     speed:1
 }
 
-var movingText = new movingtext.Messages(MTROptions);
+if($('#message-template').length)   var movingText = new movingtext.Messages(MTROptions);

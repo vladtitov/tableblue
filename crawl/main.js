@@ -28,12 +28,12 @@ var movingtext;
         };
         Messages.prototype.onScrollEnd = function () {
             var _this = this;
+            this.$el.empty();
             this.render();
             this.stop();
             this.position = 0;
             setTimeout(function () {
                 _this.start();
-                _this.scroll();
             }, 1000);
         };
         Messages.prototype.scroll = function () {
@@ -92,7 +92,6 @@ var movingtext;
         Messages.prototype.render = function () {
             var _this = this;
             var mov = $('<div>').html(this.messages);
-            this.$el.empty();
             this.$el.append(mov);
             setTimeout(function () {
                 var h = _this.$el.height();
@@ -114,7 +113,8 @@ var MTROptions = {
     interval: 25000,
     speed: 1
 };
-var movingText = new movingtext.Messages(MTROptions);
+if ($('#message-template').length)
+    var movingText = new movingtext.Messages(MTROptions);
 var Table;
 (function (Table) {
     var Message = (function (_super) {
