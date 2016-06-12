@@ -24,11 +24,11 @@ module tables {
             this.setElement('#Summary');
             this.template = options.template;
             this.model.on('change', ()=>this.render());
+           this.template = _.template( $(this.template).html() );
         }
 
         render(){
-            var template = _.template( $(this.template).html() );
-            this.$el.html(template( this.model.toJSON() ));
+            this.$el.html(this.template( this.model.toJSON() ));
             return this;
         }
     }

@@ -65,17 +65,11 @@
     font-size: x-large;
 }
 
-#Panel2{
-    height: 655px ;
-}
 
 #Panel2 h2{
     font-size: xx-large;
 }
 
-#message-template p {
-    font-size: 30px;
-}
 
 .okno2 > div {
     transition: transform 0.5s; -webkit-transition: transform 0.5s;

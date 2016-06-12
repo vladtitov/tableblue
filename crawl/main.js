@@ -18,8 +18,6 @@ var movingtext;
             this.$el = $(options.selector);
             this.interval = options.interval;
             this.height = this.$el.height();
-            this.messages = [];
-            this.start();
             this.loadData();
             setInterval(function () {
                 _this.loadData();
@@ -49,6 +47,9 @@ var movingtext;
             else {
                 this.even = 0;
             }
+            if (this.maxScroll > 0 && this.position > this.maxScroll) {
+                return;
+            }
             this.$el.scrollTop(this.position += this.speed);
             var w = this.$el.scrollTop();
             if (this.prev == w)
@@ -56,12 +57,23 @@ var movingtext;
             this.prev = w;
         };
         Messages.prototype.start = function () {
-            this.isRuning = true;
+            if (!this.isRuning) {
+                console.log('starting');
+                this.isRuning = true;
+                this.scroll();
+            }
         };
         Messages.prototype.loadData = function () {
             var _this = this;
             $.get(this.url, function (result) {
-                _this.messages = result;
+                var msgs = '<p class="spacer"></p>' + result.join('<br/><br/>') + '<p class="spacer">';
+                if (_this.messages == msgs) {
+                    console.log('same data');
+                    return;
+                }
+                console.log('data cahanged');
+                _this.maxScroll = -1;
+                _this.messages = msgs;
                 if (!_this.messages) {
                     movingtext.Messages.sendError("this messages null");
                     return;
@@ -69,22 +81,28 @@ var movingtext;
                 if (_this.isFirstTime) {
                     _this.render();
                     _this.isFirstTime = false;
-                    _this.scroll();
+                    _this.start();
                 }
             });
         };
         Messages.prototype.stop = function () {
+            console.log('stop');
             this.isRuning = false;
         };
         Messages.prototype.render = function () {
-            var mov = $('<div>');
-            $('<p>').css('height', '560px').appendTo(mov);
-            this.messages.forEach(function (item) {
-                $('<p>').html(item).appendTo(mov);
-            });
-            $('<p>').css('height', '560px').appendTo(mov);
+            var _this = this;
+            var mov = $('<div>').html(this.messages);
             this.$el.empty();
             this.$el.append(mov);
+            setTimeout(function () {
+                var h = _this.$el.height();
+                var allH = _this.$el.children().height();
+                var d = h * 3 - allH;
+                if (d > 0)
+                    _this.maxScroll = (allH - h) / 2;
+                else
+                    _this.maxScroll = -1;
+            }, 200);
         };
         return Messages;
     }());

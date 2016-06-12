@@ -288,10 +288,10 @@ var tables;
             this.setElement('#Summary');
             this.template = options.template;
             this.model.on('change', function () { return _this.render(); });
+            this.template = _.template($(this.template).html());
         }
         SummaryView.prototype.render = function () {
-            var template = _.template($(this.template).html());
-            this.$el.html(template(this.model.toJSON()));
+            this.$el.html(this.template(this.model.toJSON()));
             return this;
         };
         return SummaryView;
