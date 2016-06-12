@@ -10,7 +10,6 @@ module movingtext {
         messages:string;
         private position:number =0;
         private speed:number=1;
-
         isRuning:boolean;
 
         static sendError (message) {
@@ -30,6 +29,7 @@ module movingtext {
                 }, this.interval)
 
         }
+
 
 
 
@@ -101,6 +101,7 @@ module movingtext {
         private $text:JQuery;
         private maxScroll:number;
         private render(){
+            this.$el.scrollTop(0);
             var mov =  $('<div>').html(this.messages);
             this.$el.append(mov);
             setTimeout(()=>{

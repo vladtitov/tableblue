@@ -91,6 +91,7 @@ var movingtext;
         };
         Messages.prototype.render = function () {
             var _this = this;
+            this.$el.scrollTop(0);
             var mov = $('<div>').html(this.messages);
             this.$el.append(mov);
             setTimeout(function () {
