@@ -1,4 +1,4 @@
-///<reference path="com.ts"/>
+///<reference path="../com.ts"/>
 
 ///<reference path="OneIcon.ts"/>
 

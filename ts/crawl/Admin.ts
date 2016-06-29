@@ -1,9 +1,7 @@
 /**
  * Created by Vlad on 4/29/2016.
  */
-    ///<reference path="com.ts"/>
-    ///<reference path="AdminBackbone.ts"/>
-    
+    ///<reference path="../com.ts"/>
 
 module myapp{
     interface CellInfo{

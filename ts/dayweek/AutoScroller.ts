@@ -1,5 +1,4 @@
-///<reference path="com.ts"/>
-
+///<reference path="../com.ts"/>
 module utilsDay{
    export class AutoScroller{
        private isRunning:boolean;

@@ -1,7 +1,7 @@
 /**
  * Created by yrik6 on 08.06.2016.
  */
-///<reference path="com.ts"/>
+    ///<reference path="../com.ts"/>
 
 module iconsAdmin{
     export  class VOIcon {

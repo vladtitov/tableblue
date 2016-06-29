@@ -1,0 +1,20 @@
+{
+  "name": "tableblue",
+  "homepage": "https://github.com/vladtitov/tableblue",
+  "authors": [
+    "vlad <uplight.ca@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone.marionette": "marionette#^2.4.7"
+  }
+}
