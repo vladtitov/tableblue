@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "removeComments": true,
+    "outFile": "../../rating/main.js"
+  },
+  "files": [
+    "Rating.ts",
+    "RatingMarionette.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
