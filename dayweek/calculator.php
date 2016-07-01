@@ -29,15 +29,17 @@ function setCriteria($agents, $settings) {
     return $out;
 }
 
-function calculate($agents) {
+function calculate($agents,$percentOf) {
+
     $out = array();
+
 
     foreach($agents as $agent){
 
         $agent['ready_eff'] = (int) $agent['COUNTER_ready_eff']/3600;
-        $agent['calc'] = ($agent['Dial']+$agent['Prescriber']+$agent['Non- prescriber'])/($agent['ready_eff']/12);
+        $agent['status']  = ($agent['Dial']+$agent['Prescriber']+$agent['Non- prescriber'])/($agent['ready_eff'])/$percentOf *100;
 
-        $agent['status'] = round($agent['calc']*1000)/1000;
+      /// $agent['status'] = round($agent['calc']*1000)/1000;
 
         $out[] = $agent;
     }

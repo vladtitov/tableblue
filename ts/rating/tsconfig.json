@@ -7,8 +7,7 @@
     "outFile": "../../rating/main.js"
   },
   "files": [
-    "Rating.ts",
-    "RatingMarionette.ts"
+    "RatingManager.ts"
   ],
   "exclude": [
     "node_modules"

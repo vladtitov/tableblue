@@ -58,10 +58,16 @@ $agents = createAgents($rows, $arrind);
 $indexed = indexById($agents);
 $agents = formatArray($indexed);
 
-$agents = calculate($agents);
+
+
+
 
 $settings = json_decode(file_get_contents("settings.json"));
-$agents = setCriteria($agents, $settings);
+
+
+$agents = calculate($agents,$settings->percentOf);
+
+$agents = setCriteria($agents,$settings);
 
 $out -> Report = $stampReport;
 

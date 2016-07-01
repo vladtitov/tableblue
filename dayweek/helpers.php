@@ -68,7 +68,9 @@ function indexById($agents){
 
 function formatArray($a) {
     $out = array();
+
     foreach($a as $key => $agent) {
+
         unset($agent['ACTIVITY_OUTCOME_CODE']);
         unset($agent['type']);
         unset($agent['TEAM']);

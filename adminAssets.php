@@ -34,6 +34,23 @@
 <div class="container">
     <div class="col-md-12">
         <a href="admin.php" class="btn"><span class="fa fa-commenting""></span>  Messages Marquee</a>
+        <a href="Rating.php" class="btn"><span class="fa fa-calculator""></span>  Raitng</a>
+        <div class="pull-right" >
+            <a id="btn-logout" class="btn">
+                <span class="fa fa-sign-out"></span>
+                <span>Logout</span>
+            </a>
+            <script>
+                $('#btn-logout').click(function(){
+                    $.get('users/login.php',{a:'logout'}).done(function(res){
+                        console.log(res)
+                        window.location.reload();
+                    }).fail(function(res){
+                        window.location.reload();
+                    })
+                })
+            </script>
+        </div>
     </div>
 </div>
 <br/>
@@ -68,22 +85,7 @@
                     <small> (Note: Choosing new file replacing old one without backup copy )</small>
                 </div>
 
-                <div class="pull-right" >
-                    <a id="btn-logout" class="btn">
-                        <span class="fa fa-sign-out"></span>
-                        <span>Logout</span>
-                    </a>
-                    <script>
-                        $('#btn-logout').click(function(){
-                            $.get('users/login.php',{a:'logout'}).done(function(res){
-                                console.log(res)
-                                window.location.reload();
-                            }).fail(function(res){
-                                window.location.reload();
-                            })
-                        })
-                    </script>
-                </div>
+
             </div>
 
             <div class="panel-body">

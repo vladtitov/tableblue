@@ -34,6 +34,23 @@
 <div class="container">
     <div class="col-md-12">
         <a href="adminAssets.php" class="btn"><span class="fa fa-picture-o"></span> Icons Manager</a>
+        <a href="Rating.php" class="btn"><span class="fa fa-calculator""></span>  Raitng</a>
+        <div class="pull-right" >
+            <a id="btn-logout" class="btn">
+                <span class="fa fa-sign-out"></span>
+                <span>Logout</span>
+            </a>
+            <script>
+                $('#btn-logout').click(function(){
+                    $.get('users/login.php',{a:'logout'}).done(function(res){
+                        console.log(res)
+                        window.location.reload();
+                    }).fail(function(res){
+                        window.location.reload();
+                    })
+                })
+            </script>
+        </div>
     </div>
 </div>
 <br/>
@@ -77,22 +94,6 @@
                             <span>Delete</span>
                             
                         </a>
-                    </div>
-                    <div class="pull-right" >
-                        <a id="btn-logout" class="btn">
-                            <span class="fa fa-sign-out"></span>
-                            <span>Logout</span>
-                        </a>
-                        <script>
-                            $('#btn-logout').click(function(){
-                                $.get('users/login.php',{a:'logout'}).done(function(res){
-                                    console.log(res)
-                                    window.location.reload();
-                                }).fail(function(res){
-                                    window.location.reload();
-                                })
-                            })
-                        </script>
                     </div>
                     <div class="pull-right" >
                         <a id="btn-save" class="btn">

@@ -1,0 +1,19 @@
+{
+  "criteria":[
+    {
+      "max":85,
+      "state":"ok",
+      "icon":"icons\/ok.png"
+    },
+    {
+      "max":95,
+      "state":"good",
+      "icon":"icons\/good.png"
+    },
+    {
+      "max":1000,
+      "state":"great",
+      "icon":"icons\/great.png"
+    }
+  ]
+}
