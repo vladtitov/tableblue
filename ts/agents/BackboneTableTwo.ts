@@ -16,7 +16,7 @@ module tablesTwo {
         }
 
         parse(res) {
-            _.map(res.list, function (item:any) {
+              _.map(res.list, function (item:any) {
                 var mass = item.name.split(',');
                 var pos1 = mass[0].indexOf('*');
                 if (pos1 != -1) pos1 = pos1 + 8;
