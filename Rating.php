@@ -65,7 +65,7 @@ else{
                         display: inline;
                     }
                     #Table1 #tableone{
-                        height: 300px;
+                        max-height: 800px;
                         overflow: auto;
                     }
                     #Table1 tr.selected {
