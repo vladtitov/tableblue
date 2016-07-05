@@ -30,7 +30,9 @@
     <script src="libs/moment.js"></script>
 </head>
 <body>
-<br/>
+<div id="Header">
+ <img width="100%" src = "css/header.jpg">
+</div>
 <div class="container">
     <div class="col-md-12">
         <a href="admin.php" class="btn"><span class="fa fa-commenting""></span>  Messages Marquee</a>
@@ -125,6 +127,8 @@
 
     </div>
 </div>
-
+ <div id="Footer">
+     <img width="100%" src = "css/footer.jpg">
+    </div>
 </body>
 </html>

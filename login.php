@@ -26,6 +26,7 @@
             right: 0;
             top: 0;
             bottom: 0;
+            z-index:1000;
         }
         #Message{
             position: absolute;
@@ -170,7 +171,24 @@
                     initRestore();
                 })
             </script>
+
             </div>
+             <div id="loginfooter">
+                            <style>
+                            #loginfooter{
+                            position:absolute;
+                            bottom:0;
+                            left:0;
+                           /* width:100%;
+                            height:50px;
+                            background-image:url('css/footer.jpg');
+                            background-size:100% 100%;
+                            */
+                            }
+
+                            </style>
+                            <img width="100%" src = "css/footer.jpg">
+              </div>
         </div>
     </div>
 </body>
