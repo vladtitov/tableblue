@@ -2893,7 +2893,7 @@ interface JQuery {
      * 
      * @param selector A string containing a selector expression to match elements against.
      */
-    children(selector?: string): JQuery;
+    children(selector?: string | number): JQuery;
 
     /**
      * For each element in the set, get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.

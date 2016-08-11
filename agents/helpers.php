@@ -9,9 +9,56 @@
 function getXML($stamp){
     $url = AGENTS_URL.$stamp;
     $xml = simplexml_load_file($url);
+
+
+	if(!$xml){
+    logError ('No xml from server');
+    exit;
+}
+if (count($xml->children()) == 0){
+    logError ('Error parseFile: xml children');
+    exit;
+}
     return $xml;
 }
 
+
+function parseCSV($filemane){
+	 $file = fopen($filemane, 'r');
+ $data=array();
+while (($line = fgetcsv($file)) !== FALSE) $data[]=$line;
+fclose($file);
+
+if(count($data) < 2) {
+	echo json_encode(' error data length');
+	exit;
+}
+
+
+while(count($data) && (count($header = array_shift($data))<5)){
+
+}
+
+$agents=array();
+foreach($data as $node){
+	 $item = new StdClass();
+		$item->group = (int)$node[0];
+        $item->name = $node[1];
+        $item->id = (int)$node[2];
+		$item->ext = $node[3];
+        $item->busy_reason = $node[4];
+		$item->state =$node[5];
+		$item->split_skill = $node[6];
+        $item->time= $node[7];
+		$item->icon = $item->state.'.png';
+
+		$item->full=$node;
+        $agents[] = $item;
+
+}
+return $agents;
+
+}
 function adjustTime($ar,$stamp){
     $stamp = strtotime(str_replace('T',' ',$stamp));
     foreach ($ar as $val) if($val->time) $val->time = $stamp - strtotime(str_replace('T',' ',$val->time));

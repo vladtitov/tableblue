@@ -17,6 +17,7 @@
     <script src="libs/jquery-2.1.4.min.js"></script>
     <script src="libs/underscore-min.js"></script>
     <script  src="libs/backbone-min.js"></script>
+    <script  src="libs/moment.min.js"></script>
     <script  src="libs/require.js"></script>
 </head>
 <body>
@@ -130,6 +131,19 @@
                             March 09, 2106
 
                         </div>
+                <script>
+                    var setDate = function(){
+                        $('#ClockTime').text(moment().format('h:mm A'))
+                        $('#ClockDate').text(moment().format('MMM DD, YYYY'));
+                    }
+
+                    setDate();
+                    setInterval(function(){
+                        setDate();
+
+                    },1000)
+                </script>
+
             </div>
 
         </div>

@@ -21,7 +21,7 @@ var tablesTwo;
             var _this = this;
             if (this.get('time') > 0) {
                 setInterval(function () {
-                    var t = _this.get('time') + 1;
+                    var t = +_this.get('time') + 1;
                     _this.set('time', t);
                 }, 1000);
             }
@@ -53,7 +53,7 @@ var tablesTwo;
             if (t == 0)
                 this.$time.text(' ');
             else
-                this.$time.text(Formatter.formatTime(t));
+                this.$time.text(moment.unix(t).format('m:ss'));
         };
         RowViewTwo.prototype.changeIcon = function () {
             var $icon = this.$icon;

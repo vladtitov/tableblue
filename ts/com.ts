@@ -5,3 +5,4 @@
 ///<reference path="typings/underscore/underscore.d.ts"/>
 ///<reference path="typings/backbone/backbone-global.d.ts"/>
 ///<reference path="typings/marionette/marionette.d.ts"/>
+///<reference path="typings/moment/moment.d.ts"/>

@@ -4,6 +4,7 @@
     ///<reference path="../com.ts"/>
 
 
+
 module tablesTwo{
     'use strict'
     export  class VOAgent {
@@ -23,7 +24,7 @@ module tablesTwo{
         initialize(){
             if (this.get('time')>0) {
                 setInterval(()=> {
-                    var t:number = this.get('time') + 1;
+                    var t:number = +this.get('time') + 1;
                     this.set('time', t);
                 }, 1000)
             }
@@ -58,7 +59,8 @@ module tablesTwo{
         private onTimeChange():void{
             var t:number = this.model.get("time");
             if(t == 0) this.$time.text(' ');
-            else this.$time.text(Formatter.formatTime(t));
+            else this.$time.text(moment.unix(t).format('m:ss'));
+        //else this.$time.text(Formatter.formatTime(t));
         }
 
         changeIcon():void{

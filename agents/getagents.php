@@ -6,14 +6,6 @@ error_reporting(E_ALL ^ E_NOTICE);*/
 header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *");
 
-/*if(file_exists('agents.json')) {
-    $curent = time();
-    $file_time = filemtime('agents.json');
-    if($curent-$file_time<60){
-        echo file_get_contents('agents.json');
-        exit;
-    }
-}*/
 
 $ini_array = parse_ini_file("../config.txt");
 define('AGENTS_URL',$ini_array['AGENTS_URL']);
@@ -42,31 +34,24 @@ if(isset($_GET['stamp'])) $stamp = $_GET['stamp'];
 $result=0;
 $out=new stdClass();
 
-$xml = getXML($stamp);
-if(!$xml){
-    logError ('No xml from server');
-    ecit;
-}
-if (count($xml->children()) == 0){
-    logError ('Error parseFile: xml children');
-    exit;
-}
-$reasons = getObjectIndexed('MakeBusyReason.json');
-$states = getObjectIndexed('PersonState.json');
+//$xml = getXML($stamp);
 
-if (!$reasons || !$states) {
-    logError ('Error parseFile: MakeBusyReason.json PersonState.json');
-    exit;
-}
+//$reasons = getObjectIndexed('MakeBusyReason.json');
+//$states = getObjectIndexed('PersonState.json');
+
+//if (!$reasons || !$states) {
+  //  logError ('Error parseFile: MakeBusyReason.json PersonState.json');
+   // exit;
+//}
 
 
-$agents = parseFile($xml);
+$agents = parseCSV(AGENTS_URL);
 
-setStates($agents,$states);
+//setStates($agents,$states);
 
-setBusyReason($agents,$reasons);
+//setBusyReason($agents,$reasons);
 
-adjustTime($agents,$stamp);
+//adjustTime($agents,$stamp);
 
 $out->stamp = $stamp;
 $out->total= count($agents);
