@@ -30,8 +30,8 @@ else die("Need W or D!");
 
 /// xmlReport start
 
- $xml = getXmlReport($filename);
-
+// $xml = getXmlReport($filename);
+$xml = @simplexml_load_file($filename);
 if(!$xml){
  errorLog(' no xml from server');
  exit;
@@ -75,7 +75,7 @@ $out -> agents = $agents;
 
 $out -> count = count($agents);
 
-file_put_contents($stampReport.'.json', json_encode($out));
+//file_put_contents($stampReport.'.json', json_encode($out));
 
 echo json_encode($out);
 

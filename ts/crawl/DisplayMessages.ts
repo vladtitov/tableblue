@@ -44,29 +44,53 @@ module movingtext {
          }
 
         private prev:number;
-        private even:number=0;
+        private evennum:number=0;
 
         scroll():void{
-            if(this.isRuning)requestAnimationFrame(()=>{  this.scroll(); });
-            if (this.even===0) {
-                this.even = 1
+            if(this.isRuning){
+                if(typeof requestAnimationFrame ==='udefined'){
+                    setTimeout(()=>this.scroll(),20);
+                }else requestAnimationFrame(()=>{  this.scroll(); });
+            }
+
+            if (this.evennum===0) {
+                this.evennum = 1
                 return
             } else {
-                this.even =0;
+                this.evennum =0;
             }
+
             if(this.maxScroll>0 && this.position >this.maxScroll){
+              /////  console.log(' scroll ceneter ');
                 return;
             }
-            this.$el.scrollTop(this.position+=this.speed);
-            var w = this.$el.scrollTop();
-            if(this.prev == w)this.onScrollEnd();
-            this.prev = w;
+
+           this.position+=this.speed;
+            this.$el.scrollTop(this.position);
+
+          var w = this.$el.scrollTop();
+            this.endcount ++;
+            if(this.endcount>3){
+                this.endcount =0;
+                if(this.prev === w){
+                    this.onScrollEnd();
+                }
+                this.prev = w;
+            }
+
+
+
         }
 
+
+
+        endcount:number = 0
         start():void {
             if(!this.isRuning){
-                console.log('starting');
+                console.log('starting '+(typeof requestAnimationFrame) );
+                this.prev = -1;
                 this.isRuning = true;
+                this.endcount =0;
                 this.scroll();
             }
 

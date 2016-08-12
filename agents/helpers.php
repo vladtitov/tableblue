@@ -50,6 +50,7 @@ foreach($data as $node){
 		$item->ext = $node[3];
         $item->busy_reason = $node[4];
 		$item->state =$node[5];
+		if($item->state ==='AUX') $item->state = 'AUX_';
 		$item->split_skill = $node[6];
         $item->time= $node[7];
 		$item->icon = 'icons/'.$item->state.'.png';
