@@ -12,7 +12,8 @@ define('AGENTS_URL',$ini_array['AGENTS_URL']);
 define('INV',$ini_array['INV']);
 include ('helpers.php');
 
-
+$stamp = time();
+/*
 if(INV == 'demo'){
     $stamp = '2016-03-16T08:59:30';
     $start_time =  strtotime(str_replace('T',' ',$stamp));
@@ -25,6 +26,8 @@ if(INV == 'demo'){
     $stamp = date('Y-m-d H:i:s',$current_time);
     $stamp = str_replace(' ','T',$stamp);
 }
+
+*/
 
 //echo $stamp;
 
@@ -58,7 +61,7 @@ $out->total= count($agents);
 $out->list = $agents;
 
 
-file_put_contents('agents.json', json_encode($out));
+//file_put_contents('agents.json', json_encode($out));
 
 echo json_encode($out);
 ?>
