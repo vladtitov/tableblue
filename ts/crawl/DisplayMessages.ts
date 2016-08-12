@@ -68,10 +68,11 @@ module movingtext {
            this.position+=this.speed;
             this.$el.scrollTop(this.position);
 
-          var w = this.$el.scrollTop();
+
             this.endcount ++;
             if(this.endcount>3){
                 this.endcount =0;
+                var w = this.$el.scrollTop();
                 if(this.prev === w){
                     this.onScrollEnd();
                 }
