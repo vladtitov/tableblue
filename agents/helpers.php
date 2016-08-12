@@ -44,6 +44,8 @@ foreach($data as $node){
 	 $item = new StdClass();
 		$item->group = (int)$node[0];
         $item->name = $node[1];
+        $names= explode(' ',$item->name);
+        if(count($names)>1)$item->name =  $names[0].' '.substr($names[1],0,1);
         $item->id = (int)$node[2];
 		$item->ext = $node[3];
         $item->busy_reason = $node[4];
