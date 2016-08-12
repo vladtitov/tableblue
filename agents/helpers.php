@@ -50,7 +50,7 @@ foreach($data as $node){
 		$item->state =$node[5];
 		$item->split_skill = $node[6];
         $item->time= $node[7];
-		$item->icon = $item->state.'.png';
+		$item->icon = 'icons/'.$item->state.'.png';
 
 		$item->full=$node;
         $agents[] = $item;

@@ -39,22 +39,7 @@
     font-size: 30px;
 }
 
-#AgentsList2 ul>li{
-    width: 186px;
-    display: inline-block;
-    margin: 0px;
-    white-space: normal;
-    border: solid 1px white;
-    vertical-align: top;
-    font-size: 14px;
-}
 
-#AgentsList2 .icon2{
-    width: 100px;
-    height: 100px;
-    display: inline-block;
-    margin: 10px 0 10px 0;
-}
 
 #ClockTime{
     font-size: xx-large;

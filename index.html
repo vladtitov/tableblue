@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="libs/bootstrap.css">
     <link rel="stylesheet" href="libs/nanoscroller.css">
     <link rel="stylesheet" href="css/brand.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/timeline.css">
     <link rel="stylesheet" href="css/mymobile.css">
 
@@ -22,51 +23,18 @@
 </head>
 <body>
 <style>
-    .wrapper{
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-        padding-bottom: 0;
-        margin-bottom: 0;
-        background-color:#FDFAC3 ;
-        background-image: url("css/bgheader.png");
-        background-repeat: no-repeat;
-        background-size: 100% 255px;
-    }
+
 </style>
 <div class="wrapper">
     <div id="header1" class="row">
         <div id="DailyWeekly" class="pull-right">
             Daily
         </div>
-        <style>
-            #header1{
-                height: 125px;
-            }
-
-            #Panel1 table{
-                width: 100%;
-            }
-
-
-        </style>
-
     </div>
 <div class="row">
     <div class="col-lg-4">
         <div id="Panel1" class="panel brand">
-            <style>
-                #Summary{
-                    height: 200px;
-                    font-size: 40px;
-                    font-weight: bold;
-                    text-align: center;
-                    text-shadow: rgba(1, 11, 10, 0.51) 5px 5px 8px;
-                    padding-top: 10px;
-                }
 
-
-            </style>
 
             <div class="panel-body">
                 <!--Template Row end -->
@@ -81,27 +49,6 @@
         </div>
 
         <div id="Panel2" class="panel brand">
-            <style>
-               #message-template {
-                    overflow: hidden;
-                    height: 300px;
-                   font-size: 40px;
-                   font-weight: bold;
-                   text-align: center;
-                   text-shadow: rgba(1, 11, 10, 0.51) 5px 5px 8px;
-                }
-               #message-template .spacer{
-                   height: 300px;
-               }
-
-               @media (max-width:400px) {
-                   #Summary, #message-template {
-                       font-size: 20px;
-                   }
-
-               }
-
-            </style>
 
             <div class="panel-body">
                 <h2>
@@ -115,14 +62,7 @@
     </div>
     <div class="col-lg-8">
         <div id="rightheader">
-            <style>
-                #rightheader{
-                    background-image: url("css/header2.png");
-                }
-                #Clock{
-                   color: white;
-                }
-            </style>
+
             <div id="Clock">
                         <div id="ClockTime">
                                                 12:34 PM
@@ -143,59 +83,11 @@
 
                     },1000)
                 </script>
-
             </div>
 
         </div>
 
         <div id="AgentsList1" class="brand">
-
-            <style>
-                #TableHeaders>li{
-                    display: inline-block;
-                }
-
-                #AgentsList1 table{
-                    color: white;
-                }
-
-                #AgentsList1 table>tbody>tr:nth-child(odd) td {
-                    background: none repeat scroll 0 0 #418AB5;
-
-                }
-                #AgentsList1 table>tbody>tr:nth-child(even) td {
-                    background-color:#005C95;
-
-                }
-
-                #AgentsList1 .col1{
-                    width:51%;
-                }
-
-                #AgentsList1 .col2{
-                    width:18% ;
-                }
-
-                #AgentsList1 .col3 {
-                   width: 12%;
-                }
-
-                #TableHeaders{
-                    white-space: nowrap;
-                }
-                #AgentsList1 .icon{
-                    width: 1.5em;
-                    height: 1.5em;
-                    background-size: 100%;
-                    display:block;
-                    margin:0 auto;
-                }
-                #AgentsList1 .center{
-                    text-align: center;
-                }
-
-            </style>
-
                 <ul id="TableHeaders">
                     <li class="col1">NAME</li>
                     <li class="col2">STATUS</li>
@@ -225,36 +117,9 @@
                     </div>
 
                 </div>
-
-
-
-            <style>
-                .okno{
-                    position: relative;
-                    overflow: hidden;
-                    width: 1.2em;
-                    height: 1.2em;
-                }
-                .okno > div {
-                    transition: transform 0.5s; -webkit-transition: transform 0.5s;
-                    background-size: 100%;
-                    position: absolute;
-                    width: 1.2em;
-                    height: 1.2em;
-                    left: 0;
-                    top: 0;
-                }
-                .okno .in{
-                    transform:translateY(100%); -webkit-transform:translateY(100%);
-                }
-                .okno .out{
-                    transform:translateY(-100%); -webkit-transform:translateY(-100%);
-                }
-            </style>
-
-
             <script  src="dayweek/main.js"></script>
         </div>
+
 
     </div>
 
@@ -262,36 +127,19 @@
 
     <div class="row">
         <div class="col-lg-12">
-
-            <div id="AgentsList2" data-str="apps/List2">
-                <style>
-                    #AgentsList2 ul{
-                        white-space: nowrap;
-                    }
-
-                    #AgentsList2 ul{
-                        width: 100%;
-                        vertical-align: top;
-                    }
-
-                    #AgentsList2 .id{
-                        border-bottom: solid 3px white;
-                        padding: 10px 0 10px 0;
-                    }
-                    #AgentsList2 .time{
-                        min-height: 2em;
-                    }
-                </style>
+            <div id="AgentsList2" class="brand" data-str="apps/List2">
                 <div>
                     <div class="scroll-window brand">
+
                         <script id="row-template2" type="text/template">
                             <div data-text="id" class="id"><%=name%></div>
                             <div class="icon2 okno2" >
-                                <div style="background-image: url('icons/<%=icon%>.png')"></div>
-                               <div class="in" style="background-image: url('icons/<%=icon%>.png')"></div>
+                                <div style="background-image: url('<%=icon%>')"></div>
+                               <div class="in" style="background-image: url('<%=icon%>')"></div>
                             </div>
                             <div data-text="time" class="time"><%=time%></div>
                         </script>
+
 
                         <ul class="text-center brand scroll-content" style="padding-left: 4px; box-shadow: 0px 0px 0px 0px;" data-id="list" onclick=""></ul>
 
@@ -299,21 +147,7 @@
 
                 </div>
 
-                <style>
-                    .scroll-window {
-                        overflow-x: hidden;
-                    }
-                    .okno2{
-                        position: relative;
-                        overflow: hidden;
-                    }
-                    .okno2 .in{
-                        transform:translateY(100%); -webkit-transform:translateY(100%);
-                    }
-                    .okno2 .out{
-                        transform:translateY(-100%); -webkit-transform:translateY(-100%);
-                    }
-                </style>
+
                <script  src="agents/main.js"></script>
             </div>
         </div>
@@ -325,16 +159,6 @@
 
 </div>
 <div id="footer">
-    <style>
-        #footer{
-            width: 100%;
-            height: 40px;
-            margin:0;
-            border-top: solid 2px white;
-            background-color: #005D96;
-        }
-
-    </style>
 
 
 </div>

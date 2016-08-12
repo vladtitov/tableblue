@@ -70,7 +70,7 @@ module tablesTwo{
                 old.remove();
             },2000);
             
-            var newdiv= $('<div>').addClass('in').css('background-image', 'url("icons/'+this.model.get('icon')+'.png")').appendTo($icon);
+            var newdiv= $('<div>').addClass('in').css('background-image', 'url("icons/'+this.model.get('icon')+'")').appendTo($icon);
             setTimeout(function (){
                 newdiv.removeClass('in');
             },10);

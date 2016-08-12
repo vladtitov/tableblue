@@ -30,30 +30,25 @@ module utils{
             setTimeout(()=>this.start(null),2000);
         }
 
-       private checkScroll(){
-           var scroll:number =  this.$scrollWindow.scrollLeft();
-
-
-           if(this.$scrollWindow.width() > this.$scrollContent.width()) {
-               if (this.step == 1) {
-                   this.step = 0;
-                   this.currentScroll = 0;
+       private resetScroll(){
+          // var scroll:number =  this.$scrollWindow.scrollLeft();
                    this.$list.append(this.$list.children().first());
                    this.$scrollWindow.scrollLeft(0);
-               }
-           }
+
+
        }
        private nextStep():void{
-           if(this.$scrollWindow.width() < this.$scrollContent.width()) {
+           console.log(this.$scrollWindow.width()+' '+this.$scrollContent.width());
+           if(this.$scrollWindow.width() > this.$scrollContent.width()) {
                return;
            }
            var h:number = this.$list.children(this.step).width();
-           this.step++;
-           this.currentScroll+=h;
+         //  this.step++;
+           this.currentScroll=h;
            this.$scrollWindow.animate({
                scrollLeft:this.currentScroll
            },this.speed,()=>{
-               this.checkScroll();
+               this.resetScroll();
            })
        }
        setWidth():void{

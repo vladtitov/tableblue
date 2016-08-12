@@ -61,7 +61,7 @@ var tablesTwo;
             setTimeout(function () {
                 old.remove();
             }, 2000);
-            var newdiv = $('<div>').addClass('in').css('background-image', 'url("icons/' + this.model.get('icon') + '.png")').appendTo($icon);
+            var newdiv = $('<div>').addClass('in').css('background-image', 'url("icons/' + this.model.get('icon') + '")').appendTo($icon);
             setTimeout(function () {
                 newdiv.removeClass('in');
             }, 10);
@@ -112,29 +112,22 @@ var utils;
             this.init();
             setTimeout(function () { return _this.start(null); }, 2000);
         }
-        AutoScroller.prototype.checkScroll = function () {
-            var scroll = this.$scrollWindow.scrollLeft();
-            if (this.$scrollWindow.width() > this.$scrollContent.width()) {
-                if (this.step == 1) {
-                    this.step = 0;
-                    this.currentScroll = 0;
-                    this.$list.append(this.$list.children().first());
-                    this.$scrollWindow.scrollLeft(0);
-                }
-            }
+        AutoScroller.prototype.resetScroll = function () {
+            this.$list.append(this.$list.children().first());
+            this.$scrollWindow.scrollLeft(0);
         };
         AutoScroller.prototype.nextStep = function () {
             var _this = this;
-            if (this.$scrollWindow.width() < this.$scrollContent.width()) {
+            console.log(this.$scrollWindow.width() + ' ' + this.$scrollContent.width());
+            if (this.$scrollWindow.width() > this.$scrollContent.width()) {
                 return;
             }
             var h = this.$list.children(this.step).width();
-            this.step++;
-            this.currentScroll += h;
+            this.currentScroll = h;
             this.$scrollWindow.animate({
                 scrollLeft: this.currentScroll
             }, this.speed, function () {
-                _this.checkScroll();
+                _this.resetScroll();
             });
         };
         AutoScroller.prototype.setWidth = function () {
@@ -222,29 +215,8 @@ var tablesTwo;
         }
         AgentsCollection.prototype.parse = function (res) {
             _.map(res.list, function (item) {
-                var mass = item.name.split(',');
-                var pos1 = mass[0].indexOf('*');
-                if (pos1 != -1)
-                    pos1 = pos1 + 8;
-                else
-                    pos1 = 0;
-                var out = mass[0].slice(pos1);
-                var pos2 = out.indexOf('~');
-                if (pos2 != -1)
-                    pos2 = pos1 + 1;
-                else
-                    pos2 = 0;
-                item.name = out.slice(pos2);
-                item.id = item.id;
-                item.time = item.time || 0;
-                item.icon = '' + item.state;
             });
             return res.list;
-        };
-        AgentsCollection.prototype.createName = function (name) {
-            var mass = name.split(',');
-            var out = mass[0];
-            return out;
         };
         return AgentsCollection;
     }(Backbone.Collection));

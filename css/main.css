@@ -1,0 +1,200 @@
+.wrapper{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    background-color:#FDFAC3 ;
+    background-image: url("bgheader.png");
+    background-repeat: no-repeat;
+    background-size: 100% 255px;
+}
+
+
+
+
+#header1{
+    height: 125px;
+}
+
+#Panel1 table{
+    width: 100%;
+}
+
+
+
+
+#Summary{
+    height: 200px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: rgba(1, 11, 10, 0.51) 5px 5px 8px;
+    padding-top: 10px;
+}
+
+
+#message-template {
+    overflow: hidden;
+    height: 300px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: rgba(1, 11, 10, 0.51) 5px 5px 8px;
+}
+#message-template .spacer{
+    height: 300px;
+}
+
+@media (max-width:400px) {
+    #Summary, #message-template {
+        font-size: 20px;
+    }
+
+}
+
+
+
+#rightheader{
+    background-image: url("header2.png");
+}
+#Clock{
+    color: white;
+}
+
+
+
+
+#TableHeaders>li{
+    display: inline-block;
+}
+
+#AgentsList1 table{
+    color: white;
+}
+
+
+
+#AgentsList1 table>tbody>tr:nth-child(odd) td {
+    background: none repeat scroll 0 0 #418AB5;
+
+}
+#AgentsList1 table>tbody>tr:nth-child(even) td {
+    background-color:#005C95;
+
+}
+
+#AgentsList1 .col1{
+    width:51%;
+}
+
+#AgentsList1 .col2{
+    width:18% ;
+}
+
+#AgentsList1 .col3 {
+    width: 12%;
+}
+
+#TableHeaders{
+    white-space: nowrap;
+}
+#AgentsList1 .icon{
+    width: 1.5em;
+    height: 1.5em;
+    background-size: 100%;
+    display:block;
+    margin:0 auto;
+}
+#AgentsList1 .center{
+    text-align: center;
+}
+
+
+
+.okno{
+    position: relative;
+    overflow: hidden;
+    width: 1.2em;
+    height: 1.2em;
+}
+.okno > div {
+    transition: transform 0.5s; -webkit-transition: transform 0.5s;
+    background-size: 100%;
+    position: absolute;
+    width: 1.2em;
+    height: 1.2em;
+    left: 0;
+    top: 0;
+}
+.okno .in{
+    transform:translateY(100%); -webkit-transform:translateY(100%);
+}
+.okno .out{
+    transform:translateY(-100%); -webkit-transform:translateY(-100%);
+}
+
+
+
+#AgentsList2{
+    min-height: 200px;
+}
+#AgentsList2 ul{
+    white-space: nowrap;
+}
+
+#AgentsList2 ul{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#AgentsList2 .id{
+    border-bottom: solid 3px white;
+    padding: 10px 0 10px 0;
+}
+#AgentsList2 .time{
+    min-height: 2em;
+}
+
+#AgentsList2 ul>li{
+    width: 180px;
+    display: inline-block;
+    margin: 0px;
+    white-space: normal;
+    border: solid 1px white;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+#AgentsList2 .icon2{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 10px 0 10px 0;
+}
+
+
+.scroll-window {
+    overflow-x: hidden;
+}
+.okno2{
+    position: relative;
+    overflow: hidden;
+}
+.okno2 .in{
+    transform:translateY(100%); -webkit-transform:translateY(100%);
+}
+.okno2 .out{
+    transform:translateY(-100%); -webkit-transform:translateY(-100%);
+}
+
+
+
+
+#footer{
+    width: 100%;
+    height: 40px;
+    margin:0;
+    border-top: solid 2px white;
+    background-color: #005D96;
+}
