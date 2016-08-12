@@ -100,7 +100,6 @@ var utils;
     var AutoScroller = (function () {
         function AutoScroller(options) {
             var _this = this;
-            this.step = 0;
             this.delay = 1;
             this.speed = 0.5;
             this.currentScroll = 0;
@@ -118,12 +117,11 @@ var utils;
         };
         AutoScroller.prototype.nextStep = function () {
             var _this = this;
-            console.log(this.$scrollWindow.width() + ' ' + this.$scrollContent.width());
             if (this.$scrollWindow.width() > this.$scrollContent.width()) {
                 return;
             }
-            var h = this.$list.children(this.step).width();
-            this.currentScroll = h;
+            var num = this.$list.children().first().width();
+            this.currentScroll = num;
             this.$scrollWindow.animate({
                 scrollLeft: this.currentScroll
             }, this.speed, function () {

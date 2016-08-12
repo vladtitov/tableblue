@@ -14,7 +14,7 @@ module utils{
        $list:JQuery;
        windowWidtht:number;
        timerId:number;
-       step:number=0;
+      // step:number=0;
        delay:number=1;
        speed:number=0.5;
        private currentScroll:number=0;
@@ -38,13 +38,13 @@ module utils{
 
        }
        private nextStep():void{
-           console.log(this.$scrollWindow.width()+' '+this.$scrollContent.width());
+
            if(this.$scrollWindow.width() > this.$scrollContent.width()) {
                return;
            }
-           var h:number = this.$list.children(this.step).width();
+           var num:number = this.$list.children().first().width();
          //  this.step++;
-           this.currentScroll=h;
+           this.currentScroll=num;
            this.$scrollWindow.animate({
                scrollLeft:this.currentScroll
            },this.speed,()=>{
