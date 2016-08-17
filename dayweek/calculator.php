@@ -36,8 +36,10 @@ function calculate($agents,$percentOf) {
 
     foreach($agents as $agent){
 
+
+$notprsc = isset($agent['Nonprescriber'])?$agent['Nonprescriber']:0;
         $agent['ready_eff'] = (int) $agent['COUNTER_ready_eff']/3600;
-        $agent['status']  = ($agent['Dial']+$agent['Prescriber']+$agent['Non- prescriber'])/($agent['ready_eff'])/$percentOf *100;
+        $agent['status']  = ($agent['Dial']+$agent['Prescriber']+$notprsc)/($agent['ready_eff'])/$percentOf *100;
 
       /// $agent['status'] = round($agent['calc']*1000)/1000;
 

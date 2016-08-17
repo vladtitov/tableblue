@@ -32,7 +32,7 @@ module tables {
 
         parse(res) {
             _.map(res.agents, function (item:any) {
-                item.non_prescriber = item['Non- prescriber'];
+                item.non_prescriber = item['Nonprescriber'];
                 item.connects = item.non_prescriber + item.Prescriber;
             });
             this.trigger('myParse', res.agents, this.params.report);
