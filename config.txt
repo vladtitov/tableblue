@@ -1,4 +1,4 @@
-AGENTS_URL="Agent-Status.csv"
-DAILY_URL="http://callcenter.front-desk.ca/data/BSR-Dayly.xml"
-WEEKLY_URL="http://callcenter.front-desk.ca/data/BSR-Wkly.xml"
-INV="demo"
+AGENTS_URL="C:\wamp\www\GitHub\tableblue\data\Status\Agent-Status.csv"
+DAILY_URL="C:\wamp\www\GitHub\tableblue\data\Daily\BSADaily.xml"
+WEEKLY_URL="C:\wamp\www\GitHub\Tableblue\data\Weekly\weekly.xml"
+INV="prod"
