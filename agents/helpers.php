@@ -8,7 +8,7 @@
 
 function getXML($stamp){
     $url = AGENTS_URL.$stamp;
-    $xml = simplexml_load_file($url);
+    $xml = @simplexml_load_file($url);
 
 
 	if(!$xml){
@@ -50,7 +50,10 @@ foreach($data as $node){
 		$item->ext = $node[3];
         $item->busy_reason = $node[4];
 		$item->state =$node[5];
-		if($item->state ==='AUX') $item->state = 'AUX_';
+		if($item->state ==='AUX'){
+			 $item->state = 'AUX_';
+			 $item->icon = 'icons/'.$item->busy_reason.'.png';
+		}else  $item->icon = 'icons/'.$item->state.'.png';
 		$item->split_skill = $node[6];
         $item->time= $node[7];
 		$item->icon = 'icons/'.$item->state.'.png';

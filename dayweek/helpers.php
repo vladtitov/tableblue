@@ -5,7 +5,7 @@
  * Date: 06.06.2016
  * Time: 22:09
  */
-
+/*
 
 function getXmlReport($url) {
 
@@ -18,7 +18,7 @@ function getXmlReport($url) {
     curl_close($ch);
     return $xml;
 }
-
+*/
 function makeArrInd($xml){
     $Columns = getPath($xml,'//Columns/Column');
     if(!$Columns) return 0;
@@ -76,12 +76,14 @@ function formatArray($a) {
         unset($agent['TEAM']);
         unset($agent['SERVICE']);
 
+		 $agent['Nonprescriber'] = isset($agent['Non- prescriber'])?$agent['Non- prescriber']:0;
+		  if(isset($agent['Non- prescriber']))unset($agent['Non- prescriber']);
         $agent['id'] = (int) $agent['AGENT_POSITION_ID'];
 
         if (!isset($agent['Dial'])) $agent['Dial'] = 0;
         $agent['Nonprescriber'] = isset($agent['Non- prescriber'])?$agent['Non- prescriber']:0;
         if (!isset($agent['Prescriber'])) $agent['Prescriber'] = 0;
-        if (!isset($agent['Non- prescriber'])) $agent['Non- Prescriber'] = 0;
+        //if (!isset($agent['Non- prescriber'])) $agent['Non- Prescriber'] = 0;
 
         $ar = explode(' ',$agent['AGENT_FULL_NAME']);
 
