@@ -73,7 +73,7 @@ var utilsDay;
             var _this = this;
             this.scrollHeight = 0;
             this.step = 0;
-            this.delay = 1;
+            this.delay = 2;
             this.speed = 0.5;
             this.currentScroll = 0;
             for (var str in options)
@@ -88,7 +88,7 @@ var utilsDay;
             var scroll = this.$scrollWindow.scrollTop();
             this.actualScroll = scroll;
             if (this.$scrollWindow.height() < this.$scrollContent.height()) {
-                if (this.step == 2) {
+                if (this.step > 1) {
                     this.step = 0;
                     this.currentScroll = 0;
                     this.$list.append(this.$list.children().first());
@@ -96,10 +96,16 @@ var utilsDay;
                     this.$scrollWindow.scrollTop(0);
                 }
             }
+            else {
+                this.step = 0;
+                this.currentScroll = 0;
+            }
         };
         AutoScroller.prototype.nextStep = function () {
             var _this = this;
             if (this.$scrollWindow.height() > this.$scrollContent.height()) {
+                this.step = 0;
+                this.currentScroll = 0;
                 return;
             }
             var h = this.$list.children(this.step).height();
@@ -185,25 +191,35 @@ var tables;
     var AgentsCollection = (function (_super) {
         __extends(AgentsCollection, _super);
         function AgentsCollection(options) {
-            var _this = this;
             _super.call(this, options);
             this.model = tables.AgentModel;
             this.url = options.url;
             this.params = options.params;
             this.fetch({ data: this.params });
-            setInterval(function () {
-                if (_this.params.report == 'd') {
-                    _this.params.report = 'w';
-                    $('#DailyWeekly').text('Weekly Report');
-                }
-                else {
-                    _this.params.report = 'd';
-                    $('#DailyWeekly').text('Daily Report');
-                }
-                _this.fetch({ data: _this.params });
-            }, 10000);
         }
+        AgentsCollection.prototype.sendRequest = function () {
+            if (this.params.report == 'd')
+                this.params.report = 'w';
+            else
+                this.params.report = 'd';
+            this.fetch({ data: this.params });
+        };
+        AgentsCollection.prototype.setHeaders = function () {
+            if (this.params.report == 'w')
+                $('#DailyWeekly').text('Weekly Report');
+            else
+                $('#DailyWeekly').text('Daily Report');
+        };
+        AgentsCollection.prototype.setMyTimeout = function (num) {
+            var _this = this;
+            if (isNaN(num) || num < 6)
+                num = 6;
+            var delay = (num - 6) * 5 + 15;
+            setTimeout(function () { return _this.sendRequest(); }, delay * 1000);
+        };
         AgentsCollection.prototype.parse = function (res) {
+            this.setHeaders();
+            this.setMyTimeout(res.agents.length);
             _.map(res.agents, function (item) {
                 item.non_prescriber = item['Nonprescriber'];
                 item.connects = item.non_prescriber + item.Prescriber;

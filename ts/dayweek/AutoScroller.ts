@@ -14,7 +14,7 @@ module utilsDay{
        scrollHeight:number=0;
        timerId:number;
        step:number=0;
-       delay:number=1;
+       delay:number=2;
        speed:number=0.5;
        private currentScroll:number=0;
        private actualScroll:number;
@@ -34,23 +34,31 @@ module utilsDay{
            this.actualScroll = scroll;
 
            if(this.$scrollWindow.height() < this.$scrollContent.height()) {
-               if (this.step == 2) {
+               if (this.step >1) {
                    this.step = 0;
                    this.currentScroll = 0;
                    this.$list.append(this.$list.children().first());
                    this.$list.append(this.$list.children().first());
                    this.$scrollWindow.scrollTop(0);
                }
+           }else{
+               this.step = 0;
+               this.currentScroll = 0;
            }
        }
 
        private nextStep():void{
+
            if(this.$scrollWindow.height() > this.$scrollContent.height()) {
+               this.step=0;
+               this.currentScroll=0;
                return;
            }
            var h:number = this.$list.children(this.step).height();
+
            this.step++;
            this.currentScroll+=h;
+          // console.log('scrolling '+h+' full scroll '+this.currentScroll);
            this.$scrollWindow.animate({
                scrollTop:this.currentScroll
            },this.speed,()=>{

@@ -10,6 +10,8 @@ module tables {
         data:any;
         params:any;         
 
+        myInterval:number;
+     agentsTotal:number;
         constructor(options:any) {
             
             super(options)
@@ -17,20 +19,34 @@ module tables {
             this.params = options.params;
             this.fetch({data: this.params});
             
-            setInterval(()=>{
-                if(this.params.report == 'd') {
-                    this.params.report ='w';
-                    $('#DailyWeekly').text('Weekly Report');
-                }
-                else {
-                    this.params.report = 'd';
-                    $('#DailyWeekly').text('Daily Report');
-                }
+            /*setInterval(()=>{
+
                 this.fetch({data: this.params});
-            },10000);
+            },30000);*/
+        }
+
+        sendRequest():void{
+            if(this.params.report == 'd')   this.params.report ='w';
+            else  this.params.report = 'd';
+            this.fetch({data: this.params});
+        }
+
+        setHeaders():void{
+
+            if(this.params.report == 'w')  $('#DailyWeekly').text('Weekly Report');
+            else  $('#DailyWeekly').text('Daily Report');
+        }
+
+        setMyTimeout(num):void{
+            if(isNaN(num) || num<6)num=6;
+            var delay = (num-6)*5+15;
+           setTimeout(()=>this.sendRequest(),delay*1000);
         }
 
         parse(res) {
+
+            this.setHeaders();
+            this.setMyTimeout(res.agents.length)
             _.map(res.agents, function (item:any) {
                 item.non_prescriber = item['Nonprescriber'];
                 item.connects = item.non_prescriber + item.Prescriber;

@@ -81,7 +81,7 @@ function formatArray($a) {
         $agent['id'] = (int) $agent['AGENT_POSITION_ID'];
 
         if (!isset($agent['Dial'])) $agent['Dial'] = 0;
-        $agent['Nonprescriber'] = isset($agent['Non- prescriber'])?$agent['Non- prescriber']:0;
+       // $agent['Nonprescriber'] = isset($agent['Non- prescriber'])?$agent['Non- prescriber']:0;
         if (!isset($agent['Prescriber'])) $agent['Prescriber'] = 0;
         //if (!isset($agent['Non- prescriber'])) $agent['Non- Prescriber'] = 0;
 
