@@ -23,145 +23,202 @@
 </head>
 <body>
 <style>
+    #MainWrapper{
+       width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;;
+        bottom: 0;
+        overflow: hidden;
+    }
 
+    #ScaleWrapper{
+        position:absolute;
+        top: 0;
+        left: 0;
+        height: 1080px;
+        width: 1920px;
+        transform-origin:0 0;
+        -webkit-transform-origin:0 0;
+        overflow: hidden;
+    }
+    .transfprm1366{
+
+    }
+    .wrapper{
+        width: 1920px;
+        height: 1050px;
+        position: absolute;
+    }
+
+    #footer{
+        position: absolute;
+        bottom: 0;
+        height: 50px;
+    }
 </style>
-<div class="wrapper">
-    <div id="header1" class="row">
-        <div id="DailyWeekly" class="pull-right">
-            Daily
-        </div>
-    </div>
-<div class="row">
-    <div class="col-lg-4">
-        <div id="Panel1" class="panel brand">
-
-
-            <div class="panel-body">
-                <!--Template Row end -->
-                <div id="Summary"></div>
-                <script id="row-template4" type="text/template">
-                    <div>Team <%=type%></div>
-                    <div>Dials - <%=dials%></div>
-                    <div>Connects - <%=connects%></div>
-                </script>
-
-            </div>
-        </div>
-
-        <div id="Panel2" class="panel brand">
-
-            <div class="panel-body">
-                <h2>
-                    MESSAGE MARQUEE
-                </h2>
-                <div id="message-template">
-
+<div id="MainWrapper">
+    <div id="ScaleWrapper">
+        <div class="wrapper">
+            <div id="header1" class="row">
+                <div id="DailyWeekly" class="pull-right">
+                    Daily
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-lg-8">
-        <div id="rightheader">
+            <div class="row">
+            <div class="col-lg-4">
+                <div id="Panel1" class="panel brand">
 
-            <div id="Clock">
-                        <div id="ClockTime">
-                                                12:34 PM
-                        </div>
-                        <div id="ClockDate">
-                            March 09, 2106
 
-                        </div>
-                <script>
-                    var setDate = function(){
-                        $('#ClockTime').text(moment().format('h:mm A'))
-                        $('#ClockDate').text(moment().format('MMM DD, YYYY'));
-                    }
-
-                    setDate();
-                    setInterval(function(){
-                        setDate();
-
-                    },1000)
-                </script>
-            </div>
-
-        </div>
-
-        <div id="AgentsList1" class="brand">
-                <ul id="TableHeaders">
-                    <li class="col1">NAME</li>
-                    <li class="col2">STATUS</li>
-                    <li class="col3" >DIAL</li>
-                    <li class="col4" >CONNECTS</li>
-                </ul>
-
-                <div class="nano">
-                    <div class="scroll-window nano-content">
-                        <!--Template Row start -->
-                        <script id="row-template" type="text/template">
-                            <td class="col1"><%=name%></td>
-                            <td class="col2">
-                                <div class="icon okno">
-                                    <div style="background-image: url('<%=old_icon%>');"></div>
-                                    <div class="in" style="background-image: url('<%=icon%>');"></div>
-                                </div>
-                            </td>
-                            <td class="dial col3 center"><%=Dial%></td>
-                            <td class="col6 center"><%=connects%></td>
-                        </script>
+                    <div class="panel-body">
                         <!--Template Row end -->
-
-                        <table class="scroll-content table table-responsive">
-                            <tbody></tbody>
-                        </table>
-                    </div>
-
-                </div>
-            <script  src="dayweek/main.js"></script>
-        </div>
-
-
-    </div>
-
-</div>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div id="AgentsList2" class="brand" data-str="apps/List2">
-                <div>
-                    <div class="scroll-window brand">
-
-                        <script id="row-template2" type="text/template">
-                            <div data-text="id" class="id"><%=name%></div>
-                            <div class="icon2 okno2" >
-                                <div style="background-image: url('<%=icon%>')"></div>
-                               <div class="in" style="background-image: url('<%=icon%>')"></div>
-                            </div>
-                            <div data-text="time" class="time"><%=time%></div>
+                        <div id="Summary"></div>
+                        <script id="row-template4" type="text/template">
+                            <div>Team <%=type%></div>
+                            <div>Dials - <%=dials%></div>
+                            <div>Connects - <%=connects%></div>
                         </script>
 
+                    </div>
+                </div>
 
-                        <ul class="text-center brand scroll-content" style="padding-left: 4px; box-shadow: 0px 0px 0px 0px;" data-id="list" onclick=""></ul>
+                <div id="Panel2" class="panel brand">
 
+                    <div class="panel-body">
+                        <h2>
+                            MESSAGE MARQUEE
+                        </h2>
+                        <div id="message-template">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div id="rightheader">
+
+                    <div id="Clock">
+                                <div id="ClockTime">
+                                                        12:34 PM
+                                </div>
+                                <div id="ClockDate">
+                                    March 09, 2106
+
+                                </div>
+                        <script>
+                            var setDate = function(){
+                                $('#ClockTime').text(moment().format('h:mm A'))
+                                $('#ClockDate').text(moment().format('MMM DD, YYYY'));
+                            }
+
+                            setDate();
+                            setInterval(function(){
+                                setDate();
+
+                            },1000)
+                        </script>
                     </div>
 
                 </div>
 
+                <div id="AgentsList1" class="brand">
+                        <ul id="TableHeaders">
+                            <li class="col1">NAME</li>
+                            <li class="col2">STATUS</li>
+                            <li class="col3" >DIAL</li>
+                            <li class="col4" >CONNECTS</li>
+                        </ul>
 
-               <script  src="agents/main.js"></script>
+                        <div class="nano">
+                            <div class="scroll-window nano-content">
+                                <!--Template Row start -->
+                                <script id="row-template" type="text/template">
+                                    <td class="col1"><%=name%></td>
+                                    <td class="col2">
+                                        <div class="icon okno">
+                                            <div style="background-image: url('<%=old_icon%>');"></div>
+                                            <div class="in" style="background-image: url('<%=icon%>');"></div>
+                                        </div>
+                                    </td>
+                                    <td class="dial col3 center"><%=Dial%></td>
+                                    <td class="col6 center"><%=connects%></td>
+                                </script>
+                                <!--Template Row end -->
+
+                                <table class="scroll-content table table-responsive">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    <script  src="dayweek/main.js"></script>
+                </div>
+
+
             </div>
+
         </div>
 
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="AgentsList2" class="brand" data-str="apps/List2">
+                        <div>
+                            <div class="scroll-window brand">
 
-    </div>
+                                <script id="row-template2" type="text/template">
+                                    <div data-text="id" class="id"><%=name%></div>
+                                    <div class="icon2 okno2" >
+                                        <div style="background-image: url('<%=icon%>')"></div>
+                                       <div class="in" style="background-image: url('<%=icon%>')"></div>
+                                    </div>
+                                    <div data-text="time" class="time"><%=time%></div>
+                                </script>
+
+
+                                <ul class="text-center brand scroll-content" style="padding-left: 4px; box-shadow: 0px 0px 0px 0px;" data-id="list" onclick=""></ul>
+
+                            </div>
+
+                        </div>
+
+
+                       <script  src="agents/main.js"></script>
+                    </div>
+                </div>
+
+
+            </div>
 
 
 
+        </div>
+        <div id="footer">
+        </div>
 </div>
-<div id="footer">
-
-
 </div>
 <script  src="crawl/main.js"></script>
+<script>
+    $(document).ready(function () {
+        var wrapper = $('#MainWrapper');
+        var w = wrapper.width();
+
+        if(w<1900){
+           // var k = h/1080;
+          //  -webkit-transform: scaleX(0.71);
+          //  transform: rotateZ(90deg);
+            var wk = wrapper.width()/1920;
+            var hk =  wrapper.height()/1080;
+
+            console.log(wk+ ' '+hk)
+          //$('#ScaleWrapper').css('-webkit-transform','scaleX('+wk+') scaleY('+hk+') scaleZ(1)');
+          // $('#ScaleWrapper').css('transform','scaleX('+wk+') scaleY('+hk+') scaleZ(1)');
+
+            $('#ScaleWrapper').css('-webkit-transform','scaleX('+wk+') scaleY('+hk+')');
+            $('#ScaleWrapper').css('transform','scaleX('+wk+') scaleY('+hk+')');
+        }
+        //console.log(wrapper.width()+ ' '+wrapper.height())
+    })
+
+</script>
 </body>
 </html>
