@@ -8,6 +8,7 @@ module tables {
                 id: 0,
                 dials: 0,
                 connects: 0,
+                total:0,
                 type: 'Weekly'
             }
         }
@@ -42,15 +43,20 @@ module tables {
                 model: this.model,
                 template:'#row-template4'
             });
+
             collection.on('myParse', (evt, par)=>{
                 var dials = 0;
                 var connects = 0;
+                var total = 0;
                 _.map(evt, function (item:any) {
                     dials += item.Dial;
                     connects += item.connects;
+                    total +=  item.total;
+
                 })
-                if(par == 'w') this.model.set({type:'Weekly', dials:dials, connects:connects});
-                else this.model.set({type:'Daily', dials:dials, connects:connects});
+
+                if(par == 'w') this.model.set({type:'Weekly', dials:dials, connects:connects,total:total});
+                else this.model.set({type:'Daily', dials:dials, connects:connects,total:total});
             })
         }
     }

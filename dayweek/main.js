@@ -25,7 +25,8 @@ var tables;
                 Dial: 0,
                 Prescriber: 0,
                 non_prescriber: 0,
-                connects: 0
+                connects: 0,
+                total: 0
             };
         };
         AgentModel.prototype.initialize = function () {
@@ -222,7 +223,14 @@ var tables;
             this.setMyTimeout(res.agents.length);
             _.map(res.agents, function (item) {
                 item.non_prescriber = item['Nonprescriber'];
+                if (isNaN(item.non_prescriber))
+                    item.non_prescriber = 0;
                 item.connects = item.non_prescriber + item.Prescriber;
+                if (isNaN(item.connects))
+                    item.connects = 0;
+                item.total = item.Dial + item.connects;
+                if (isNaN(item.total))
+                    item.total = 0;
             });
             this.trigger('myParse', res.agents, this.params.report);
             return res.agents;
@@ -290,6 +298,7 @@ var tables;
                 id: 0,
                 dials: 0,
                 connects: 0,
+                total: 0,
                 type: 'Weekly'
             };
         };
@@ -324,14 +333,16 @@ var tables;
             collection.on('myParse', function (evt, par) {
                 var dials = 0;
                 var connects = 0;
+                var total = 0;
                 _.map(evt, function (item) {
                     dials += item.Dial;
                     connects += item.connects;
+                    total += item.total;
                 });
                 if (par == 'w')
-                    _this.model.set({ type: 'Weekly', dials: dials, connects: connects });
+                    _this.model.set({ type: 'Weekly', dials: dials, connects: connects, total: total });
                 else
-                    _this.model.set({ type: 'Daily', dials: dials, connects: connects });
+                    _this.model.set({ type: 'Daily', dials: dials, connects: connects, total: total });
             });
         }
         return SummaryController;

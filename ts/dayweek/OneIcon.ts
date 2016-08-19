@@ -14,6 +14,7 @@ module tables{
         Prescriber:number;
         non_prescriber:number;
         connects:number;
+        total:number;
     }
 
 
@@ -27,7 +28,8 @@ module tables{
                 Dial: 0,
                 Prescriber: 0,
                 non_prescriber: 0,
-                connects:0
+                connects:0,
+                total:0
             }
         }
         initialize(){

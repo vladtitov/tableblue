@@ -74,9 +74,10 @@
                         <!--Template Row end -->
                         <div id="Summary"></div>
                         <script id="row-template4" type="text/template">
-                            <div>Team <%=type%></div>
+                            <div class="text-center">Team <%=type%></div>
                             <div>Dials - <%=dials%></div>
                             <div>Connects - <%=connects%></div>
+                            <div>Total - <%=total%></div>
                         </script>
 
                     </div>
@@ -125,6 +126,7 @@
                         <ul id="TableHeaders">
                             <li class="col1">NAME</li>
                             <li class="col2">STATUS</li>
+                            <li class="col21" >TOTAL</li>
                             <li class="col3" >DIAL</li>
                             <li class="col4" >CONNECTS</li>
                         </ul>
@@ -140,6 +142,7 @@
                                             <div class="in" style="background-image: url('<%=icon%>');"></div>
                                         </div>
                                     </td>
+                                    <td class="dial col21 center"><%=total%></td>
                                     <td class="dial col3 center"><%=Dial%></td>
                                     <td class="col6 center"><%=connects%></td>
                                 </script>

@@ -49,7 +49,13 @@ module tables {
             this.setMyTimeout(res.agents.length)
             _.map(res.agents, function (item:any) {
                 item.non_prescriber = item['Nonprescriber'];
+                if(isNaN(item.non_prescriber)) item.non_prescriber =0;
                 item.connects = item.non_prescriber + item.Prescriber;
+                if(isNaN(item.connects)) item.connects =0;
+                item.total = item.Dial + item.connects;
+                if(isNaN(item.total))item.total =0;
+
+
             });
             this.trigger('myParse', res.agents, this.params.report);
             return res.agents;
