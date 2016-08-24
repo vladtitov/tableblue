@@ -19,7 +19,7 @@ var rating;
             this.attributes.total = this.get('Dial') + this.get('Prescriber') + this.get('Non_prescriber');
             this.attributes.time = Math.round(this.attributes.COUNTER_ready_eff / DataModel.timeK);
             this.attributes.calculated = (this.attributes.total / this.attributes.time).toPrecision(2);
-            this.attributes.rating = (this.attributes.calculated / DataModel.percentOf * 100).toPrecision(2);
+            this.attributes.rating = (this.attributes.calculated / DataModel.percentOf * 100).toPrecision(3);
             var ar = DataModel.criteria;
             ;
             if (ar)
@@ -128,7 +128,7 @@ var rating;
         DataCollection.prototype.parse = function (res) {
             var ar = [];
             _.map(res.agents, function (item) {
-                item.Non_prescriber = item['Non- prescriber'];
+                item.Non_prescriber = item['Nonprescriber'];
                 item.calculated = '';
                 ar.push(item);
             });

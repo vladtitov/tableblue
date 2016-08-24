@@ -30,8 +30,9 @@ module rating{
         updateData():void{
             this.attributes.total = this.get('Dial')+this.get('Prescriber')+this.get('Non_prescriber');
             this.attributes.time =  Math.round(this.attributes.COUNTER_ready_eff/DataModel.timeK);
-            this.attributes.calculated = (this.attributes.total/this.attributes.time).toPrecision(2)
-            this.attributes.rating = (this.attributes.calculated/DataModel.percentOf*100).toPrecision(2);
+            this.attributes.calculated = (this.attributes.total/this.attributes.time).toPrecision(2);
+
+            this.attributes.rating = (this.attributes.calculated/DataModel.percentOf*100).toPrecision(3);
            var ar:Criteria[] = DataModel.criteria;;
             if(ar)for(var i=0,n=ar.length;i<n;i++)if(this.attributes.rating<ar[i].max){
                 this.attributes.icon = ar[i].icon;
@@ -149,7 +150,7 @@ module rating{
         parse(res):any{
             var ar:VOData[] = []
               _.map(res.agents,function(item:VOData){
-                  item.Non_prescriber = item['Non- prescriber'];
+                  item.Non_prescriber = item['Nonprescriber'];
                   item.calculated='';
                   ar.push(item);
             })
