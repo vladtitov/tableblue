@@ -12,27 +12,35 @@ module tablesTwo {
         constructor(options:any) {
             super(options)
             this.url = options.url;
-            this.fetch();
         }
 
+
+        refreshData(delay:number):void{
+            var self=this;
+            setTimeout(()=>this.fetch({
+                error:function(){
+                    self.refreshData(60)
+                }
+                ,success: function(){
+                    // console.log('on success  data');
+                }
+            }),delay*1000);
+
+        }
         parse(res) {
+            if(res && res.list && res.list.length){
+                _.map(res.list, function (item:any) {
+                });
+                var delay:number = res.list.length*5;
 
-              _.map(res.list, function (item:any) {
-               /* var mass = item.name.split(',');
-                var pos1 = mass[0].indexOf('*');
-                if (pos1 != -1) pos1 = pos1 + 8;
-                else pos1 = 0;
-                var out = mass[0].slice(pos1);
-                var pos2 = out.indexOf('~');
-                if (pos2 != -1) pos2 = pos1 + 1;
-                else pos2 = 0;*/
+                if(delay<30)delay=30;
+               if(delay>60) delay = 60
+                this.refreshData(delay);
+                return res.list;
+            }else{
+                this.refreshData(60);
+            }
 
-              /*  item.name = out.slice(pos2);
-                item.id = item.id;
-                item.time = item.time||0;
-                item.icon = '' + item.state;*/
-            });
-            return res.list;
         }
 
       /*  createName(name:string):string{
@@ -94,9 +102,8 @@ $(document).ready(function(){
         speed:0.7
     });
 
-   
 
-    setInterval(function(){
-        collectionTwo.fetch();
-    }, 10000);
+
+        collectionTwo.refreshData(0.01);
+
 })

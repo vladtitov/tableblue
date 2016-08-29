@@ -209,12 +209,33 @@ var tablesTwo;
             _super.call(this, options);
             this.model = AgentModel;
             this.url = options.url;
-            this.fetch();
         }
+        AgentsCollection.prototype.refreshData = function (delay) {
+            var _this = this;
+            var self = this;
+            setTimeout(function () { return _this.fetch({
+                error: function () {
+                    self.refreshData(60);
+                },
+                success: function () {
+                }
+            }); }, delay * 1000);
+        };
         AgentsCollection.prototype.parse = function (res) {
-            _.map(res.list, function (item) {
-            });
-            return res.list;
+            if (res && res.list && res.list.length) {
+                _.map(res.list, function (item) {
+                });
+                var delay = res.list.length * 5;
+                if (delay < 30)
+                    delay = 30;
+                if (delay > 60)
+                    delay = 60;
+                this.refreshData(delay);
+                return res.list;
+            }
+            else {
+                this.refreshData(60);
+            }
         };
         return AgentsCollection;
     }(Backbone.Collection));
@@ -262,8 +283,6 @@ $(document).ready(function () {
         delay: 3,
         speed: 0.7
     });
-    setInterval(function () {
-        collectionTwo.fetch();
-    }, 10000);
+    collectionTwo.refreshData(0.01);
 });
 //# sourceMappingURL=main.js.map
