@@ -224,6 +224,7 @@ var tables;
             if (isNaN(num) || num < 6)
                 num = 6;
             var delay = (num - 6) * 5 + 15;
+            console.log('refreshDayweek  in ' + delay);
             this.mytimeout = setTimeout(function () { return _this.sendRequest(); }, delay * 1000);
         };
         AgentsCollection.prototype.parse = function (res) {

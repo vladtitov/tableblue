@@ -70,7 +70,6 @@ var movingtext;
         };
         Messages.prototype.start = function () {
             if (!this.isRuning) {
-                console.log('starting ' + (typeof requestAnimationFrame));
                 this.prev = -1;
                 this.isRuning = true;
                 this.endcount = 0;
@@ -82,7 +81,7 @@ var movingtext;
             $.get(this.url, function (result) {
                 var msgs = '<p class="spacer"></p>' + result.join('<br/><br/>') + '<p class="spacer">';
                 if (_this.messages == msgs) {
-                    console.log('same data');
+                    console.log('mesages same data');
                     return;
                 }
                 console.log('data cahanged');

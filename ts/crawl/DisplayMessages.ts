@@ -88,7 +88,7 @@ module movingtext {
         endcount:number = 0
         start():void {
             if(!this.isRuning){
-                console.log('starting '+(typeof requestAnimationFrame) );
+               // console.log('starting '+(typeof requestAnimationFrame) );
                 this.prev = -1;
                 this.isRuning = true;
                 this.endcount =0;
@@ -101,7 +101,7 @@ module movingtext {
             $.get(this.url, (result:string [] ) =>{
                 var msgs = '<p class="spacer"></p>'+result.join('<br/><br/>')+'<p class="spacer">';
                 if(this.messages == msgs){
-                    console.log('same data');
+                    console.log('mesages same data');
                     return;
                 }
                 console.log('data cahanged');

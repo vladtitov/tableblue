@@ -213,6 +213,7 @@ var tablesTwo;
         AgentsCollection.prototype.refreshData = function (delay) {
             var _this = this;
             var self = this;
+            console.log('refreshAgents in ' + delay);
             setTimeout(function () { return _this.fetch({
                 error: function () {
                     self.refreshData(60);

@@ -51,6 +51,7 @@ module tables {
            //console.log('setMyTimeout '+num);
             if(isNaN(num) || num<6)num=6;
             var delay = (num-6)*5+15;
+            console.log('refreshDayweek  in '+delay);
          this.mytimeout =   setTimeout(()=>this.sendRequest(),delay*1000);
         }
 

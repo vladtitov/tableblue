@@ -17,6 +17,7 @@ module tablesTwo {
 
         refreshData(delay:number):void{
             var self=this;
+            console.log('refreshAgents in '+delay);
             setTimeout(()=>this.fetch({
                 error:function(){
                     self.refreshData(60)
