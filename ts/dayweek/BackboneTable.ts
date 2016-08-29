@@ -17,8 +17,7 @@ module tables {
             super(options)
             this.url = options.url;
             this.params = options.params;
-            this.fetch({data: this.params});
-            
+            this.sendRequest();
             /*setInterval(()=>{
 
                 this.fetch({data: this.params});
@@ -28,7 +27,17 @@ module tables {
         sendRequest():void{
             if(this.params.report == 'd')   this.params.report ='w';
             else  this.params.report = 'd';
-            this.fetch({data: this.params});
+
+            var self=this;
+            this.fetch({
+                data: this.params,
+                error:function(){
+                    self.setMyTimeout(30)
+                }
+                ,success: function(){
+                   // console.log('on success  data');
+                }
+            });
         }
 
         setHeaders():void{
@@ -37,28 +46,35 @@ module tables {
             else  $('#DailyWeekly').text('Daily Report');
         }
 
+        mytimeout:number;
         setMyTimeout(num):void{
+           //console.log('setMyTimeout '+num);
             if(isNaN(num) || num<6)num=6;
             var delay = (num-6)*5+15;
-           setTimeout(()=>this.sendRequest(),delay*1000);
+         this.mytimeout =   setTimeout(()=>this.sendRequest(),delay*1000);
         }
 
         parse(res) {
+           // console.log('parse resulte ',res);
+                if(res && res.agents){
+                    this.setHeaders();
+                    this.setMyTimeout(res.agents.length)
+                    _.map(res.agents, function (item:any) {
+                        item.non_prescriber = item['Nonprescriber'];
+                        if(isNaN(item.non_prescriber)) item.non_prescriber =0;
+                        item.connects = item.non_prescriber + item.Prescriber;
+                        if(isNaN(item.connects)) item.connects =0;
+                        item.total = item.Dial + item.connects;
+                        if(isNaN(item.total))item.total =0;
 
-            this.setHeaders();
-            this.setMyTimeout(res.agents.length)
-            _.map(res.agents, function (item:any) {
-                item.non_prescriber = item['Nonprescriber'];
-                if(isNaN(item.non_prescriber)) item.non_prescriber =0;
-                item.connects = item.non_prescriber + item.Prescriber;
-                if(isNaN(item.connects)) item.connects =0;
-                item.total = item.Dial + item.connects;
-                if(isNaN(item.total))item.total =0;
+                    });
+                    this.trigger('myParse', res.agents, this.params.report);
+                    return res.agents;
+                }else {
 
-
-            });
-            this.trigger('myParse', res.agents, this.params.report);
-            return res.agents;
+                    this.setMyTimeout(60000);
+                    return [];
+                }
         }
     }
 

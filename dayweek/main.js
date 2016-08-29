@@ -196,14 +196,22 @@ var tables;
             this.model = tables.AgentModel;
             this.url = options.url;
             this.params = options.params;
-            this.fetch({ data: this.params });
+            this.sendRequest();
         }
         AgentsCollection.prototype.sendRequest = function () {
             if (this.params.report == 'd')
                 this.params.report = 'w';
             else
                 this.params.report = 'd';
-            this.fetch({ data: this.params });
+            var self = this;
+            this.fetch({
+                data: this.params,
+                error: function () {
+                    self.setMyTimeout(30);
+                },
+                success: function () {
+                }
+            });
         };
         AgentsCollection.prototype.setHeaders = function () {
             if (this.params.report == 'w')
@@ -216,24 +224,30 @@ var tables;
             if (isNaN(num) || num < 6)
                 num = 6;
             var delay = (num - 6) * 5 + 15;
-            setTimeout(function () { return _this.sendRequest(); }, delay * 1000);
+            this.mytimeout = setTimeout(function () { return _this.sendRequest(); }, delay * 1000);
         };
         AgentsCollection.prototype.parse = function (res) {
-            this.setHeaders();
-            this.setMyTimeout(res.agents.length);
-            _.map(res.agents, function (item) {
-                item.non_prescriber = item['Nonprescriber'];
-                if (isNaN(item.non_prescriber))
-                    item.non_prescriber = 0;
-                item.connects = item.non_prescriber + item.Prescriber;
-                if (isNaN(item.connects))
-                    item.connects = 0;
-                item.total = item.Dial + item.connects;
-                if (isNaN(item.total))
-                    item.total = 0;
-            });
-            this.trigger('myParse', res.agents, this.params.report);
-            return res.agents;
+            if (res && res.agents) {
+                this.setHeaders();
+                this.setMyTimeout(res.agents.length);
+                _.map(res.agents, function (item) {
+                    item.non_prescriber = item['Nonprescriber'];
+                    if (isNaN(item.non_prescriber))
+                        item.non_prescriber = 0;
+                    item.connects = item.non_prescriber + item.Prescriber;
+                    if (isNaN(item.connects))
+                        item.connects = 0;
+                    item.total = item.Dial + item.connects;
+                    if (isNaN(item.total))
+                        item.total = 0;
+                });
+                this.trigger('myParse', res.agents, this.params.report);
+                return res.agents;
+            }
+            else {
+                this.setMyTimeout(60000);
+                return [];
+            }
         };
         return AgentsCollection;
     }(Backbone.Collection));

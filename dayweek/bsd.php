@@ -32,8 +32,10 @@ else die("Need W or D!");
 
 // $xml = getXmlReport($filename);
 $xml = @simplexml_load_file($filename);
+//exit;
 if(!$xml){
  errorLog(' no xml from server');
+ 
  exit;
 }
 
