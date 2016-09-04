@@ -29,7 +29,7 @@ var tables;
                 total: 0,
                 COUNTER_ready_eff: 0,
                 ready_eff: 0,
-                ready_time: 0
+                ready_time: ''
             };
         };
         AgentModel.prototype.initialize = function () {
@@ -263,7 +263,7 @@ var tables;
             var _this = this;
             _super.call(this, options);
             this.container = $(options.container);
-            this.setElement(this.container.find('tbody').first(), true);
+            this.setElement(this.container.find('.agents-list').first(), true);
             tables.DayWeekRowView.template = _.template($(options.rowTempalete).html());
             this.collection = options.collection;
             this.collection.bind('remove', function (evt) {

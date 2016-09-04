@@ -35,7 +35,7 @@ module tables{
                 total:0,
                 COUNTER_ready_eff:0,
                 ready_eff:0,
-                ready_time:0
+                ready_time:''
 
             }
         }

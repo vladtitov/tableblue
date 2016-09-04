@@ -75,9 +75,9 @@
                         <div id="Summary"></div>
                         <script id="row-template4" type="text/template">
                             <div class="text-center">Team <%=type%></div>
-                            <div>Dials - <%=dials%></div>
+
                             <div>Connects - <%=connects%></div>
-                            <div>Total - <%=total%></div>
+                            <div>Dials - <%=total%></div>
                         </script>
 
                     </div>
@@ -87,7 +87,7 @@
 
                     <div class="panel-body">
                         <h2>
-                            MESSAGE MARQUEE
+
                         </h2>
                         <div id="message-template">
 
@@ -124,13 +124,15 @@
 
                 <div id="AgentsList1" class="brand">
                         <table id="TableHeaders" class="text-center">
-                            <tr>
-                                <td class="text-left col1">NAME</td>
-                                <td class="col2">STATUS</td>
-                                <td class="col3" >DIALS</td>
-                                <td class="col4" >CONNECTS</td>
-                                <td class="col5" >READY TIME</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td class="text-left col1">NAME</td>
+                                    <td class="col2">STATUS</td>
+                                    <td class="col3" >DIALS</td>
+                                    <td class="col4" >CONNECTS</td>
+                                    <td class="col5" >READY TIME</td>
+                                </tr>
+                            </tbody>
                         </table>
 
                         <div class="nano">
@@ -152,7 +154,9 @@
                                 <!--Template Row end -->
 
                                 <table class="scroll-content table table-responsive">
-                                    <tbody></tbody>
+                                    <tbody class="agents-list">
+
+                                    </tbody>
                                 </table>
                             </div>
 

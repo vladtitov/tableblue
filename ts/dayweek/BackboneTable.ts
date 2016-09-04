@@ -86,7 +86,7 @@ module tables {
         constructor(options) {
             super(options);
             this.container = $(options.container);
-            this.setElement(this.container.find('tbody').first(), true);
+            this.setElement(this.container.find('.agents-list').first(), true);
             DayWeekRowView.template = _.template($(options.rowTempalete).html());
             this.collection = options.collection;
             this.collection.bind('remove', (evt)=> {
