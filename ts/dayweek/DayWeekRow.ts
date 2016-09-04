@@ -15,6 +15,9 @@ module tables{
         non_prescriber:number;
         connects:number;
         total:number;
+        COUNTER_ready_eff:number;
+        ready_eff:number;
+        ready_time:string;
     }
 
 
@@ -29,10 +32,15 @@ module tables{
                 Prescriber: 0,
                 non_prescriber: 0,
                 connects:0,
-                total:0
+                total:0,
+                COUNTER_ready_eff:0,
+                ready_eff:0,
+                ready_time:0
+
             }
         }
         initialize(){
+            this.attributes.ready_time = moment.unix(this.attributes.COUNTER_ready_eff).format('hh:mm:ss');
             this.on('change:icon', (evt)=> this.onIcon(evt));
         }
         onIcon(evt):void {
@@ -40,7 +48,9 @@ module tables{
         }
     }
 
-  export class RowView extends Backbone.View<AgentModel>{
+
+
+  export class DayWeekRowView extends Backbone.View<AgentModel>{
         model:AgentModel;
         static template:any;
 
@@ -54,7 +64,7 @@ module tables{
         }
 
         render() {
-            this.$el.html(RowView.template(this.model.toJSON()));
+            this.$el.html(DayWeekRowView.template(this.model.toJSON()));
             setTimeout(()=>{
                 this.$el.find('.icon > div:first').addClass('out');
                 this.$el.find('.in').removeClass('in');
@@ -62,7 +72,7 @@ module tables{
             return this;
         }
 
-        remove():RowView {
+        remove():DayWeekRowView {
             this.$el.fadeOut(()=>{
                 super.remove();
             })

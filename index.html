@@ -123,28 +123,31 @@
                 </div>
 
                 <div id="AgentsList1" class="brand">
-                        <ul id="TableHeaders">
-                            <li class="col1">NAME</li>
-                            <li class="col2">STATUS</li>
-                            <li class="col21" >TOTAL</li>
-                            <li class="col3" >DIAL</li>
-                            <li class="col4" >CONNECTS</li>
-                        </ul>
+                        <table id="TableHeaders" class="text-center">
+                            <tr>
+                                <td class="text-left col1">NAME</td>
+                                <td class="col2">STATUS</td>
+                                <td class="col3" >DIALS</td>
+                                <td class="col4" >CONNECTS</td>
+                                <td class="col5" >READY TIME</td>
+                            </tr>
+                        </table>
 
                         <div class="nano">
                             <div class="scroll-window nano-content">
                                 <!--Template Row start -->
                                 <script id="row-template" type="text/template">
-                                    <td class="col1"><%=name%></td>
+                                    <td class="col1 text-left"><%=name%></td>
                                     <td class="col2">
                                         <div class="icon okno">
                                             <div style="background-image: url('<%=old_icon%>');"></div>
                                             <div class="in" style="background-image: url('<%=icon%>');"></div>
                                         </div>
                                     </td>
-                                    <td class="dial col21 center"><%=total%></td>
-                                    <td class="dial col3 center"><%=Dial%></td>
-                                    <td class="col6 center"><%=connects%></td>
+                                    <td class="dial col3 center"><%=total%></td>
+                                    <td class="col4 center"><%=connects%></td>
+                                    <td class="col5 center"><%=ready_time%></td>
+
                                 </script>
                                 <!--Template Row end -->
 

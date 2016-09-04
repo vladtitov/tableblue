@@ -7,7 +7,7 @@
     "outFile": "../../dayweek/main.js"
   },
   "files": [
-    "OneIcon.ts",
+    "DayWeekRow.ts",
     "AutoScroller.ts",
     "Formatter.ts",
     "BackboneTable.ts",

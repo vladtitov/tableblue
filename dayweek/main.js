@@ -26,11 +26,15 @@ var tables;
                 Prescriber: 0,
                 non_prescriber: 0,
                 connects: 0,
-                total: 0
+                total: 0,
+                COUNTER_ready_eff: 0,
+                ready_eff: 0,
+                ready_time: 0
             };
         };
         AgentModel.prototype.initialize = function () {
             var _this = this;
+            this.attributes.ready_time = moment.unix(this.attributes.COUNTER_ready_eff).format('hh:mm:ss');
             this.on('change:icon', function (evt) { return _this.onIcon(evt); });
         };
         AgentModel.prototype.onIcon = function (evt) {
@@ -39,33 +43,33 @@ var tables;
         return AgentModel;
     }(Backbone.Model));
     tables.AgentModel = AgentModel;
-    var RowView = (function (_super) {
-        __extends(RowView, _super);
-        function RowView(options) {
+    var DayWeekRowView = (function (_super) {
+        __extends(DayWeekRowView, _super);
+        function DayWeekRowView(options) {
             var _this = this;
             _super.call(this, options);
             this.model.on('change', function () { return _this.render(); });
             this.model.bind('remove', function () { return _this.remove(); });
         }
-        RowView.prototype.render = function () {
+        DayWeekRowView.prototype.render = function () {
             var _this = this;
-            this.$el.html(RowView.template(this.model.toJSON()));
+            this.$el.html(DayWeekRowView.template(this.model.toJSON()));
             setTimeout(function () {
                 _this.$el.find('.icon > div:first').addClass('out');
                 _this.$el.find('.in').removeClass('in');
             }, 20);
             return this;
         };
-        RowView.prototype.remove = function () {
+        DayWeekRowView.prototype.remove = function () {
             var _this = this;
             this.$el.fadeOut(function () {
                 _super.prototype.remove.call(_this);
             });
             return this;
         };
-        return RowView;
+        return DayWeekRowView;
     }(Backbone.View));
-    tables.RowView = RowView;
+    tables.DayWeekRowView = DayWeekRowView;
 })(tables || (tables = {}));
 var utilsDay;
 (function (utilsDay) {
@@ -260,12 +264,12 @@ var tables;
             _super.call(this, options);
             this.container = $(options.container);
             this.setElement(this.container.find('tbody').first(), true);
-            tables.RowView.template = _.template($(options.rowTempalete).html());
+            tables.DayWeekRowView.template = _.template($(options.rowTempalete).html());
             this.collection = options.collection;
             this.collection.bind('remove', function (evt) {
             }, this);
             this.collection.bind("add", function (evt) {
-                var row = new tables.RowView({ model: evt, tagName: 'tr' });
+                var row = new tables.DayWeekRowView({ model: evt, tagName: 'tr' });
                 _this.$el.append(row.render().el);
             }, this);
             this.render = function () {

@@ -78,6 +78,7 @@
 
 #AgentsList1 table{
     color: white;
+    width: 100%;
 }
 
 
@@ -91,19 +92,28 @@
 
 }
 
+
+
 #AgentsList1 .col1{
-    width:35%;
+    width:20%;
+    padding-left: 20px;
 }
 
 #AgentsList1 .col2{
+    width:15%;
+}
+
+#AgentsList1 .col3{
     width:15% ;
 }
-#AgentsList1 .col21{
-    width:15% ;
+#AgentsList1 .col4{
+    width:17% ;
 }
-#AgentsList1 .col3 {
+#AgentsList1 .col5 {
     width: 15%;
 }
+
+
 
 #TableHeaders{
     white-space: nowrap;

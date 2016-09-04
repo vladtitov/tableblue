@@ -1,6 +1,6 @@
 ///<reference path="../com.ts"/>
 
-///<reference path="OneIcon.ts"/>
+///<reference path="DayWeekRow.ts"/>
 
 module tables {
     
@@ -87,13 +87,13 @@ module tables {
             super(options);
             this.container = $(options.container);
             this.setElement(this.container.find('tbody').first(), true);
-            RowView.template = _.template($(options.rowTempalete).html());
+            DayWeekRowView.template = _.template($(options.rowTempalete).html());
             this.collection = options.collection;
             this.collection.bind('remove', (evt)=> {
             }, this);
 
             this.collection.bind("add", (evt)=> {
-                var row = new RowView({model: evt, tagName: 'tr'});
+                var row = new DayWeekRowView({model: evt, tagName: 'tr'});
                 this.$el.append(row.render().el);
             }, this);
 
