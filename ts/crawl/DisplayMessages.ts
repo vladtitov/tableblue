@@ -79,11 +79,7 @@ module movingtext {
                 this.prev = w;
             }
 
-
-
         }
-
-
 
         endcount:number = 0
         start():void {
