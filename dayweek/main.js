@@ -225,9 +225,11 @@ var tables;
         };
         AgentsCollection.prototype.setMyTimeout = function (num) {
             var _this = this;
-            if (isNaN(num) || num < 6)
-                num = 6;
-            var delay = (num - 6) * 5 + 15;
+            var delay;
+            if (this.params.report == 'd')
+                delay = 180;
+            else
+                delay = 60;
             console.log('refreshDayweek  in ' + delay);
             this.mytimeout = setTimeout(function () { return _this.sendRequest(); }, delay * 1000);
         };
