@@ -13,8 +13,8 @@
 			<Row C0="BSR" C1="I0247336" C2="Chris M Smith" C3="71810" C4="Dial" C5="3" C6="BSA" C7="I0247336" C8="Chris M Smith" C9="71810" C10="154660.0"/>
 			<Row C0="BSR" C1="I0247440" C2="Emily Zeidler" C3="71818" C4="Dial" C5="20" C6="BSA" C7="I0247440" C8="Emily Zeidler" C9="71818" C10="83010.0"/>
 			<Row C0="BSR" C1="I0247440" C2="Emily Zeidler" C3="71818" C4="Non- prescriber" C5="6" C6="BSA" C7="I0247440" C8="Emily Zeidler" C9="71818" C10="83010.0"/>
-			<Row C0="BSR" C1="I0250991" C2="Sarah Hoppie" C3="71811" C4="Non- prescriber" C5="5" C6="BSA" C7="I0250991" C8="Sarah Hoppie" C9="71811" C10="50030.0"/>
-			<Row C0="BSR" C1="I0250991" C2="Sarah Hoppie" C3="71811" C4="Dial" C5="8" C6="BSA" C7="I0250991" C8="Sarah Hoppie" C9="71811" C10="50030.0"/>
+			<Row C0="BSR" C1="I0250991" C2="Sarah Hoppie" C3="71811" C4="Non- prescriber" C5="5" C6="BSA" C7="I0250991" C8="Sarah Hoppie" C9="71811" C10="38250.0"/>
+			<Row C0="BSR" C1="I0250991" C2="Sarah Hoppie" C3="71811" C4="Dial" C5="8" C6="BSA" C7="I0250991" C8="Sarah Hoppie" C9="71811" C10="38250.0"/>
 			<Row C0="BSR" C1="I0245805" C2="Melissa Michalski" C3="71801" C4="Non- prescriber" C5="6" C6="BSA" C7="I0245805" C8="Melissa Michalski" C9="71801" C10="172740.0"/>
 			<Row C0="BSR" C1="I0244860" C2="Marissa Conway" C3="71812" C4="Non- prescriber" C5="5" C6="BSA" C7="I0244860" C8="Marissa Conway" C9="71812" C10="62270.0"/>
 		</Rows>
