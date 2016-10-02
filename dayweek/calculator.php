@@ -39,13 +39,13 @@ function calculate($agents,$percentOf) {
 
 $notprsc = isset($agent['Nonprescriber'])?$agent['Nonprescriber']:0;
 //        $agent['ready_eff'] = (int) $agent['COUNTER_ready_eff'];
-        $agent['ready_eff'] = (int) (($agent['COUNTER_ready_eff']/864000)*24*3600);
+        $agent['ready_eff'] =(($agent['COUNTER_ready_eff'])*100);
 //        var_dump($agent['ready_eff']);
 //        $agent['status']  = ($agent['Dial']+$agent['Prescriber']+$notprsc)/($agent['ready_eff'])/$percentOf *100;
         $totalDials = $agent['Dial']+$agent['Prescriber']+$notprsc;
         $tspeed = $totalDials/($agent['ready_eff']);
         $stats = $tspeed/$percentOf;
-        $agent['status']  = $stats *100;
+        $agent['status']  = (int) $stats;
         $agent['COUNTER_ready_eff'] = $agent['ready_eff'];
 //        var_dump($agent['status']);
 //        $agent['status'] = -15;

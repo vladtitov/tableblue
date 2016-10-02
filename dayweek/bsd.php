@@ -69,7 +69,7 @@ $settings = json_decode(file_get_contents("settings.json"));
 
 $agents = calculate($agents,$settings->percentOf);
 
-$agents = setCriteria($agents,$settings);
+//$agents = setCriteria($agents,$settings);
 
 $out -> Report = $stampReport;
 
