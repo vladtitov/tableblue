@@ -10,7 +10,7 @@
 
         var min = Math.floor((num-(h*3600))/60);
         var sec = (num-(h*3600))-(min*60);
-        return h+':'+(min<10?'0'+min:min)+':'+(sec<10?'0'+sec:sec);
+        return (h<10?'0'+h:h)+':'+(min<10?'0'+min:min)+':'+(sec<10?'0'+sec:sec);
     },
    time:function($view,val) {
        return $view.text(this.formatTime(val));
