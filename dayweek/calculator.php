@@ -43,8 +43,9 @@ function calculate($agents,$percentOf) {
     //        var_dump($agent['ready_eff']);
     //        $agent['status']  = ($agent['Dial']+$agent['Prescriber']+$notprsc)/($agent['ready_eff'])/$percentOf *100;
             $totalDials = $agent['Dial']+$agent['Prescriber']+$notprsc;
-            $tspeed = ($totalDials/($agent['ready_eff']));
-            $stats = $tspeed/$percentOf;
+//            $time =  $agent['ready_eff']/3600;
+            $tspeed = ($totalDials/($agent['ready_eff']/3600));
+            $stats = $tspeed/$percentOf*100;
             $agent['status']  = $stats;
             $agent['COUNTER_ready_eff'] = $agent['ready_eff'];
     //        var_dump($agent['status']);
