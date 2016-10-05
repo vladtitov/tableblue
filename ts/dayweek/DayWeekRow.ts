@@ -42,7 +42,7 @@ module tables{
         initialize(){
             this.attributes.ready_time = moment(this.attributes.COUNTER_ready_eff).utc().format('hh:mm:ss');
             // this.attributes.ready_time = this.attributes.COUNTER_ready_eff;
-            console.log(this.attributes.name, moment(this.attributes.COUNTER_ready_eff*1000).utc().format('hh:mm:ss'));
+           // console.log(this.attributes.name, moment(this.attributes.COUNTER_ready_eff*1000).utc().format('hh:mm:ss'));
             // this.attributes.ready_time = moment.unix(this.attributes.COUNTER_ready_eff/10).format('hh:mm:ss');
             // this.attributes.ready_time = this.attributes.COUNTER_ready_eff;
             this.on('change:icon', (evt)=> this.onIcon(evt));
