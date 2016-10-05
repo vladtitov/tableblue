@@ -34,7 +34,7 @@ var tables;
         };
         AgentModel.prototype.initialize = function () {
             var _this = this;
-            this.attributes.ready_time = moment(this.attributes.COUNTER_ready_eff).utc().format('hh:mm:ss');
+            this.attributes.ready_time = Formatter.formatTime(this.attributes.COUNTER_ready_eff);
             this.on('change:icon', function (evt) { return _this.onIcon(evt); });
         };
         AgentModel.prototype.onIcon = function (evt) {
@@ -152,7 +152,7 @@ var Formatter = {
         var h = Math.floor(num / 60 / 60);
         var min = Math.floor((num - (h * 3600)) / 60);
         var sec = (num - (h * 3600)) - (min * 60);
-        return h + ':' + (min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec);
+        return (h < 10 ? '0' + h : h) + ':' + (min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec);
     },
     time: function ($view, val) {
         return $view.text(this.formatTime(val));

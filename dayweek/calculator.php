@@ -37,23 +37,24 @@ function calculate($agents,$percentOf) {
     foreach($agents as $agent){
 
 
-$notprsc = isset($agent['Nonprescriber'])?$agent['Nonprescriber']:0;
-//        $agent['ready_eff'] = (int) $agent['COUNTER_ready_eff'];
-        $agent['ready_eff'] =(($agent['COUNTER_ready_eff'])*100);
-//        var_dump($agent['ready_eff']);
-//        $agent['status']  = ($agent['Dial']+$agent['Prescriber']+$notprsc)/($agent['ready_eff'])/$percentOf *100;
-        $totalDials = $agent['Dial']+$agent['Prescriber']+$notprsc;
-        $tspeed = $totalDials/($agent['ready_eff']);
-        $stats = $tspeed/$percentOf;
-        $agent['status']  = (int) $stats;
-        $agent['COUNTER_ready_eff'] = $agent['ready_eff'];
-//        var_dump($agent['status']);
-//        $agent['status'] = -15;
+        $notprsc = isset($agent['Nonprescriber'])?$agent['Nonprescriber']:0;
+    //        $agent['ready_eff'] = (int) $agent['COUNTER_ready_eff'];
+            $agent['ready_eff'] =(($agent['COUNTER_ready_eff'])/10);
+    //        var_dump($agent['ready_eff']);
+    //        $agent['status']  = ($agent['Dial']+$agent['Prescriber']+$notprsc)/($agent['ready_eff'])/$percentOf *100;
+            $totalDials = $agent['Dial']+$agent['Prescriber']+$notprsc;
+//            $time =  $agent['ready_eff']/3600;
+            $tspeed = ($totalDials/($agent['ready_eff']/3600));
+            $stats = $tspeed/$percentOf*100;
+            $agent['status']  = $stats;
+            $agent['COUNTER_ready_eff'] = $agent['ready_eff'];
+    //        var_dump($agent['status']);
+    //        $agent['status'] = -15;
 
 
-      /// $agent['status'] = round($agent['calc']*1000)/1000;
+          /// $agent['status'] = round($agent['calc']*1000)/1000;
 
-        $out[] = $agent;
+            $out[] = $agent;
     }
     return $out;
 }

@@ -44,7 +44,7 @@ var rating;
                 rating: 0
             };
         };
-        DataModel.timeK = 1;
+        DataModel.timeK = 3600;
         return DataModel;
     }(Backbone.Model));
     rating.DataModel = DataModel;

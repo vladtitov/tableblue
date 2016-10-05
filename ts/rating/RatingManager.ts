@@ -19,8 +19,8 @@ module rating{
 
 
     export class DataModel extends Backbone.Model{
-        // static timeK:number=3600;
-        static timeK:number = 1;//=864000
+        static timeK:number=3600;
+        // static timeK:number = 1;//=864000
         static percentOf:number;
         static criteria:Criteria[];
         initialize(){
