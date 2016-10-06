@@ -48,6 +48,7 @@ function calculate($agents,$percentOf) {
             $stats = $tspeed/$percentOf*100;
             $agent['status']  = $stats;
             $agent['COUNTER_ready_eff'] = $agent['ready_eff'];
+			$agent['HOURS']= $agent['ready_eff']/3600;
     //        var_dump($agent['status']);
     //        $agent['status'] = -15;
 

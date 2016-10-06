@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Report name="BSADashDaily(2016-08-17 13:30:00)" description="BSA Dashboard Daily Data">
+<Report name="BSADashDaily(2016-10-05 17:00:01)" description="BSA Dashboard Daily Data">
 	<DataDestination name="BSA-Weekly" ID="57" HasGroupBy="no">
 		<Rows>
-			<Row C0="BSR" C1="I0246487" C2="Rachel O&#39;Connor" C3="71814" C4="Dial" C5="4" C6="BSA" C7="I0246487" C8="Rachel O&#39;Connor" C9="71814" C10="66250.0"/>
-			<Row C0="BSR" C1="I0247336" C2="Chris M Smith" C3="71810" C4="Non- prescriber" C5="6" C6="BSA" C7="I0247336" C8="Chris M Smith" C9="71810" C10="154660.0"/>
-			<Row C0="BSR" C1="I0245805" C2="Melissa Michalski" C3="71801" C4="Dial" C5="4" C6="BSA" C7="I0245805" C8="Melissa Michalski" C9="71801" C10="172740.0"/>
-			<Row C0="BSR" C1="I0246487" C2="Rachel O&#39;Connor" C3="71814" C4="Non- prescriber" C5="5" C6="BSA" C7="I0246487" C8="Rachel O&#39;Connor" C9="71814" C10="66250.0"/>
-			<Row C0="BSR" C1="I0247440" C2="Emily Zeidler" C3="71818" C4="Prescriber" C5="1" C6="BSA" C7="I0247440" C8="Emily Zeidler" C9="71818" C10="83010.0"/>
-			<Row C0="BSR" C1="I0245370" C2="Caroline Boye" C3="71813" C4="Dial" C5="18" C6="BSA" C7="I0245370" C8="Caroline Boye" C9="71813" C10="122870.0"/>
-			<Row C0="BSR" C1="I0245370" C2="Caroline Boye" C3="71813" C4="Non- prescriber" C5="9" C6="BSA" C7="I0245370" C8="Caroline Boye" C9="71813" C10="122870.0"/>
-			<Row C0="BSR" C1="I0244860" C2="Marissa Conway" C3="71812" C4="Dial" C5="4" C6="BSA" C7="I0244860" C8="Marissa Conway" C9="71812" C10="62270.0"/>
-			<Row C0="BSR" C1="I0247336" C2="Chris M Smith" C3="71810" C4="Dial" C5="3" C6="BSA" C7="I0247336" C8="Chris M Smith" C9="71810" C10="154660.0"/>
-			<Row C0="BSR" C1="I0247440" C2="Emily Zeidler" C3="71818" C4="Dial" C5="20" C6="BSA" C7="I0247440" C8="Emily Zeidler" C9="71818" C10="83010.0"/>
-			<Row C0="BSR" C1="I0247440" C2="Emily Zeidler" C3="71818" C4="Non- prescriber" C5="6" C6="BSA" C7="I0247440" C8="Emily Zeidler" C9="71818" C10="83010.0"/>
-			<Row C0="BSR" C1="I0250991" C2="Sarah Hoppie" C3="71811" C4="Non- prescriber" C5="5" C6="BSA" C7="I0250991" C8="Sarah Hoppie" C9="71811" C10="38250.0"/>
-			<Row C0="BSR" C1="I0250991" C2="Sarah Hoppie" C3="71811" C4="Dial" C5="8" C6="BSA" C7="I0250991" C8="Sarah Hoppie" C9="71811" C10="38250.0"/>
-			<Row C0="BSR" C1="I0245805" C2="Melissa Michalski" C3="71801" C4="Non- prescriber" C5="6" C6="BSA" C7="I0245805" C8="Melissa Michalski" C9="71801" C10="172740.0"/>
-			<Row C0="BSR" C1="I0244860" C2="Marissa Conway" C3="71812" C4="Non- prescriber" C5="5" C6="BSA" C7="I0244860" C8="Marissa Conway" C9="71812" C10="62270.0"/>
+			<Row C0="BSR" C1="I0246487" C2="Rachel O&#39;Connor" C3="71814" C4="Dial" C5="6" C6="BSA" C7="I0246487" C8="Rachel O&#39;Connor" C9="71814" C10="146240.0"/>
+			<Row C0="BSR" C1="I0245370" C2="Caroline Boye" C3="71813" C4="Non- prescriber" C5="19" C6="BSA" C7="I0245370" C8="Caroline Boye" C9="71813" C10="206880.0"/>
+			<Row C0="BSR" C1="I0245805" C2="Melissa Michalski" C3="71801" C4="Prescriber" C5="1" C6="BSA" C7="I0245805" C8="Melissa Michalski" C9="71801" C10="228460.0"/>
+			<Row C0="BSR" C1="I0245918" C2="Brittani Gill" C3="71822" C4="Prescriber" C5="1" C6="BSA" C7="I0245918" C8="Brittani Gill" C9="71822" C10="213930.0"/>
+			<Row C0="BSR" C1="I0246487" C2="Rachel O&#39;Connor" C3="71814" C4="Prescriber" C5="1" C6="BSA" C7="I0246487" C8="Rachel O&#39;Connor" C9="71814" C10="146240.0"/>
+			<Row C0="BSR" C1="I0245871" C2="Meghan Pawlak" C3="71817" C4="Dial" C5="18" C6="BSA" C7="I0245871" C8="Meghan Pawlak" C9="71817" C10="255200.0"/>
+			<Row C0="BSR" C1="I0247440" C2="Emily Zeidler" C3="71818" C4="Non- prescriber" C5="19" C6="BSA" C7="I0247440" C8="Emily Zeidler" C9="71818" C10="124260.0"/>
+			<Row C0="BSR" C1="I0248801" C2="Daniel Harding" C3="71806" C4="Non- prescriber" C5="13" C6="BSA" C7="I0248801" C8="Daniel Harding" C9="71806" C10="259650.0"/>
+			<Row C0="BSR" C1="I0251163" C2="Jillian DeGuzman" C3="71819" C4="Dial" C5="14" C6="BSA" C7="I0251163" C8="Jillian DeGuzman" C9="71819" C10="245300.0"/>
+			<Row C0="BSR" C1="I0250991" C2="Sarah Hoppie" C3="71811" C4="Non- prescriber" C5="10" C6="BSA" C7="I0250991" C8="Sarah Hoppie" C9="71811" C10="136260.0"/>
+			<Row C0="BSR" C1="I0245871" C2="Meghan Pawlak" C3="71817" C4="Non- prescriber" C5="17" C6="BSA" C7="I0245871" C8="Meghan Pawlak" C9="71817" C10="255200.0"/>
+			<Row C0="BSR" C1="I0251163" C2="Jillian DeGuzman" C3="71819" C4="Non- prescriber" C5="18" C6="BSA" C7="I0251163" C8="Jillian DeGuzman" C9="71819" C10="245300.0"/>
+			<Row C0="BSR" C1="I0250991" C2="Sarah Hoppie" C3="71811" C4="Dial" C5="21" C6="BSA" C7="I0250991" C8="Sarah Hoppie" C9="71811" C10="136260.0"/>
+			<Row C0="BSR" C1="I0247336" C2="Chris M Smith" C3="71810" C4="Dial" C5="24" C6="BSA" C7="I0247336" C8="Chris M Smith" C9="71810" C10="303280.0"/>
+			<Row C0="BSR" C1="I0247336" C2="Chris M Smith" C3="71810" C4="Prescriber" C5="5" C6="BSA" C7="I0247336" C8="Chris M Smith" C9="71810" C10="303280.0"/>
+			<Row C0="BSR" C1="I0245370" C2="Caroline Boye" C3="71813" C4="Prescriber" C5="2" C6="BSA" C7="I0245370" C8="Caroline Boye" C9="71813" C10="206880.0"/>
+			<Row C0="BSR" C1="I0247336" C2="Chris M Smith" C3="71810" C4="Non- prescriber" C5="15" C6="BSA" C7="I0247336" C8="Chris M Smith" C9="71810" C10="303280.0"/>
+			<Row C0="BSR" C1="I0245805" C2="Melissa Michalski" C3="71801" C4="Dial" C5="16" C6="BSA" C7="I0245805" C8="Melissa Michalski" C9="71801" C10="228460.0"/>
+			<Row C0="BSR" C1="I0245918" C2="Brittani Gill" C3="71822" C4="Dial" C5="20" C6="BSA" C7="I0245918" C8="Brittani Gill" C9="71822" C10="213930.0"/>
+			<Row C0="BSR" C1="I0245918" C2="Brittani Gill" C3="71822" C4="Non- prescriber" C5="15" C6="BSA" C7="I0245918" C8="Brittani Gill" C9="71822" C10="213930.0"/>
+			<Row C0="BSR" C1="I0246487" C2="Rachel O&#39;Connor" C3="71814" C4="Non- prescriber" C5="12" C6="BSA" C7="I0246487" C8="Rachel O&#39;Connor" C9="71814" C10="146240.0"/>
+			<Row C0="BSR" C1="I0248801" C2="Daniel Harding" C3="71806" C4="Dial" C5="29" C6="BSA" C7="I0248801" C8="Daniel Harding" C9="71806" C10="259650.0"/>
+			<Row C0="BSR" C1="I0245370" C2="Caroline Boye" C3="71813" C4="Dial" C5="22" C6="BSA" C7="I0245370" C8="Caroline Boye" C9="71813" C10="206880.0"/>
+			<Row C0="BSR" C1="I0245805" C2="Melissa Michalski" C3="71801" C4="Non- prescriber" C5="20" C6="BSA" C7="I0245805" C8="Melissa Michalski" C9="71801" C10="228460.0"/>
+			<Row C0="BSR" C1="I0247440" C2="Emily Zeidler" C3="71818" C4="Dial" C5="20" C6="BSA" C7="I0247440" C8="Emily Zeidler" C9="71818" C10="124260.0"/>
+			<Row C0="BSR" C1="I0248801" C2="Daniel Harding" C3="71806" C4="Prescriber" C5="1" C6="BSA" C7="I0248801" C8="Daniel Harding" C9="71806" C10="259650.0"/>
 		</Rows>
 		<Definition>
 			<Dimensions>
@@ -37,22 +48,22 @@
 			<Request>
 				<DATA_SOURCE_JOIN ID="57" NAME="BSA-Weekly">
 					<DATA_SOURCE_UCI_QUERY ID="55" NAME="Outcomes" ShowAssignmentsOption="ASSIGNED_ENTITIES_ONLY">
-						<Timeframe start_time="1471392000" end_time="1471478400"/>
+						<Timeframe start_time="1475625600" end_time="1475712000"/>
 					</DATA_SOURCE_UCI_QUERY>
 					<DATA_SOURCE_UCI_QUERY ID="56" NAME="Status" ShowAssignmentsOption="ASSIGNED_ENTITIES_ONLY">
-						<Timeframe start_time="1471392000" end_time="1471478400"/>
+						<Timeframe start_time="1475625600" end_time="1475712000"/>
 					</DATA_SOURCE_UCI_QUERY>
 				</DATA_SOURCE_JOIN>
 			</Request>
 		</Definition>
 	</DataDestination>
-	<Generation date="2016-08-17 13:30:00">
+	<Generation date="2016-10-05 17:00:01">
 		<Schema version="2.1"/>
-		<Product version="8.2" patch_level="515" operating_system="2016-08-17 13:30:00"/>
+		<Product version="8.2" patch_level="515" operating_system="2016-10-05 17:00:01"/>
 		<Template name="BSR Outcomes Summary"/>
 		<Culture name="en"/>
 	</Generation>
 	<Filter/>
-	<Timeframe type="CURRENT_DAY" start_time="1471392000" end_time="1471478400"/>
+	<Timeframe type="CURRENT_DAY" start_time="1475625600" end_time="1475712000"/>
 	<ShowAssignmentsOption value="ASSIGNED_ENTITIES_ONLY"/>
 </Report>
