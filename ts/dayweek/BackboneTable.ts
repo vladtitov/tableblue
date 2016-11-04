@@ -48,10 +48,7 @@ module tables {
 
         mytimeout:number;
         setMyTimeout(num):void{
-            // d 180, w 60
-           // console.log('setMyTimeout '+num);
-            // if(isNaN(num) || num<6)num=6;
-            // var delay = (num-6)*5+15;
+
             var delay;
             if(this.params.report == 'd')  delay = 180;
             else  delay = 60;
@@ -60,7 +57,7 @@ module tables {
         }
 
         parse(res) {
-           // console.log('parse resulte ',res);
+          // console.log('parse resulte ',res);
                 if(res && res.agents){
                     this.setHeaders();
                     this.setMyTimeout(res.agents.length)
@@ -71,6 +68,7 @@ module tables {
                         if(isNaN(item.connects)) item.connects =0;
                         item.total = item.Dial + item.connects;
                         if(isNaN(item.total))item.total =0;
+                        item.ready_time = Formatter.formatTime(item.COUNTER_ready_eff);
 
                     });
                     this.trigger('myParse', res.agents, this.params.report);

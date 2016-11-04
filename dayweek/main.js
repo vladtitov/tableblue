@@ -34,8 +34,6 @@ var tables;
         };
         AgentModel.prototype.initialize = function () {
             var _this = this;
-            this.attributes.ready_time = Formatter.formatTime(this.attributes.COUNTER_ready_eff);
-            console.log('status', this.attributes.status);
             this.on('change:icon', function (evt) { return _this.onIcon(evt); });
         };
         AgentModel.prototype.onIcon = function (evt) {
@@ -248,6 +246,7 @@ var tables;
                     item.total = item.Dial + item.connects;
                     if (isNaN(item.total))
                         item.total = 0;
+                    item.ready_time = Formatter.formatTime(item.COUNTER_ready_eff);
                 });
                 this.trigger('myParse', res.agents, this.params.report);
                 return res.agents;
