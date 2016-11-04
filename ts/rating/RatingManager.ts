@@ -19,8 +19,9 @@ module rating{
 
 
     export class DataModel extends Backbone.Model{
-        static timeK:number=3600;
         // static timeK:number = 1;//=864000
+        // static timeK:number=3600;
+        static devider:number;
         static percentOf:number;
         static criteria:Criteria[];
         initialize(){
@@ -30,7 +31,8 @@ module rating{
 
         updateData():void{
             this.attributes.total = this.get('Dial')+this.get('Prescriber')+this.get('Non_prescriber');
-            this.attributes.time =  Math.round(this.attributes.COUNTER_ready_eff/DataModel.timeK);
+            // this.attributes.time =  Math.round(this.attributes.COUNTER_ready_eff/DataModel.timeK);
+            this.attributes.time =  Math.round(this.attributes.COUNTER_ready_eff/DataModel.devider);
             this.attributes.calculated = (this.attributes.total/this.attributes.time).toPrecision(2);
 
             this.attributes.rating = (this.attributes.calculated/DataModel.percentOf*100).toPrecision(3);
@@ -131,13 +133,13 @@ module rating{
 
         }
         
-        setK(num:number){
-            DataModel.timeK = num;
-
-            this.each(function (item:DataModel) {
-                item.updateData()
-            })
-        }
+        // setK(num:number){
+        //     DataModel.timeK = num;
+        //
+        //     this.each(function (item:DataModel) {
+        //         item.updateData()
+        //     })
+        // }
         onPrecentCnenge(num):void{
             DataModel.percentOf = num;
             if(this.length>1){
@@ -145,7 +147,18 @@ module rating{
                    item.updateData()
                 })
             }
+        }
 
+        onDeviderCnenge(num):void{
+            DataModel.devider = num;
+            // this.each(function (item:DataModel) {
+            //             item.updateData()
+            //         });
+            if(this.length>1){
+                this.each(function (item:DataModel) {
+                    item.updateData()
+                })
+            }
         }
 
         parse(res):any{
@@ -196,27 +209,32 @@ module rating{
         collection:DataCollection;
         private $tools:JQuery;
 
-        onDeviderChanged(num):void{
-            this.collection.setK(num);
-            $('#Devider').text(num);
+        // onDeviderChanged(num):void{
+        //     this.collection.setK(num);
+        //     $('#Devider').text(num);
+        // }
+        onDeviderChange(num):void{
+            console.log('Devider', num);
+            this.collection.onDeviderCnenge(num);
         }
         onPercentChange(num:number):void{
             console.log(num);
             this.collection.onPrecentCnenge(num);
         }
 
-        dayWeekSettings:DayWeekSettings
+        dayWeekSettings:DayWeekSettings;
         constructor(options:any) {
             super(options);
             this.dayWeekSettings = new DayWeekSettings();
             this.dayWeekSettings.onPercent = (num)=>this.onPercentChange(num);
+            this.dayWeekSettings.onDevider = (num)=>this.onDeviderChange(num);
             this.dayWeekSettings.loadData().then(()=>{
                 this.collection.fetch({data:{report:'d'}});
-            })
+            });
 
             this.dayWeekSettings.onCahange = (ar:Criteria[])=>{
                     this.collection.setCriteria(ar)
-            }
+            };
             this.collection = new DataCollection(options);
 
             var radios:JQuery = $('[name=WeeklyDayly]').change(()=>{
@@ -230,10 +248,10 @@ module rating{
                 );
                 })
 
-            })
+            });
 
 
-            $('#Devider').text(DataModel.timeK);
+            // $('#Devider').text(DataModel.timeK);
 
 
             RowView.template = _.template(document.getElementById('DataRow').innerHTML);
@@ -263,32 +281,43 @@ module rating{
     }
 
 class DayWeekSettings{
-    private settings:any
+    private settings:any;
     criteria:Criteria[];
+    devider:number;
     percentOf:number;
     $view:JQuery;
     $list:JQuery;
     onCahange:Function;
     onPercent:Function;
+    onDevider:Function;
     constructor(){
         this.$view = $('#Calculator');
         this.$list = $('#IconsList');
         $('#btnSave').click(()=>{
             if(confirm('You want to save a new Settings file?'))this.saveData();
-        })
+        });
         $('#PercentOf').change( ()=> {
            var num:number = Number($('#PercentOf').val());
             if(isNaN(num))return;
             this.percentOf = num;
             if(this.onPercent)this.onPercent(this.percentOf);
         });
+        $('#Devider').change( ()=> {
+            var num:number = Number($('#Devider').val());
+            if(isNaN(num))return;
+            this.devider = num;
+            if(this.onDevider)this.onDevider(this.devider);
+        });
     }
     loadData():JQueryPromise<any>{
      return  $.get('dayweek/admin.php').done((res)=>{
             this.criteria = res.criteria;
             this.percentOf = res.percentOf;
+            this.devider = res.devider;
          $('#PercentOf').val(this.percentOf);
+         $('#Devider').val(this.devider);
          if(this.onPercent)this.onPercent(this.percentOf);
+         if(this.onDevider)this.onDevider(this.devider);
          if(this.onCahange)this.onCahange(this.criteria);
          this.render();
         })
@@ -331,7 +360,7 @@ class DayWeekSettings{
         this.addListeners();
     }
     saveData():void{
-        $.post('dayweek/admin.php',JSON.stringify({percentOf:this.percentOf,criteria:this.criteria})).done((res)=>{
+        $.post('dayweek/admin.php',JSON.stringify({percentOf:this.percentOf, devider:this.devider, criteria:this.criteria})).done((res)=>{
             if(res.success) alert('Settings saved on server');
             else alert('Error '+res);
         })

@@ -146,7 +146,8 @@ else{
                         </th>
                         <th >
                             Time
-                            <div><span class="small">redy_eff / <span id="Devider"></span> </span> </div>
+                            <div><span class="small">redy_eff / <input id="Devider" type="text" size="2" placeholder="3600" />
+<!--                                    <span id="Devider"></span> </span> </div>-->
                            <!-- <form>
                                 <input type="radio" name="timeGroup" value="3600"  checked>H
                                 <input type="radio" name="timeGroup" value="60">M

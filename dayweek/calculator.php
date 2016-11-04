@@ -29,7 +29,7 @@ function setCriteria($agents, $settings) {
     return $out;
 }
 
-function calculate($agents,$percentOf) {
+function calculate($agents,$percentOf,$devider) {
 
     $out = array();
 
@@ -44,7 +44,8 @@ function calculate($agents,$percentOf) {
     //        $agent['status']  = ($agent['Dial']+$agent['Prescriber']+$notprsc)/($agent['ready_eff'])/$percentOf *100;
             $totalDials = $agent['Dial']+$agent['Prescriber']+$notprsc;
 //            $time =  $agent['ready_eff']/3600;
-            $tspeed = ($totalDials/($agent['ready_eff']/3600));
+            $tspeed = ($totalDials/($agent['ready_eff']/$devider));
+//            $tspeed = ($totalDials/($agent['ready_eff']/3600));
             $stats = $tspeed/$percentOf*100;
             $agent['status']  = $stats;
             $agent['COUNTER_ready_eff'] = $agent['ready_eff'];

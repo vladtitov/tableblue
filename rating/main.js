@@ -17,7 +17,7 @@ var rating;
         };
         DataModel.prototype.updateData = function () {
             this.attributes.total = this.get('Dial') + this.get('Prescriber') + this.get('Non_prescriber');
-            this.attributes.time = Math.round(this.attributes.COUNTER_ready_eff / DataModel.timeK);
+            this.attributes.time = Math.round(this.attributes.COUNTER_ready_eff / DataModel.devider);
             this.attributes.calculated = (this.attributes.total / this.attributes.time).toPrecision(2);
             this.attributes.rating = (this.attributes.calculated / DataModel.percentOf * 100).toPrecision(3);
             var ar = DataModel.criteria;
@@ -44,7 +44,6 @@ var rating;
                 rating: 0
             };
         };
-        DataModel.timeK = 3600;
         return DataModel;
     }(Backbone.Model));
     rating.DataModel = DataModel;
@@ -111,14 +110,16 @@ var rating;
                 this[str] = options[str];
             this.listenTo(this, 'selectedModel', this.ModelSelected);
         }
-        DataCollection.prototype.setK = function (num) {
-            DataModel.timeK = num;
-            this.each(function (item) {
-                item.updateData();
-            });
-        };
         DataCollection.prototype.onPrecentCnenge = function (num) {
             DataModel.percentOf = num;
+            if (this.length > 1) {
+                this.each(function (item) {
+                    item.updateData();
+                });
+            }
+        };
+        DataCollection.prototype.onDeviderCnenge = function (num) {
+            DataModel.devider = num;
             if (this.length > 1) {
                 this.each(function (item) {
                     item.updateData();
@@ -167,6 +168,7 @@ var rating;
             _super.call(this, options);
             this.dayWeekSettings = new DayWeekSettings();
             this.dayWeekSettings.onPercent = function (num) { return _this.onPercentChange(num); };
+            this.dayWeekSettings.onDevider = function (num) { return _this.onDeviderChange(num); };
             this.dayWeekSettings.loadData().then(function () {
                 _this.collection.fetch({ data: { report: 'd' } });
             });
@@ -184,15 +186,14 @@ var rating;
                         });
                 });
             });
-            $('#Devider').text(DataModel.timeK);
             RowView.template = _.template(document.getElementById('DataRow').innerHTML);
             this.options = options;
             this.setElement($('#tablebody'));
             this.collection.bind("add", this.ModelAdded, this);
         }
-        TableView.prototype.onDeviderChanged = function (num) {
-            this.collection.setK(num);
-            $('#Devider').text(num);
+        TableView.prototype.onDeviderChange = function (num) {
+            console.log('Devider', num);
+            this.collection.onDeviderCnenge(num);
         };
         TableView.prototype.onPercentChange = function (num) {
             console.log(num);
@@ -223,15 +224,27 @@ var rating;
                 if (_this.onPercent)
                     _this.onPercent(_this.percentOf);
             });
+            $('#Devider').change(function () {
+                var num = Number($('#Devider').val());
+                if (isNaN(num))
+                    return;
+                _this.devider = num;
+                if (_this.onDevider)
+                    _this.onDevider(_this.devider);
+            });
         }
         DayWeekSettings.prototype.loadData = function () {
             var _this = this;
             return $.get('dayweek/admin.php').done(function (res) {
                 _this.criteria = res.criteria;
                 _this.percentOf = res.percentOf;
+                _this.devider = res.devider;
                 $('#PercentOf').val(_this.percentOf);
+                $('#Devider').val(_this.devider);
                 if (_this.onPercent)
                     _this.onPercent(_this.percentOf);
+                if (_this.onDevider)
+                    _this.onDevider(_this.devider);
                 if (_this.onCahange)
                     _this.onCahange(_this.criteria);
                 _this.render();
@@ -275,7 +288,7 @@ var rating;
             this.addListeners();
         };
         DayWeekSettings.prototype.saveData = function () {
-            $.post('dayweek/admin.php', JSON.stringify({ percentOf: this.percentOf, criteria: this.criteria })).done(function (res) {
+            $.post('dayweek/admin.php', JSON.stringify({ percentOf: this.percentOf, devider: this.devider, criteria: this.criteria })).done(function (res) {
                 if (res.success)
                     alert('Settings saved on server');
                 else

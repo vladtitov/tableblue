@@ -67,7 +67,7 @@ $agents = formatArray($indexed);
 $settings = json_decode(file_get_contents("settings.json"));
 
 
-$agents = calculate($agents,$settings->percentOf);
+$agents = calculate($agents,$settings->percentOf,$settings->devider);
 
 $agents = setCriteria($agents,$settings);
 
